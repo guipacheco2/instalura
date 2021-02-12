@@ -39,3 +39,24 @@ Além do conteúdo proposto no curso, também foi adicionado Typescript, ESLint 
 - https://babeljs.io/repl
 - https://prettier.io/
 - https://eslint.org/
+
+### Aula 03: Criando Component com Styled Components
+
+#### Links
+
+- https://github.com/alexpate/awesome-design-systems
+- https://material-ui.com/
+- https://gestalt.netlify.app/
+
+## Links mencionados na comunidade do bootcamp
+
+- https://flexboxfroggy.com/
+- http://www.flexboxdefense.com/
+- https://flukeout.github.io/
+- https://cssgridgarden.com/
+
+- https://cssreference.io/
+- https://css-tricks.com/almanac/
+- https://devdocs.io/css/
+- https://developer.mozilla.org/pt-BR/docs/Web/CSS
+- http://html5doctor.com/

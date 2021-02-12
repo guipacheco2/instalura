@@ -1,5 +1,5 @@
 import Document, { DocumentContext, DocumentInitialProps } from 'next/document'
-import { Fragment } from 'react'
+import React, { Fragment } from 'react'
 import { ServerStyleSheet } from 'styled-components'
 
 export default class MyDocument extends Document {

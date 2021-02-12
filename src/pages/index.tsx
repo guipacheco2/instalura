@@ -1,3 +1,4 @@
+import React from 'react'
 import { Menu } from '../components'
 
 export default function Home(): JSX.Element {
