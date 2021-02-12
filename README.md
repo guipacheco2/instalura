@@ -40,7 +40,7 @@ Além do conteúdo proposto no curso, também foi adicionado Typescript, ESLint 
 - https://prettier.io/
 - https://eslint.org/
 
-### Aula 03: Criando Component com Styled Components
+### Aula 02: Criando Component com Styled Components
 
 #### Links
 
@@ -48,11 +48,17 @@ Além do conteúdo proposto no curso, também foi adicionado Typescript, ESLint 
 - https://material-ui.com/
 - https://gestalt.netlify.app/
 
-### Aula 04: Componente de botão com temas
+### Aula 03: Componente de botão com temas
+
+-
 
 #### Links
 
 - https://marketplace.visualstudio.com/items?itemName=jpoissonnier.vscode-styled-components
+
+### Aula 04: O Reset CSS com Styled Components
+
+- Reset CSS
 
 ## Links mencionados na comunidade do bootcamp
 

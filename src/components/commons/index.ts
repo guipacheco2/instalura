@@ -1,2 +1,5 @@
+export * from './AppHead'
+export * from './Footer'
+export * from './GlobalStyle'
+export * from './Home'
 export * from './Menu'
-export * from './MenuWrapper'
