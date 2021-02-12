@@ -1,6 +1,7 @@
 import { AppProps } from 'next/dist/next-server/lib/router/router'
 import React, { Fragment } from 'react'
 import { createGlobalStyle, ThemeProvider } from 'styled-components'
+import * as theme from '../theme'
 
 const GlobalStyle = createGlobalStyle`
   body {
@@ -9,12 +10,6 @@ const GlobalStyle = createGlobalStyle`
     box-sizing: border-box;
   }
 `
-
-const theme = {
-  colors: {
-    primary: '#0070f3',
-  },
-}
 
 export default function App({ Component, pageProps }: AppProps): JSX.Element {
   return (

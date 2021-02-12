@@ -48,6 +48,12 @@ Além do conteúdo proposto no curso, também foi adicionado Typescript, ESLint 
 - https://material-ui.com/
 - https://gestalt.netlify.app/
 
+### Aula 04: Componente de botão com temas
+
+#### Links
+
+- https://marketplace.visualstudio.com/items?itemName=jpoissonnier.vscode-styled-components
+
 ## Links mencionados na comunidade do bootcamp
 
 - https://flexboxfroggy.com/

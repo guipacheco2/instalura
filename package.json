@@ -9,7 +9,7 @@
     "lint": "eslint . --cache --fix"
   },
   "dependencies": {
-    "@types/styled-components": "^5.1.7",
+    "lodash.get": "^4.4.2",
     "next": "latest",
     "react": "^17.0.1",
     "react-dom": "^17.0.1",
@@ -17,9 +17,11 @@
     "styled-components": "^5.0.0"
   },
   "devDependencies": {
+    "@types/lodash.get": "^4.4.6",
     "@types/node": "^14.14.25",
     "@types/react": "^17.0.1",
     "@types/react-dom": "^17.0.0",
+    "@types/styled-components": "^5.1.7",
     "@typescript-eslint/eslint-plugin": "^4.15.0",
     "@typescript-eslint/parser": "^4.15.0",
     "babel-plugin-styled-components": "^1.8.0",
