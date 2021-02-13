@@ -1,9 +1,11 @@
 import get from 'lodash.get'
-import styled, { css } from 'styled-components'
-import { breakpointsMedia } from '../../theme'
+import styled, { css, CSSProperties } from 'styled-components'
+import { breakpointsMedia, propsToStyle } from '../../theme'
 
 interface ButtonProps {
   variant: 'primary.main' | 'secondary.main'
+  margin?: CSSProperties['margin'] | CSSProperties['margin'][]
+  display?: CSSProperties['display'] | CSSProperties['display'][]
   ghost?: boolean
 }
 
@@ -20,22 +22,24 @@ const ButtonDefault = css<ButtonProps>`
     get(theme, `colors.${variant}.color`)};
 `
 
-export const Button = styled.button<ButtonProps>`
-  border: 0;
-  cursor: pointer;
-  padding: 12px 26px;
-  font-weight: bold;
-  opacity: 1;
-  transition: opacity ${({ theme }) => theme.transition};
-  ${breakpointsMedia({
-    md: css`
-      padding: 12px 43px;
-    `,
-  })}
-  border-radius: ${({ theme }) => theme.borderRadius};
-  ${({ ghost }) => (ghost ? ButtonGhost : ButtonDefault)}
-  &:hover,
-  &:focus {
-    opacity: 0.5;
-  }
-`
+export const Button = styled.button<ButtonProps>(
+  ({ theme, margin, display, ghost }) => {
+    return css`
+      border: 0;
+      cursor: pointer;
+      font-weight: bold;
+      opacity: 1;
+      transition: opacity ${theme.transition};
+      ${breakpointsMedia({
+        xs: css({ padding: '12px 26px' }),
+        md: css({ padding: '12px 43px' }),
+      })}
+      border-radius: ${theme.borderRadius};
+      ${ghost ? ButtonGhost : ButtonDefault}
+      ${propsToStyle({ margin, display })}
+      &:hover, &:focus {
+        opacity: 0.5;
+      }
+    `
+  },
+)

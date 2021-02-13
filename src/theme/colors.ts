@@ -38,3 +38,5 @@ export const colors = {
     dark: {},
   },
 }
+
+export type Colors = typeof colors

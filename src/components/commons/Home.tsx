@@ -1,7 +1,7 @@
 import styled from 'styled-components'
 
 export interface HomeProps {
-  children
+  children: React.ReactNode
 }
 
 export const Home = styled.div<HomeProps>`

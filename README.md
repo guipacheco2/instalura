@@ -100,6 +100,43 @@ Foi utilizada uma estratégia para aceitar o `variant` como array, considerando 
 - https://xstyled.dev
 - https://quokkajs.com
 
+### Aula 07: Componentes com Props via Breakpoints
+
+#### Substitui o uso de css`` por css() em algum casos.
+
+```js
+paragraph1 = css`
+  ${({ theme }) => css`
+    font-size: ${theme.typographyVariants.paragraph1.fontSize};
+    font-weight: ${theme.typographyVariants.paragraph1.fontWeight};
+    line-height: ${theme.typographyVariants.paragraph1.lineHeight};
+  `}
+`
+```
+
+```js
+paragraph1: css(({ theme }) => theme.typographyVariants.paragraph1),
+```
+
+#### Adiciona props que atuam diretamente no style do componente
+
+```diff
+ <Text
+     variant="title"
+     as="h1"
+     color="tertiary.main"
++    textAlign={['center', 'left']}
+ >
+```
+
+```diff
+ <Button
+     variant="primary.main"
++    margin={['auto', 'initial']}
++    display="block"
+ >
+```
+
 ## Links mencionados na comunidade do bootcamp
 
 - https://flexboxfroggy.com/

@@ -1,7 +1,7 @@
 import 'styled-components'
 import { breakpoints } from './breakpoints'
-import { colors } from './colors'
-import { typographyVariants } from './typographyVariants'
+import { Colors, colors } from './colors'
+import { TypographyVariants, typographyVariants } from './typographyVariants'
 
 // https://styled-components.com/docs/api#create-a-declarations-file
 declare module 'styled-components' {
@@ -9,8 +9,8 @@ declare module 'styled-components' {
     fontFamily: string
     borderRadius: string
     transition: string
-    colors: typeof colors
-    typographyVariants: typeof typographyVariants
+    colors: Colors
+    typographyVariants: TypographyVariants
   }
 }
 
