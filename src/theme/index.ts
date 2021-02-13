@@ -1,4 +1,5 @@
 import 'styled-components'
+import { breakpoints } from './breakpoints'
 import { colors } from './colors'
 import { typographyVariants } from './typographyVariants'
 
@@ -16,7 +17,11 @@ declare module 'styled-components' {
 export const theme = {
   colors,
   typographyVariants,
+  breakpoints,
   borderRadius: '12px',
   fontFamily: "'Rubik', sans-serif",
   transition: '200ms ease-in-out',
 }
+
+export { breakpointNames } from './breakpoints'
+export * from './utils'

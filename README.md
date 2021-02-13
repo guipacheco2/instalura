@@ -82,6 +82,24 @@ src/components/commons/Menu.tsx
 
 - https://www.benmvp.com/blog/polymorphic-react-components-typescript
 
+### Aula 06: Trabalhando com breakpoints via Styled Components
+
+Na aula anterior segui pelo caminho de manter a estilização do texto em seu próprio componente. Desse modo, os breakpoints sugeridos também foram alterados, para que os componentes `Text` utilizados no menu se comportassem como o desejado.
+
+Foi utilizada uma estratégia para aceitar o `variant` como array, considerando os indices em ordem xs -> xl.
+
+```diff
+ <Button type="button" variant="primary.main">
+-  <Text variant="paragraph1">Entrar</Text>
++  <Text variant={['smallestException', 'paragraph1']}>Cadastrar</Text>
+ </Button>
+```
+
+#### Links
+
+- https://xstyled.dev
+- https://quokkajs.com
+
 ## Links mencionados na comunidade do bootcamp
 
 - https://flexboxfroggy.com/

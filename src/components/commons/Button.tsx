@@ -1,5 +1,6 @@
 import get from 'lodash.get'
 import styled, { css } from 'styled-components'
+import { breakpointsMedia } from '../../theme'
 
 interface ButtonProps {
   variant: 'primary.main' | 'secondary.main'
@@ -26,6 +27,11 @@ export const Button = styled.button<ButtonProps>`
   font-weight: bold;
   opacity: 1;
   transition: opacity ${({ theme }) => theme.transition};
+  ${breakpointsMedia({
+    md: css`
+      padding: 12px 43px;
+    `,
+  })}
   border-radius: ${({ theme }) => theme.borderRadius};
   ${({ ghost }) => (ghost ? ButtonGhost : ButtonDefault)}
   &:hover,

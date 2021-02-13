@@ -1,6 +1,7 @@
 import get from 'lodash/get'
 import React from 'react'
 import styled, { css } from 'styled-components'
+import { variantBreakpoints } from '../../theme'
 
 const paragraph1 = css`
   ${({ theme }) => css`
@@ -23,17 +24,25 @@ const TextStyleVariants = {
   paragraph1,
 }
 
+type variants = 'smallestException' | 'paragraph1'
+
 export interface TextBaseProps {
-  variant: 'smallestException' | 'paragraph1'
+  variant: variants | variants[]
 }
 
 const TextBase = styled.span<TextBaseProps>`
-  ${({ variant }) => TextStyleVariants[variant]}
+  ${({ variant }) => {
+    if (Array.isArray(variant)) {
+      return variantBreakpoints(variant, TextStyleVariants)
+    }
+
+    return TextStyleVariants[variant]
+  }}
   color: ${({ theme, color }) => get(theme, `colors.${color}.color`)};
 `
 
-interface TextProps<C extends React.ElementType = React.ElementType> {
-  variant: 'smallestException' | 'paragraph1'
+interface TextProps<C extends React.ElementType = React.ElementType>
+  extends TextBaseProps {
   children: React.ReactNode
   as?: C
 }

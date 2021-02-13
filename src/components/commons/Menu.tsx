@@ -24,7 +24,11 @@ export function Menu(): JSX.Element {
       <MenuWrapperCentralSide as="ul">
         {links.map((link) => (
           <li key={link.url}>
-            <Text as="a" href={link.url} variant="paragraph1">
+            <Text
+              as="a"
+              href={link.url}
+              variant={['smallestException', 'paragraph1']}
+            >
               {link.name}
             </Text>
           </li>
@@ -32,10 +36,10 @@ export function Menu(): JSX.Element {
       </MenuWrapperCentralSide>
       <MenuWrapperRightSide>
         <Button type="button" ghost variant="secondary.main">
-          <Text variant="paragraph1">Entrar</Text>
+          <Text variant={['smallestException', 'paragraph1']}>Entrar</Text>
         </Button>
         <Button type="button" variant="primary.main">
-          <Text variant="paragraph1">Cadastrar</Text>
+          <Text variant={['smallestException', 'paragraph1']}>Cadastrar</Text>
         </Button>
       </MenuWrapperRightSide>
     </MenuWrapper>
