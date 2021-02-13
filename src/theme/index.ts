@@ -1,5 +1,6 @@
 import 'styled-components'
 import { colors } from './colors'
+import { typographyVariants } from './typographyVariants'
 
 // https://styled-components.com/docs/api#create-a-declarations-file
 declare module 'styled-components' {
@@ -7,48 +8,14 @@ declare module 'styled-components' {
     fontFamily: string
     borderRadius: string
     transition: string
-    colors: {
-      background: {
-        light: {
-          color: string
-        }
-        main: {
-          color: string
-        }
-      }
-      borders: {
-        main: {
-          color: string
-        }
-      }
-      primary: {
-        main: {
-          color: string
-          contrastText: string
-        }
-      }
-      secondary: {
-        main: {
-          color: string
-          contrastText: string
-        }
-      }
-      tertiary: {
-        main: {
-          color: string
-          contrastText: string
-        }
-        light: {
-          color: string
-          contrastText: string
-        }
-      }
-    }
+    colors: typeof colors
+    typographyVariants: typeof typographyVariants
   }
 }
 
 export const theme = {
   colors,
+  typographyVariants,
   borderRadius: '12px',
   fontFamily: "'Rubik', sans-serif",
   transition: '200ms ease-in-out',

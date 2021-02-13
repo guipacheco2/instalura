@@ -5,9 +5,9 @@ export interface HomeProps {
 }
 
 export const Home = styled.div<HomeProps>`
-  flex: '1';
-  display: 'flex';
-  flex-wrap: 'wrap';
-  flex-direction: 'column';
-  justify-content: 'space-between';
+  flex: 1;
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: column;
+  justify-content: space-between;
 `

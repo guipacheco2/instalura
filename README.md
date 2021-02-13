@@ -29,6 +29,8 @@ yarn create next-app --example with-styled-components instalura
 
 Além do conteúdo proposto no curso, também foi adicionado Typescript, ESLint e Prettier.
 
+A pasta pages foi movida para src. https://nextjs.org/docs/advanced-features/src-directory
+
 #### Links
 
 - https://styled-components.com/
@@ -59,6 +61,26 @@ Além do conteúdo proposto no curso, também foi adicionado Typescript, ESLint 
 ### Aula 04: O Reset CSS com Styled Components
 
 - Reset CSS
+
+### Aula 05: O componente Text, padronizando a tipografia do projeto
+
+Em alternativa a composição de tipografia como css no botão, realizei a composição no componente `<Menu>`.
+
+```diff
+src/components/commons/Button.tsx
+
+- ${TextStyleVariants.paragraph1}
+```
+
+```diff
+src/components/commons/Menu.tsx
+
++ <Button type="button" ghost variant="secondary.main">
++   <Text variant="paragraph1">Entrar</Text>
++ </Button>
+```
+
+- https://www.benmvp.com/blog/polymorphic-react-components-typescript
 
 ## Links mencionados na comunidade do bootcamp
 

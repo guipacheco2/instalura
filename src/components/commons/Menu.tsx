@@ -1,4 +1,5 @@
 import React from 'react'
+import { Text } from '../foundation'
 import { Button } from './Button'
 import { Logo } from './Logo'
 import {
@@ -23,16 +24,18 @@ export function Menu(): JSX.Element {
       <MenuWrapperCentralSide as="ul">
         {links.map((link) => (
           <li key={link.url}>
-            <a href={link.url}>{link.name}</a>
+            <Text as="a" href={link.url} variant="paragraph1">
+              {link.name}
+            </Text>
           </li>
         ))}
       </MenuWrapperCentralSide>
       <MenuWrapperRightSide>
         <Button type="button" ghost variant="secondary.main">
-          Entrar
+          <Text variant="paragraph1">Entrar</Text>
         </Button>
         <Button type="button" variant="primary.main">
-          Cadastrar
+          <Text variant="paragraph1">Cadastrar</Text>
         </Button>
       </MenuWrapperRightSide>
     </MenuWrapper>
