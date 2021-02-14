@@ -1,29 +1,46 @@
 import React from 'react'
 import {
+  Box,
   Button,
   Footer,
   GridCol,
   GridContainer,
   GridRow,
-  Home,
   Menu,
   Text,
 } from '../components'
 
 export default function HomePage(): JSX.Element {
   return (
-    <Home>
-      <Menu />
+    <Box
+      flex={1}
+      display="flex"
+      flexWrap="wrap"
+      flexDirection="column"
+      justifyContent="space-between"
+      backgroundImage="url(/images/bubbles.svg)"
+      backgroundRepeat="no-repeat"
+      backgroundPosition="bottom right"
+    >
+      <GridContainer marginTop={{ xs: 18, md: 32 }}>
+        <Menu />
+      </GridContainer>
 
-      <GridContainer>
+      <GridContainer marginTop={{ xs: 32, md: 75 }}>
         <GridRow>
-          <GridCol offset={1} size={[12, 5]}>
+          <GridCol
+            offset={{ md: 1 }}
+            size={{ xs: 12, md: 5 }}
+            alignItems="flex-start"
+            justifyContent="center"
+            flexDirection="column"
+          >
             <div>
               <Text
                 variant="title"
                 as="h1"
                 color="tertiary.main"
-                textAlign={['center', 'left']}
+                textAlign={{ xs: 'center', md: 'left' }}
               >
                 Compartilhe momentos e conecte-se com amigos
               </Text>
@@ -31,7 +48,7 @@ export default function HomePage(): JSX.Element {
                 variant="paragraph1"
                 as="p"
                 color="tertiary.light"
-                textAlign={['center', 'left']}
+                textAlign={{ xs: 'center', md: 'left' }}
               >
                 Lorem Ipsum is simply dummy text of the printing and typesetting
                 industry. Lorem Ipsum has been the industrys standard dummy text
@@ -40,14 +57,14 @@ export default function HomePage(): JSX.Element {
 
               <Button
                 variant="primary.main"
-                margin={['auto', 'initial']}
+                margin={{ xs: 'auto', md: 'initial' }}
                 display="block"
               >
                 Cadastrar
               </Button>
             </div>
           </GridCol>
-          <GridCol size={[12, 6]}>
+          <GridCol size={{ xs: 12, md: 6 }} marginTop={{ xs: 40, md: 0 }}>
             <img
               style={{ display: 'block', margin: 'auto' }}
               src="https://bootcamp-alura-01-git-modulo01.omariosouto.vercel.app/images/phones.png"
@@ -57,6 +74,6 @@ export default function HomePage(): JSX.Element {
       </GridContainer>
 
       <Footer />
-    </Home>
+    </Box>
   )
 }

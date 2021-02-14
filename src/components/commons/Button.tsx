@@ -1,11 +1,15 @@
 import get from 'lodash.get'
 import styled, { css, CSSProperties } from 'styled-components'
-import { breakpointsMedia, propsToStyle } from '../../theme'
+import {
+  breakpointsMedia,
+  propsToStyle,
+  ResponsiveBreakpoints,
+} from '../../theme'
 
 interface ButtonProps {
   variant: 'primary.main' | 'secondary.main'
-  margin?: CSSProperties['margin'] | CSSProperties['margin'][]
-  display?: CSSProperties['display'] | CSSProperties['display'][]
+  margin?: ResponsiveBreakpoints<CSSProperties['margin']>
+  display?: ResponsiveBreakpoints<CSSProperties['display']>
   ghost?: boolean
 }
 

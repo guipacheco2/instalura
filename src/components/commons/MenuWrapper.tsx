@@ -7,26 +7,6 @@ export const MenuWrapper = styled.nav`
   align-items: center;
   justify-content: space-between;
   flex-wrap: wrap;
-  margin-top: 18px;
-  padding-left: 28px;
-  padding-right: 28px;
-  ${breakpointsMedia({
-    md: css`
-      justify-content: flex-start;
-      margin-top: 32px;
-      margin-left: auto;
-      margin-right: auto;
-      width: 100%;
-      padding: 0 16px;
-      max-width: 768px;
-    `,
-    lg: css`
-      max-width: 1160px;
-    `,
-    xl: css`
-      max-width: 1222px;
-    `,
-  })}
 `
 
 export const MenuWrapperLeftSide = styled.div`

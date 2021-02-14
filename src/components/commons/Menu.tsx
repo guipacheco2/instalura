@@ -27,7 +27,7 @@ export function Menu(): JSX.Element {
             <Text
               as="a"
               href={link.url}
-              variant={['smallestException', 'paragraph1']}
+              variant={{ xs: 'smallestException', md: 'paragraph1' }}
             >
               {link.name}
             </Text>
@@ -36,10 +36,14 @@ export function Menu(): JSX.Element {
       </MenuWrapperCentralSide>
       <MenuWrapperRightSide>
         <Button type="button" ghost variant="secondary.main">
-          <Text variant={['smallestException', 'paragraph1']}>Entrar</Text>
+          <Text variant={{ xs: 'smallestException', md: 'paragraph1' }}>
+            Entrar
+          </Text>
         </Button>
         <Button type="button" variant="primary.main">
-          <Text variant={['smallestException', 'paragraph1']}>Cadastrar</Text>
+          <Text variant={{ xs: 'smallestException', md: 'paragraph1' }}>
+            Cadastrar
+          </Text>
         </Button>
       </MenuWrapperRightSide>
     </MenuWrapper>

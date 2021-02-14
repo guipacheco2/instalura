@@ -6,6 +6,6 @@ export const breakpoints = {
   xl: 1200,
 }
 
-export const breakpointNames = Object.keys(
-  breakpoints,
-) as (keyof typeof breakpoints)[]
+export type Breakpoints = keyof typeof breakpoints
+
+export const breakpointNames = Object.keys(breakpoints) as Breakpoints[]

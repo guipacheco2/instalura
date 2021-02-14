@@ -1,7 +1,12 @@
 import get from 'lodash/get'
 import React from 'react'
 import styled, { css, CSSProperties } from 'styled-components'
-import { breakpointsMedia, propsToStyle, variantBreakpoints } from '../../theme'
+import {
+  breakpointsMedia,
+  createBreakpoints,
+  propsToStyle,
+  ResponsiveBreakpoints,
+} from '../../theme'
 
 const TextStyleVariants = {
   smallestException: css(
@@ -21,20 +26,22 @@ const TextStyleVariants = {
 type variants = keyof typeof TextStyleVariants
 
 export interface TextBaseProps {
-  variant: variants | variants[]
+  variant: variants | { xs: variants; md: variants }
   color?: 'tertiary.main' | 'tertiary.light'
-  textAlign?: CSSProperties['textAlign'] | CSSProperties['textAlign'][]
+  textAlign?: ResponsiveBreakpoints<CSSProperties['textAlign']>
 }
 
 const TextBase = styled.span<TextBaseProps>(
   ({ variant, theme, color, textAlign }) => {
     return css`
       ${() => {
-        if (Array.isArray(variant)) {
-          return variantBreakpoints(variant, TextStyleVariants)
+        if (typeof variant === 'string') {
+          return TextStyleVariants[variant]
         }
 
-        return TextStyleVariants[variant]
+        return breakpointsMedia(
+          createBreakpoints(variant, (v) => TextStyleVariants[v]),
+        )
       }}
       color: ${() => get(theme, `colors.${color}.color`)};
       ${propsToStyle({ textAlign })}

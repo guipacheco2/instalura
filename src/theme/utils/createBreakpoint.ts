@@ -1,15 +1,24 @@
 import {
-  FlattenSimpleInterpolation,
+  DefaultTheme,
+  FlattenInterpolation,
   SimpleInterpolation,
+  ThemeProps,
 } from 'styled-components'
-import { breakpointNames } from '../breakpoints'
+import { Breakpoints } from '../breakpoints'
 
-export function createBreakpoints(
-  values: FlattenSimpleInterpolation[],
-): Record<string, SimpleInterpolation> {
-  const breakpoints = values.reduce<Record<string, SimpleInterpolation>>(
-    (sum, value, i) => {
-      sum[breakpointNames[i]] = value
+export type ResponsiveBreakpoints<T> = T | Partial<Record<Breakpoints, T>>
+
+type Styled =
+  | SimpleInterpolation
+  | FlattenInterpolation<ThemeProps<DefaultTheme>>
+
+export function createBreakpoints<Value = string | number>(
+  value: ResponsiveBreakpoints<Value>,
+  fn: (value: Value) => Styled,
+): Record<string, Styled> {
+  const breakpoints = Object.entries(value).reduce<Record<string, Styled>>(
+    (sum, [breakpoint, v]) => {
+      sum[breakpoint] = fn(v)
       return sum
     },
     {},

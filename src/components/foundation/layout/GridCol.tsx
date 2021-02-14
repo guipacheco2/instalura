@@ -1,21 +1,45 @@
-import styled, { css, FlattenSimpleInterpolation } from 'styled-components'
-import { breakpointsMedia, createBreakpoints } from '../../../theme'
+import styled, {
+  css,
+  CSSProperties,
+  FlattenSimpleInterpolation,
+} from 'styled-components'
+import {
+  breakpointsMedia,
+  createBreakpoints,
+  propsToStyle,
+  ResponsiveBreakpoints,
+} from '../../../theme'
 
 export interface GridColProps {
   children: React.ReactNode
-  size?: number | number[]
-  offset?: number | number[]
+  size?: ResponsiveBreakpoints<number>
+  offset?: ResponsiveBreakpoints<number>
+  alignItems?: ResponsiveBreakpoints<CSSProperties['alignItems']>
+  justifyContent?: ResponsiveBreakpoints<CSSProperties['justifyContent']>
+  flexDirection?: ResponsiveBreakpoints<CSSProperties['flexDirection']>
+  marginTop?: ResponsiveBreakpoints<CSSProperties['marginTop']>
 }
 
-export const GridCol = styled.div<GridColProps>`
-  padding-right: 16px;
-  padding-left: 16px;
-  flex-basis: 0;
-  flex-grow: 1;
-  max-width: 100%;
-  ${gridSize}
-  ${gridOffset}
-`
+export const GridCol = styled.div<GridColProps>(
+  ({ alignItems, justifyContent, flexDirection, marginTop }) => {
+    return css`
+      padding-right: 16px;
+      padding-left: 16px;
+      flex-basis: 0;
+      flex-grow: 1;
+      max-width: 100%;
+      display: flex;
+      ${gridSize}
+      ${gridOffset}
+      ${propsToStyle({
+        alignItems,
+        justifyContent,
+        flexDirection,
+        marginTop,
+      })}
+    `
+  },
+)
 
 function gridSize({ size }: GridColProps): FlattenSimpleInterpolation {
   if (!size) return []
@@ -28,12 +52,11 @@ function gridSize({ size }: GridColProps): FlattenSimpleInterpolation {
   }
 
   const breakpoints = createBreakpoints(
-    size.map(
-      (s) => css`
-        flex: 0 0 ${(100 * s) / 12}%;
-        max-width: ${(100 * s) / 12}%;
-      `,
-    ),
+    size,
+    (s) => css`
+      flex: 0 0 ${(100 * s) / 12}%;
+      max-width: ${(100 * s) / 12}%;
+    `,
   )
 
   return breakpointsMedia(breakpoints)
@@ -49,11 +72,10 @@ function gridOffset({ offset }: GridColProps): FlattenSimpleInterpolation {
   }
 
   const breakpoints = createBreakpoints(
-    offset.map(
-      (o) => css`
-        margin-left: ${(100 * o) / 12}%;
-      `,
-    ),
+    offset,
+    (o) => css`
+      margin-left: ${(100 * o) / 12}%;
+    `,
   )
 
   return breakpointsMedia(breakpoints)

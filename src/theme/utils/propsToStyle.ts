@@ -1,9 +1,9 @@
 import { css, FlattenSimpleInterpolation } from 'styled-components'
 import { breakpointsMedia } from './breakpointsMedia'
-import { createBreakpoints } from './createBreakpoint'
+import { createBreakpoints, ResponsiveBreakpoints } from './createBreakpoint'
 
 export function propsToStyle(
-  props: Record<string, (string | number) | (string | number)[]>,
+  props: Record<string, ResponsiveBreakpoints<string | number>>,
 ): FlattenSimpleInterpolation[] {
   const entries = Object.entries(props)
 
@@ -18,13 +18,13 @@ export function propsToStyle(
   }
 
   const styles = filledEntries.map(([name, value]) => {
-    if (Array.isArray(value)) {
-      const values = value.map((v) => css({ [name]: v }))
-      const breakpoints = createBreakpoints(values)
-      return breakpointsMedia(breakpoints)
+    if (typeof value === 'string' || typeof value === 'number') {
+      return css({ [name]: value })
     }
 
-    return css({ [name]: value })
+    const breakpoints = createBreakpoints(value, (v) => css({ [name]: v }))
+
+    return breakpointsMedia(breakpoints)
   })
 
   return styles

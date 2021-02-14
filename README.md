@@ -155,6 +155,17 @@ Introdução aos conceitos de grid no design system.
 - https://material.io/design/layout/responsive-layout-grid.html
 - https://material.io/design/layout/spacing-methods.html
 
+### Aula 09: Componente Box, ESLint e o desafio do módulo
+
+Adiciona componente Box para auxiliar na composição de elementos na pagina, considerando breakpoints css.
+
+Nessa aula também foi proposta a adição do ESLint.
+
+#### Links
+
+- https://material-ui.com/components/box
+- https://gestalt.netlify.app/Box
+
 ## Links mencionados na comunidade do bootcamp
 
 - https://flexboxfroggy.com/
