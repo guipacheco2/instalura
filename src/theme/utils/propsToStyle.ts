@@ -1,10 +1,6 @@
-import {
-  css,
-  FlattenSimpleInterpolation,
-  SimpleInterpolation,
-} from 'styled-components'
-import { breakpointNames } from '../breakpoints'
+import { css, FlattenSimpleInterpolation } from 'styled-components'
 import { breakpointsMedia } from './breakpointsMedia'
+import { createBreakpoints } from './createBreakpoint'
 
 export function propsToStyle(
   props: Record<string, (string | number) | (string | number)[]>,
@@ -23,14 +19,8 @@ export function propsToStyle(
 
   const styles = filledEntries.map(([name, value]) => {
     if (Array.isArray(value)) {
-      const breakpoints = value.reduce<Record<string, SimpleInterpolation>>(
-        (sum, value, i) => {
-          sum[breakpointNames[i]] = css({ [name]: value })
-          return sum
-        },
-        {},
-      )
-
+      const values = value.map((v) => css({ [name]: v }))
+      const breakpoints = createBreakpoints(values)
       return breakpointsMedia(breakpoints)
     }
 

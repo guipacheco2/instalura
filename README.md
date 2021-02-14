@@ -52,8 +52,6 @@ A pasta pages foi movida para src. https://nextjs.org/docs/advanced-features/src
 
 ### Aula 03: Componente de botão com temas
 
--
-
 #### Links
 
 - https://marketplace.visualstudio.com/items?itemName=jpoissonnier.vscode-styled-components
@@ -136,6 +134,26 @@ paragraph1: css(({ theme }) => theme.typographyVariants.paragraph1),
 +    display="block"
  >
 ```
+
+### Aula 08: Criando o componente Grid com Styled Components
+
+Introdução aos conceitos de grid no design system.
+
+- Criado foundation -> layout -> grid
+- Container > Row > Col
+
+#### Dicas
+
+- Primeiro escrever como se espera utilizar (output), e depois ir programando (procedimento). Principio de input -> [] -> output.
+- Reuso antes do uso.
+- Uma vez que se tem clareza o que precisa para funcionar minimante, com o tempo vai evoluir naturalmente. Código não é algo estático, está sempre evoluindo.
+
+#### Links
+
+- https://www.alura.com.br/artigos/como-fazer-grids-e-a-responsividade-na-web
+- https://getbootstrap.com/docs/4.0/layout/grid/
+- https://material.io/design/layout/responsive-layout-grid.html
+- https://material.io/design/layout/spacing-methods.html
 
 ## Links mencionados na comunidade do bootcamp
 
