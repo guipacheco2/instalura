@@ -5,7 +5,7 @@ import {
   breakpointsMedia,
   createBreakpoints,
   propsToStyle,
-  ResponsiveBreakpoints,
+  ResponsiveBreakpoints
 } from '../../theme'
 
 const TextStyleVariants = {
@@ -27,7 +27,7 @@ type variants = keyof typeof TextStyleVariants
 
 export interface TextBaseProps {
   variant: variants | { xs: variants; md: variants }
-  color?: 'tertiary.main' | 'tertiary.light'
+  color?: 'primary.main' | 'tertiary.main' | 'tertiary.light'
   textAlign?: ResponsiveBreakpoints<CSSProperties['textAlign']>
 }
 

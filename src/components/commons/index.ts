@@ -1,4 +1,5 @@
 export * from './AppHead'
+export * from './Bubbles'
 export * from './Button'
 export * from './Footer'
 export * from './Menu'

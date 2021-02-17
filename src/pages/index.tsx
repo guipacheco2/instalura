@@ -1,6 +1,7 @@
 import React from 'react'
 import {
   Box,
+  Bubbles,
   Button,
   Footer,
   GridCol,
@@ -18,10 +19,10 @@ export default function HomePage(): JSX.Element {
       flexWrap="wrap"
       flexDirection="column"
       justifyContent="space-between"
-      backgroundImage="url(/images/bubbles.svg)"
-      backgroundRepeat="no-repeat"
-      backgroundPosition="bottom right"
+      backgroundColor="primary"
     >
+      <Bubbles />
+
       <GridContainer marginTop={{ xs: 18, md: 32 }}>
         <Menu />
       </GridContainer>

@@ -1,5 +1,7 @@
 import React from 'react'
+import { useColorSchema, useToggleColorSchema } from '../../theme'
 import { Text } from '../foundation'
+import { BrightnessDarkIcon, BrightnessLightIcon } from '../icons'
 import { Button } from './Button'
 import { Logo } from './Logo'
 import {
@@ -16,6 +18,13 @@ const links = [
 ]
 
 export function Menu(): JSX.Element {
+  const toggleColorSchema = useToggleColorSchema()
+  const colorSchema = useColorSchema()
+
+  function handleClickBrightnessButton() {
+    toggleColorSchema()
+  }
+
   return (
     <MenuWrapper>
       <MenuWrapperLeftSide>
@@ -35,6 +44,18 @@ export function Menu(): JSX.Element {
         ))}
       </MenuWrapperCentralSide>
       <MenuWrapperRightSide>
+        <Button
+          type="button"
+          ghost
+          variant="secondary.main"
+          onClick={handleClickBrightnessButton}
+        >
+          {colorSchema === 'light' ? (
+            <BrightnessDarkIcon />
+          ) : (
+            <BrightnessLightIcon />
+          )}
+        </Button>
         <Button type="button" ghost variant="secondary.main">
           <Text variant={{ xs: 'smallestException', md: 'paragraph1' }}>
             Entrar

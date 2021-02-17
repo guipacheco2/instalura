@@ -39,6 +39,7 @@ export const Button = styled.button<ButtonProps>(
         md: css({ padding: '12px 43px' }),
       })}
       border-radius: ${theme.borderRadius};
+      outline: initial;
       ${ghost ? ButtonGhost : ButtonDefault}
       ${propsToStyle({ margin, display })}
       &:hover, &:focus {

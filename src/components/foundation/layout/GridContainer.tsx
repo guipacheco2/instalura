@@ -14,6 +14,7 @@ export const GridContainer = styled.div<GridContainerProps>(({ marginTop }) => {
     padding-left: 28px;
     margin-right: auto;
     margin-left: auto;
+    z-index: 1;
     ${breakpointsMedia({
       xs: css`
         max-width: initial;

@@ -1,10 +1,12 @@
 import { DefaultTheme } from 'styled-components'
-import { Colors, colors } from './colors'
+import { Colors, dark, light } from './colors'
+import { ColorSchemaTypes } from './ColorSchemaContext'
 import { typographyVariants, TypographyVariants } from './typographyVariants'
 
 // https://styled-components.com/docs/api#create-a-declarations-file
 declare module 'styled-components' {
   export interface DefaultTheme {
+    schema: ColorSchemaTypes
     fontFamily: string
     borderRadius: string
     transition: string
@@ -13,9 +15,12 @@ declare module 'styled-components' {
   }
 }
 
-export function createTheme(): DefaultTheme {
+const colors = { light, dark }
+
+export function createTheme(colorSchema: ColorSchemaTypes): DefaultTheme {
   return {
-    colors,
+    schema: colorSchema,
+    colors: colors[colorSchema],
     typographyVariants,
     borderRadius: '12px',
     fontFamily: "'Rubik', sans-serif",
