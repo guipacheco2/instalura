@@ -1,4 +1,23 @@
-export const typographyVariants = {
+type TypographyVariant = {
+  fontSize: string
+  fontWeight: number
+  lineHeight: number
+}
+
+export type TypographyVariantKeys =
+  | 'title'
+  | 'titleXS'
+  | 'subTitle'
+  | 'paragraph1'
+  | 'paragraph2'
+  | 'smallestException'
+
+export type TypographyVariants = Record<
+  TypographyVariantKeys,
+  TypographyVariant
+>
+
+export const typographyVariants: TypographyVariants = {
   title: {
     fontSize: '32px',
     fontWeight: 700,
@@ -30,5 +49,3 @@ export const typographyVariants = {
     lineHeight: 1,
   },
 }
-
-export type TypographyVariants = typeof typographyVariants

@@ -1,3 +1,7 @@
+export type BreakpointKeys = 'xs' | 'sm' | 'md' | 'lg' | 'xl'
+
+export type Breakpoints = Record<BreakpointKeys, number>
+
 export const breakpoints = {
   xs: 0,
   sm: 480,
@@ -6,6 +10,4 @@ export const breakpoints = {
   xl: 1200,
 }
 
-export type Breakpoints = keyof typeof breakpoints
-
-export const breakpointNames = Object.keys(breakpoints) as Breakpoints[]
+export const breakpointNames = Object.keys(breakpoints) as BreakpointKeys[]
