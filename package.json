@@ -4,9 +4,9 @@
   "scripts": {
     "dev": "next",
     "build": "next build",
-    "format": "prettier --loglevel warn --write \"**/*.{js,ts,css,md,json}\"",
+    "format": "prettier --ignore-path .gitignore --loglevel warn --write \"**/*.{js,ts,css,md,json}\"",
     "start": "next start",
-    "lint": "eslint . --cache --fix"
+    "lint": "eslint . --ignore-path .gitignore --cache --fix"
   },
   "dependencies": {
     "lodash.get": "^4.4.2",
