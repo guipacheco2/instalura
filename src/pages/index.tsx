@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useState } from 'react'
 import {
   Box,
   Bubbles,
@@ -8,10 +8,13 @@ import {
   GridContainer,
   GridRow,
   Menu,
+  Modal,
   Text,
 } from '../components'
 
 export default function HomePage(): JSX.Element {
+  const [isModalOpen, setModalState] = useState<boolean>(false)
+
   return (
     <Box
       flex={1}
@@ -22,6 +25,19 @@ export default function HomePage(): JSX.Element {
       backgroundColor="primary"
     >
       <Bubbles />
+
+      <Modal
+        isOpen={isModalOpen}
+        onClose={() => {
+          setModalState(false)
+        }}
+      >
+        <Box backgroundColor="primary">
+          <Text variant="paragraph1" color="tertiary.main">
+            Nosso conteúdo pro modal
+          </Text>
+        </Box>
+      </Modal>
 
       <GridContainer marginTop={{ xs: 18, md: 32 }}>
         <Menu />
@@ -60,6 +76,9 @@ export default function HomePage(): JSX.Element {
                 variant="primary.main"
                 margin={{ xs: 'auto', md: 'initial' }}
                 display="block"
+                onClick={() => {
+                  setModalState((currentState) => !currentState)
+                }}
               >
                 Cadastrar
               </Button>
