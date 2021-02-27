@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React from 'react'
 import {
   Box,
   Bubbles,
@@ -10,19 +10,12 @@ import {
   Menu,
   Modal,
   Text,
+  useModal,
 } from '../components'
 import { FormCadastro } from '../components/patterns'
 
 export default function HomePage(): JSX.Element {
-  const [isModalOpen, setModalState] = useState<boolean>(false)
-
-  function handleClickSignOn() {
-    setModalState(true)
-  }
-
-  function handleCloseSignOn() {
-    setModalState(false)
-  }
+  const [isSignOnModalOpen, handleClickSignOn, handleCloseSignOn] = useModal()
 
   return (
     <Box
@@ -35,7 +28,7 @@ export default function HomePage(): JSX.Element {
     >
       <Bubbles />
 
-      <Modal isOpen={isModalOpen} onClose={handleCloseSignOn}>
+      <Modal isOpen={isSignOnModalOpen} onClose={handleCloseSignOn}>
         <FormCadastro />
       </Modal>
 
