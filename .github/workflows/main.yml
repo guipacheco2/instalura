@@ -11,9 +11,19 @@ on:
 # A workflow run is made up of one or more jobs that can run sequentially or in parallel
 jobs:
   lint:
-    name: Lint    
-    runs-on: node:15.10.0-alpine
+    name: Lint
+
+    # https://docs.github.com/en/actions/reference/workflow-syntax-for-github-actions#jobsjob_idruns-on
+    runs-on: ubuntu-20.04
+
     steps:
+      # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
+      - uses: actions/checkout@v2
+
+      - uses: actions/setup-node@v1
+        with:
+          node-version: '14.16.0'
+
       - name: Install dependencies
         run: yarn install
 
