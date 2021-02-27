@@ -1,5 +1,5 @@
 import { motion } from 'framer-motion'
-import React, { useRef } from 'react'
+import React, { useRef, useState } from 'react'
 import styled, { createGlobalStyle, css } from 'styled-components'
 import { Box, GridCol, GridRow } from '../foundation'
 import { CloseIcon } from '../icons'
@@ -47,6 +47,17 @@ const StyledLockScroll = createGlobalStyle`
     overflow: hidden;
   }
 `
+
+type UseModalOpenHandler = () => void
+type UseModalCloseHandler = () => void
+
+export function useModal(
+  initialIsOpen = false,
+): [boolean, UseModalOpenHandler, UseModalCloseHandler] {
+  const [isOpen, setIsOpen] = useState<boolean>(initialIsOpen)
+
+  return [isOpen, () => setIsOpen(true), () => setIsOpen(false)]
+}
 
 export function Modal({ isOpen, onClose, children }: ModalProps): JSX.Element {
   const innerElementRef = useRef<HTMLDivElement>(null)
