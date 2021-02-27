@@ -11,7 +11,7 @@ export function propsToStyle(
     throw new Error('Utilize com pelo menos uma prop')
   }
 
-  const filledEntries = entries.filter((entry) => entry[1])
+  const filledEntries = entries.filter((entry) => entry[1] || entry[1] === 0)
 
   if (filledEntries.length === 0) {
     return []

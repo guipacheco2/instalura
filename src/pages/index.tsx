@@ -11,9 +11,18 @@ import {
   Modal,
   Text,
 } from '../components'
+import { FormCadastro } from '../components/patterns'
 
 export default function HomePage(): JSX.Element {
   const [isModalOpen, setModalState] = useState<boolean>(false)
+
+  function handleClickSignOn() {
+    setModalState(true)
+  }
+
+  function handleCloseSignOn() {
+    setModalState(false)
+  }
 
   return (
     <Box
@@ -26,21 +35,12 @@ export default function HomePage(): JSX.Element {
     >
       <Bubbles />
 
-      <Modal
-        isOpen={isModalOpen}
-        onClose={() => {
-          setModalState(false)
-        }}
-      >
-        <Box backgroundColor="primary">
-          <Text variant="paragraph1" color="tertiary.main">
-            Nosso conteúdo pro modal
-          </Text>
-        </Box>
+      <Modal isOpen={isModalOpen} onClose={handleCloseSignOn}>
+        <FormCadastro />
       </Modal>
 
       <GridContainer marginTop={{ xs: 18, md: 32 }}>
-        <Menu />
+        <Menu onClickSignOn={handleClickSignOn} />
       </GridContainer>
 
       <GridContainer marginTop={{ xs: 32, md: 75 }}>
@@ -76,9 +76,7 @@ export default function HomePage(): JSX.Element {
                 variant="primary.main"
                 margin={{ xs: 'auto', md: 'initial' }}
                 display="block"
-                onClick={() => {
-                  setModalState((currentState) => !currentState)
-                }}
+                onClick={handleClickSignOn}
               >
                 Cadastrar
               </Button>

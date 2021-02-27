@@ -17,7 +17,11 @@ const links = [
   { url: '/sobre', name: 'Sobre' },
 ]
 
-export function Menu(): JSX.Element {
+interface MenuProps {
+  onClickSignOn: () => void
+}
+
+export function Menu({ onClickSignOn }: MenuProps): JSX.Element {
   const toggleColorSchema = useToggleColorSchema()
   const colorSchema = useColorSchema()
 
@@ -61,7 +65,7 @@ export function Menu(): JSX.Element {
             Entrar
           </Text>
         </Button>
-        <Button type="button" variant="primary.main">
+        <Button type="button" variant="primary.main" onClick={onClickSignOn}>
           <Text variant={{ xs: 'smallestException', md: 'paragraph1' }}>
             Cadastrar
           </Text>

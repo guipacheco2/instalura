@@ -9,6 +9,8 @@ export interface BoxProps {
   flexWrap?: ResponsiveBreakpoints<CSSProperties['flexWrap']>
   backgroundImage?: ResponsiveBreakpoints<CSSProperties['backgroundImage']>
   backgroundRepeat?: ResponsiveBreakpoints<CSSProperties['backgroundRepeat']>
+  boxShadow?: ResponsiveBreakpoints<CSSProperties['boxShadow']>
+  padding?: ResponsiveBreakpoints<CSSProperties['padding']>
   backgroundPosition?: ResponsiveBreakpoints<
     CSSProperties['backgroundPosition']
   >
@@ -28,6 +30,8 @@ export const Box = styled.div<BoxProps>(
     backgroundImage,
     backgroundRepeat,
     backgroundPosition,
+    boxShadow,
+    padding,
   }) => {
     const themeBackgroundColor = backgroundColor
       ? theme.schema === 'light'
@@ -46,6 +50,8 @@ export const Box = styled.div<BoxProps>(
         backgroundImage,
         backgroundRepeat,
         backgroundPosition,
+        boxShadow,
+        padding,
       })}
     `
   },

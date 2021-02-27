@@ -18,10 +18,21 @@ export interface GridColProps {
   justifyContent?: ResponsiveBreakpoints<CSSProperties['justifyContent']>
   flexDirection?: ResponsiveBreakpoints<CSSProperties['flexDirection']>
   marginTop?: ResponsiveBreakpoints<CSSProperties['marginTop']>
+  display?: ResponsiveBreakpoints<CSSProperties['display']>
+  paddingRight?: ResponsiveBreakpoints<CSSProperties['paddingRight']>
+  flex?: ResponsiveBreakpoints<CSSProperties['flex']>
 }
 
 export const GridCol = styled.div<GridColProps>(
-  ({ alignItems, justifyContent, flexDirection, marginTop }) => {
+  ({
+    alignItems,
+    justifyContent,
+    flexDirection,
+    marginTop,
+    display,
+    paddingRight,
+    flex,
+  }) => {
     return css`
       padding-right: 16px;
       padding-left: 16px;
@@ -36,6 +47,9 @@ export const GridCol = styled.div<GridColProps>(
         justifyContent,
         flexDirection,
         marginTop,
+        display,
+        paddingRight,
+        flex,
       })}
     `
   },

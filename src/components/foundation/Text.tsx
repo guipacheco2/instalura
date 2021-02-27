@@ -5,7 +5,7 @@ import {
   breakpointsMedia,
   createBreakpoints,
   propsToStyle,
-  ResponsiveBreakpoints
+  ResponsiveBreakpoints,
 } from '../../theme'
 
 const TextStyleVariants = {
@@ -29,10 +29,11 @@ export interface TextBaseProps {
   variant: variants | { xs: variants; md: variants }
   color?: 'primary.main' | 'tertiary.main' | 'tertiary.light'
   textAlign?: ResponsiveBreakpoints<CSSProperties['textAlign']>
+  marginBottom?: ResponsiveBreakpoints<CSSProperties['marginBottom']>
 }
 
 const TextBase = styled.span<TextBaseProps>(
-  ({ variant, theme, color, textAlign }) => {
+  ({ variant, theme, color, textAlign, marginBottom }) => {
     return css`
       ${() => {
         if (typeof variant === 'string') {
@@ -44,30 +45,37 @@ const TextBase = styled.span<TextBaseProps>(
         )
       }}
       color: ${() => get(theme, `colors.${color}.color`)};
-      ${propsToStyle({ textAlign })}
+      ${propsToStyle({ textAlign, marginBottom })}
     `
   },
 )
 
-interface TextProps<C extends React.ElementType = React.ElementType>
+export interface TextProps<C extends React.ElementType = React.ElementType>
   extends TextBaseProps {
-  children: React.ReactNode
+  children?: React.ReactNode
   as?: C
 }
+
+export type TextPropsGeneric<C extends React.ElementType> = TextProps<C> &
+  Omit<React.ComponentProps<C>, keyof TextProps>
 
 export function Text<C extends React.ElementType = 'span'>({
   as,
   variant,
   color,
   textAlign,
+  marginBottom,
+  className,
   children,
-}: TextProps<C> & Omit<React.ComponentProps<C>, keyof TextProps>): JSX.Element {
+}: TextPropsGeneric<C>): JSX.Element {
   return (
     <TextBase
+      className={className}
       as={as as never}
       variant={variant}
       color={color}
       textAlign={textAlign}
+      marginBottom={marginBottom}
     >
       {children}
     </TextBase>

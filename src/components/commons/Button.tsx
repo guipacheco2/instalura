@@ -11,6 +11,7 @@ interface ButtonProps {
   margin?: ResponsiveBreakpoints<CSSProperties['margin']>
   display?: ResponsiveBreakpoints<CSSProperties['display']>
   ghost?: boolean
+  fullWidth?: boolean
 }
 
 const ButtonGhost = css<ButtonProps>`
@@ -27,7 +28,7 @@ const ButtonDefault = css<ButtonProps>`
 `
 
 export const Button = styled.button<ButtonProps>(
-  ({ theme, margin, display, ghost }) => {
+  ({ theme, margin, display, ghost, fullWidth }) => {
     return css`
       border: 0;
       cursor: pointer;
@@ -41,6 +42,15 @@ export const Button = styled.button<ButtonProps>(
       border-radius: ${theme.borderRadius};
       outline: initial;
       ${ghost ? ButtonGhost : ButtonDefault}
+      &:disabled {
+        cursor: not-allowed;
+        opacity: 0.2;
+      }
+      ${fullWidth
+        ? css`
+            width: 100%;
+          `
+        : ''};
       ${propsToStyle({ margin, display })}
       &:hover, &:focus {
         opacity: 0.5;
