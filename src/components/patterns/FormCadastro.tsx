@@ -1,33 +1,86 @@
 import React, { useState } from 'react'
+import { ErrorAnimation } from '../animations'
+import { SuccessAnimation } from '../animations/SuccessAnimation'
 import { Button } from '../commons'
 import { TextField } from '../forms'
-import { Text } from '../foundation'
+import { Box, Text } from '../foundation'
 
-export function FormCadastro(): JSX.Element {
-  const [userInfo, setUserInfo] = useState({
-    usuario: '',
-    email: '',
+enum FormStates {
+  DEFAULT,
+  LOADING,
+  DONE,
+  ERROR,
+}
+
+interface RequestCreateUserPayload {
+  username: string
+  name: string
+}
+
+function requestCreateUser({ username, name }: RequestCreateUserPayload) {
+  return fetch('https://instalura-api.vercel.app/api/users', {
+    method: 'POST',
+    headers: {
+      'Content-Type': 'application/json',
+    },
+    body: JSON.stringify({ username, name }),
+  }).then((respostaDoServidor) => {
+    if (respostaDoServidor.ok) {
+      return respostaDoServidor.json()
+    }
+
+    throw new Error('Não foi possível cadastrar o usuário agora :(')
   })
+}
+
+function useFormCadastro() {
+  const [submissionStatus, setSubmissionStatus] = useState<FormStates>(
+    FormStates.DEFAULT,
+  )
+
+  const [userInfo, setUserInfo] = useState({ username: '', name: '' })
 
   function handleChange(event: React.ChangeEvent<HTMLInputElement>) {
     const fieldName = event.target.getAttribute('name')
 
-    setUserInfo({
-      ...userInfo,
-      [fieldName]: event.target.value,
-    })
+    setUserInfo({ ...userInfo, [fieldName]: event.target.value })
   }
 
+  function handleSubmit(event: React.FormEvent<HTMLFormElement>) {
+    event.preventDefault()
+
+    setSubmissionStatus(FormStates.LOADING)
+
+    requestCreateUser(userInfo)
+      .then(() => {
+        setSubmissionStatus(FormStates.DONE)
+      })
+      .catch(() => {
+        setSubmissionStatus(FormStates.ERROR)
+      })
+  }
+
+  return {
+    handleSubmit,
+    userInfo,
+    handleChange,
+    submissionStatus,
+  }
+}
+
+export function FormCadastro(): JSX.Element {
+  const {
+    handleSubmit,
+    userInfo,
+    handleChange,
+    submissionStatus,
+  } = useFormCadastro()
+
   const isFormInvalid =
-    userInfo.usuario.length === 0 || userInfo.email.length === 0
+    userInfo.username.length === 0 || userInfo.name.length === 0
 
   return (
-    <form
-      onSubmit={(event) => {
-        event.preventDefault()
-        console.log('O formulário ta pronto, vamos cadastrar de fato o usuario')
-      }}
-    >
+    <form onSubmit={handleSubmit}>
       <Text variant="title" as="h1" color="tertiary.main">
         Pronto para saber da vida dos outros?
       </Text>
@@ -38,15 +91,15 @@ export function FormCadastro(): JSX.Element {
         color="tertiary.light"
         marginBottom="32px"
       >
-        Você está a um passo de saber tudoo que está rolando no bairro, complete
+        Você está a um passo de saber tudo que está rolando no bairro, complete
         seu cadastro agora!
       </Text>
 
       <div>
         <TextField
-          placeholder="Email"
-          name="email"
-          value={userInfo.email}
+          placeholder="Nome"
+          name="name"
+          value={userInfo.name}
           onChange={handleChange}
         />
       </div>
@@ -54,8 +107,8 @@ export function FormCadastro(): JSX.Element {
       <div>
         <TextField
           placeholder="Usuário"
-          name="usuario"
-          value={userInfo.usuario}
+          name="username"
+          value={userInfo.username}
           onChange={handleChange}
         />
       </div>
@@ -63,11 +116,16 @@ export function FormCadastro(): JSX.Element {
       <Button
         variant="primary.main"
         type="submit"
-        disabled={isFormInvalid}
+        disabled={isFormInvalid || submissionStatus === FormStates.LOADING}
         fullWidth
       >
         Cadastrar
       </Button>
+
+      <Box display="flex" justifyContent="center">
+        {submissionStatus === FormStates.DONE && <SuccessAnimation />}
+        {submissionStatus === FormStates.ERROR && <ErrorAnimation />}
+      </Box>
     </form>
   )
 }
