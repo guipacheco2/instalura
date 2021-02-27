@@ -2,11 +2,17 @@
   "name": "instalura",
   "version": "1.0.0",
   "scripts": {
-    "dev": "next",
     "build": "next build",
-    "format": "prettier --ignore-path .gitignore --loglevel warn --write \"**/*.{js,ts,css,md,json}\"",
+    "commit": "cz",
+    "dev": "next",
+    "format:base": "prettier --ignore-path .gitignore --loglevel warn \"**/*.{js,jsx,ts,tsx,css,md,json}\"",
+    "format:check": "yarn format:base --check",
+    "format:fix": "yarn format:base --write",
+    "lint:base": "eslint . --ignore-path .gitignore --cache",
+    "lint:check": "yarn lint:base",
+    "lint:fix": "yarn lint:base --fix",
     "start": "next start",
-    "lint": "eslint . --ignore-path .gitignore --cache --fix"
+    "test:linters": "yarn format:check && yarn lint:check"
   },
   "dependencies": {
     "@crello/react-lottie": "^0.0.11",
@@ -20,6 +26,8 @@
     "styled-normalize": "^8.0.7"
   },
   "devDependencies": {
+    "@commitlint/cli": "^12.0.1",
+    "@commitlint/config-conventional": "^12.0.1",
     "@types/lodash.get": "^4.4.6",
     "@types/node": "^14.14.25",
     "@types/react": "^17.0.1",
@@ -28,6 +36,7 @@
     "@typescript-eslint/eslint-plugin": "^4.15.0",
     "@typescript-eslint/parser": "^4.15.0",
     "babel-plugin-styled-components": "^1.8.0",
+    "cz-conventional-changelog": "^3.3.0",
     "eslint": "^7.19.0",
     "eslint-config-prettier": "^7.2.0",
     "eslint-plugin-import": "^2.22.1",
@@ -41,13 +50,20 @@
   },
   "husky": {
     "hooks": {
-      "pre-commit": "lint-staged"
+      "pre-commit": "lint-staged",
+      "pre-push": "yarn test:linters",
+      "commit-msg": "commitlint -E HUSKY_GIT_PARAMS"
     }
   },
   "lint-staged": {
     "*.js": "eslint --cache --fix",
     "*.{js,css,md,json}": "prettier --write",
     ".babelrc": "prettier --write"
+  },
+  "config": {
+    "commitizen": {
+      "path": "./node_modules/cz-conventional-changelog"
+    }
   },
   "license": "MIT"
 }
