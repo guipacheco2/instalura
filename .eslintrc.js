@@ -27,4 +27,7 @@ module.exports = {
     },
   },
   plugins: ['react', 'react-hooks', '@typescript-eslint'],
+  rules: {
+    'react/prop-types': 0,
+  },
 }
