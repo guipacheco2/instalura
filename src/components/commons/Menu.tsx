@@ -3,6 +3,7 @@ import { useColorSchema, useToggleColorSchema } from '../../theme'
 import { Text } from '../foundation'
 import { BrightnessDarkIcon, BrightnessLightIcon } from '../icons'
 import { Button } from './Button'
+import { Link } from './Link'
 import { Logo } from './Logo'
 import {
   MenuWrapper,
@@ -38,7 +39,7 @@ export function Menu({ onClickSignOn }: MenuProps): JSX.Element {
         {links.map((link) => (
           <li key={link.url}>
             <Text
-              as="a"
+              as={Link}
               href={link.url}
               variant={{ xs: 'smallestException', md: 'paragraph1' }}
             >
@@ -60,7 +61,7 @@ export function Menu({ onClickSignOn }: MenuProps): JSX.Element {
             <BrightnessLightIcon />
           )}
         </Button>
-        <Button type="button" ghost variant="secondary.main">
+        <Button as={Link} variant="secondary.main" ghost href="/app/login">
           <Text variant={{ xs: 'smallestException', md: 'paragraph1' }}>
             Entrar
           </Text>

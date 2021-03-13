@@ -1,4 +1,4 @@
-import get from 'lodash/get'
+import get from 'lodash.get'
 import React from 'react'
 import styled, { css, CSSProperties } from 'styled-components'
 import {
@@ -25,14 +25,15 @@ const TextStyleVariants = {
 
 type variants = keyof typeof TextStyleVariants
 
-export interface TextBaseProps {
+export interface StyledTextProps {
   variant: variants | { xs: variants; md: variants }
   color?: 'primary.main' | 'tertiary.main' | 'tertiary.light'
   textAlign?: ResponsiveBreakpoints<CSSProperties['textAlign']>
   marginBottom?: ResponsiveBreakpoints<CSSProperties['marginBottom']>
+  href?: string
 }
 
-const TextBase = styled.span<TextBaseProps>(
+const StyledText = styled.span<StyledTextProps>(
   ({ variant, theme, color, textAlign, marginBottom }) => {
     return css`
       ${() => {
@@ -51,9 +52,9 @@ const TextBase = styled.span<TextBaseProps>(
 )
 
 export interface TextProps<C extends React.ElementType = React.ElementType>
-  extends TextBaseProps {
-  children?: React.ReactNode
+  extends StyledTextProps {
   as?: C
+  children?: React.ReactNode
 }
 
 export type TextPropsGeneric<C extends React.ElementType> = TextProps<C> &
@@ -61,6 +62,7 @@ export type TextPropsGeneric<C extends React.ElementType> = TextProps<C> &
 
 export function Text<C extends React.ElementType = 'span'>({
   as,
+  href,
   variant,
   color,
   textAlign,
@@ -69,8 +71,9 @@ export function Text<C extends React.ElementType = 'span'>({
   children,
 }: TextPropsGeneric<C>): JSX.Element {
   return (
-    <TextBase
+    <StyledText
       className={className}
+      href={href}
       as={as as never}
       variant={variant}
       color={color}
@@ -78,6 +81,6 @@ export function Text<C extends React.ElementType = 'span'>({
       marginBottom={marginBottom}
     >
       {children}
-    </TextBase>
+    </StyledText>
   )
 }
