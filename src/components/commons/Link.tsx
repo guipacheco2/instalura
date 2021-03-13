@@ -2,14 +2,7 @@ import NextLink from 'next/link'
 import React from 'react'
 import styled from 'styled-components'
 
-interface StyledLinkProps {
-  color: 'primary'
-}
-
-const StyledLink = styled.a<StyledLinkProps>`
-  color: inherit;
-  ${({ theme, color }) =>
-    color ? `color: ${theme.colors[color].main.color}` : 'color: inherit;'};
+const StyledLink = styled.a`
   text-decoration: none;
   opacity: 1;
   transition: opacity ${({ theme }) => theme.transition};
@@ -19,7 +12,7 @@ const StyledLink = styled.a<StyledLinkProps>`
   }
 `
 
-interface LinkProps extends StyledLinkProps {
+interface LinkProps {
   href: string
   children: React.ReactNode
 }
