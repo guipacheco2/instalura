@@ -60,7 +60,7 @@ export function Menu({ onClickSignOn }: MenuProps): JSX.Element {
             <BrightnessLightIcon />
           )}
         </Button>
-        <Button type="button" ghost variant="secondary.main">
+        <Button as="a" ghost variant="secondary.main" href="/app/login">
           <Text variant={{ xs: 'smallestException', md: 'paragraph1' }}>
             Entrar
           </Text>
