@@ -104,7 +104,7 @@ export function Modal({ isOpen, onClose, children }: ModalProps): JSX.Element {
               display="flex"
               flexDirection="column"
               flex={1}
-              backgroundColor="primary"
+              backgroundColor="background"
             >
               <Box display="flex" justifyContent="flex-end">
                 <IconButton onClick={onClose}>

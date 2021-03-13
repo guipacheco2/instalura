@@ -12,7 +12,7 @@ import {
 import { Box, GridContainer } from '../foundation'
 import { FormCadastro } from '../patterns'
 
-interface WebsitePageProps {
+export interface WebsitePageProps {
   disableMenu?: boolean
   seoProps?: SEOProps
 }
@@ -27,16 +27,17 @@ export function useWebsitePageContext(): WebsitePageContextProps {
   return useContext(WebsitePageContext)
 }
 
-export function withWebsitePage<Props = Record<string, unknown>>(
+export function withWebsitePage<Props>(
   PageComponent: React.ComponentType<Props>,
-  props: WebsitePageProps,
 ) {
-  return function WebsitePage(nextProps: Props): JSX.Element {
+  return function WebsitePage(props: WebsitePageProps): JSX.Element {
     const [isSignOnModalOpen, handleClickSignOn, handleCloseSignOn] = useModal()
 
     const websitePageContextValue: WebsitePageContextProps = {
       handleClickSignOn,
     }
+
+    const { seoProps, disableMenu, ...otherProps } = props
 
     return (
       <CustomThemeProvider>
@@ -46,9 +47,9 @@ export function withWebsitePage<Props = Record<string, unknown>>(
           flexWrap="wrap"
           flexDirection="column"
           justifyContent="space-between"
-          backgroundColor="primary"
+          backgroundColor="background"
         >
-          <SEO {...props.seoProps} />
+          <SEO {...seoProps} />
 
           <Bubbles />
 
@@ -56,14 +57,14 @@ export function withWebsitePage<Props = Record<string, unknown>>(
             <FormCadastro />
           </Modal>
 
-          {!props.disableMenu && (
+          {!disableMenu && (
             <GridContainer marginTop={{ xs: 18, md: 32 }}>
               <Menu onClickSignOn={handleClickSignOn} />
             </GridContainer>
           )}
 
           <WebsitePageContext.Provider value={websitePageContextValue}>
-            <PageComponent {...nextProps} />
+            <PageComponent {...(otherProps as Props)} />
           </WebsitePageContext.Provider>
 
           <Footer />

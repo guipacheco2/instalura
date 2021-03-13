@@ -38,13 +38,11 @@ export function Menu({ onClickSignOn }: MenuProps): JSX.Element {
       <MenuWrapperCentralSide as="ul">
         {links.map((link) => (
           <li key={link.url}>
-            <Text
-              as={Link}
-              href={link.url}
-              variant={{ xs: 'smallestException', md: 'paragraph1' }}
-            >
-              {link.name}
-            </Text>
+            <Link href={link.url}>
+              <Text variant={{ xs: 'smallestException', md: 'paragraph1' }}>
+                {link.name}
+              </Text>
+            </Link>
           </li>
         ))}
       </MenuWrapperCentralSide>

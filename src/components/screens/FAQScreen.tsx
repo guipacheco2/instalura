@@ -1,4 +1,5 @@
 import React from 'react'
+import { Link } from '../commons'
 import { Box, GridCol, GridContainer, GridRow, Text } from '../foundation'
 
 export interface Question {
@@ -52,14 +53,15 @@ export function FAQScreen({ faqCategories }: FAQScreenProps): JSX.Element {
                 <Box as="ul" padding="0" listStyle="none">
                   {category.questions.map((question) => (
                     <li key={question.title}>
-                      <Text
-                        href={`/faq/${question.slug}`}
-                        variant="paragraph1"
-                        as="h3"
-                        color="tertiary.light"
-                      >
-                        {question.title}
-                      </Text>
+                      <Link href={`/faq/${question.slug}`}>
+                        <Text
+                          variant="paragraph1"
+                          as="h3"
+                          color="tertiary.light"
+                        >
+                          {question.title}
+                        </Text>
+                      </Link>
                     </li>
                   ))}
                 </Box>

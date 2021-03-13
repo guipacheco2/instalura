@@ -15,7 +15,13 @@ export interface BoxProps {
   backgroundPosition?: ResponsiveBreakpoints<
     CSSProperties['backgroundPosition']
   >
-  backgroundColor?: 'primary'
+  backgroundColor?:
+    | 'background'
+    | 'borders'
+    | 'primary'
+    | 'secondary'
+    | 'tertiary'
+  borderRadius?: boolean
   children: React.ReactNode
 }
 
@@ -32,17 +38,21 @@ export const Box = styled.div<BoxProps>(
     backgroundRepeat,
     backgroundPosition,
     boxShadow,
+    borderRadius,
     padding,
     listStyle,
   }) => {
     const themeBackgroundColor = backgroundColor
       ? theme.schema === 'light'
-        ? theme.colors.background.light.color
-        : theme.colors.background.main.color
+        ? theme.colors[backgroundColor].light.color
+        : theme.colors[backgroundColor].main.color
       : 'initial'
+
+    const themeBorderRadius = borderRadius ? theme.borderRadius : 'initial'
 
     return css`
       background-color: ${themeBackgroundColor};
+      border-radius: ${themeBorderRadius};
       ${propsToStyle({
         display,
         flexDirection,

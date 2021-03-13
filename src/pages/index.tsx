@@ -1,8 +1,15 @@
+import { GetStaticProps } from 'next'
 import { HomeScreen } from '../components/screens'
-import { withWebsitePage } from '../components/wrappers'
+import { WebsitePageProps, withWebsitePage } from '../components/wrappers'
 
-export default withWebsitePage(HomeScreen, {
-  seoProps: {
-    headTitle: 'Home',
-  },
-})
+export default withWebsitePage(HomeScreen)
+
+export const getStaticProps: GetStaticProps<WebsitePageProps> = async () => {
+  return {
+    props: {
+      seoProps: {
+        headTitle: 'Home',
+      },
+    },
+  }
+}
