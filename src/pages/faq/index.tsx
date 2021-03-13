@@ -1,11 +1,13 @@
-import React from 'react'
 import { Category, FAQScreen, FAQScreenProps } from '../../components/screens'
+import { withWebsitePage } from '../../components/wrappers'
 
 type FAQPageProps = FAQScreenProps
 
-export default function FAQPage(props: FAQPageProps): JSX.Element {
-  return <FAQScreen {...props} />
-}
+export default withWebsitePage<FAQPageProps>(FAQScreen, {
+  seoProps: {
+    headTitle: 'Perguntas Frequentes',
+  },
+})
 
 export async function getStaticProps(): Promise<{ props: FAQPageProps }> {
   const faqCategories: Category[] = await fetch(

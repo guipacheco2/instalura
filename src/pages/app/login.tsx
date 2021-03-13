@@ -1,10 +1,13 @@
 import React from 'react'
+import { withWebsitePage } from '../../components/wrappers'
 
-export default function LoginPage(): JSX.Element {
-  return (
-    <div>
-      Login
-      <a href="/">Voltar para a home com refresh</a>
-    </div>
-  )
+function LoginScreen(): JSX.Element {
+  return <div>Página de Login</div>
 }
+
+export default withWebsitePage(LoginScreen, {
+  seoProps: {
+    headTitle: 'Login',
+  },
+  disableMenu: true,
+})
