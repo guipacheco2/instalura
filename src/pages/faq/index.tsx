@@ -1,10 +1,22 @@
 import React from 'react'
+import { Category, FAQScreen, FAQScreenProps } from '../../components/screens'
 
-export default function FAQPage(): JSX.Element {
-  return (
-    <div>
-      Página do FAQ
-      <a href="/">Voltar para a home com refresh</a>
-    </div>
+type FAQPageProps = FAQScreenProps
+
+export default function FAQPage(props: FAQPageProps): JSX.Element {
+  return <FAQScreen {...props} />
+}
+
+export async function getStaticProps(): Promise<{ props: FAQPageProps }> {
+  const faqCategories: Category[] = await fetch(
+    'https://instalura-api.vercel.app/api/content/faq',
   )
+    .then((res) => res.json())
+    .then((res) => res.data)
+
+  return {
+    props: {
+      faqCategories,
+    },
+  }
 }
