@@ -1,15 +1,12 @@
+import { GetStaticProps } from 'next'
 import { Category, FAQScreen, FAQScreenProps } from '../../components/screens'
-import { withWebsitePage } from '../../components/wrappers'
+import { WebsitePageProps, withWebsitePage } from '../../components/wrappers'
 
-type FAQPageProps = FAQScreenProps
+export default withWebsitePage(FAQScreen)
 
-export default withWebsitePage<FAQPageProps>(FAQScreen, {
-  seoProps: {
-    headTitle: 'Perguntas Frequentes',
-  },
-})
-
-export async function getStaticProps(): Promise<{ props: FAQPageProps }> {
+export const getStaticProps: GetStaticProps<
+  FAQScreenProps & WebsitePageProps
+> = async () => {
   const faqCategories: Category[] = await fetch(
     'https://instalura-api.vercel.app/api/content/faq',
   )
@@ -19,6 +16,9 @@ export async function getStaticProps(): Promise<{ props: FAQPageProps }> {
   return {
     props: {
       faqCategories,
+      seoProps: {
+        headTitle: 'Perguntas Frequentes',
+      },
     },
   }
 }

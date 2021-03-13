@@ -30,7 +30,7 @@ export interface StyledTextProps {
   color?: 'primary.main' | 'tertiary.main' | 'tertiary.light'
   textAlign?: ResponsiveBreakpoints<CSSProperties['textAlign']>
   marginBottom?: ResponsiveBreakpoints<CSSProperties['marginBottom']>
-  href?: string
+  dangerouslySetInnerHTML?: React.DOMAttributes<HTMLDivElement>['dangerouslySetInnerHTML']
 }
 
 const StyledText = styled.span<StyledTextProps>(
@@ -62,23 +62,23 @@ export type TextPropsGeneric<C extends React.ElementType> = TextProps<C> &
 
 export function Text<C extends React.ElementType = 'span'>({
   as,
-  href,
   variant,
   color,
   textAlign,
   marginBottom,
   className,
+  dangerouslySetInnerHTML,
   children,
 }: TextPropsGeneric<C>): JSX.Element {
   return (
     <StyledText
       className={className}
-      href={href}
       as={as as never}
       variant={variant}
       color={color}
       textAlign={textAlign}
       marginBottom={marginBottom}
+      dangerouslySetInnerHTML={dangerouslySetInnerHTML}
     >
       {children}
     </StyledText>

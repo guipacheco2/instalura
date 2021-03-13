@@ -5,12 +5,13 @@ export interface GridRowProps {
   marginLeft?: ResponsiveBreakpoints<CSSProperties['marginLeft']>
   marginRight?: ResponsiveBreakpoints<CSSProperties['marginRight']>
   flex?: ResponsiveBreakpoints<CSSProperties['flex']>
+  flexDirection?: ResponsiveBreakpoints<CSSProperties['flexDirection']>
   justifyContent?: ResponsiveBreakpoints<CSSProperties['justifyContent']>
   children: React.ReactNode
 }
 
 export const GridRow = styled.div<GridRowProps>(
-  ({ marginLeft, marginRight, flex, justifyContent }) => {
+  ({ marginLeft, marginRight, flex, flexDirection, justifyContent }) => {
     return css`
       display: flex;
       flex-wrap: wrap;
@@ -20,6 +21,7 @@ export const GridRow = styled.div<GridRowProps>(
         marginLeft,
         marginRight,
         flex,
+        flexDirection,
         justifyContent,
       })}
     `
