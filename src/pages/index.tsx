@@ -9,6 +9,7 @@ import {
   GridRow,
   Menu,
   Modal,
+  SEO,
   Text,
   useModal,
 } from '../components'
@@ -26,6 +27,8 @@ export default function HomePage(): JSX.Element {
       justifyContent="space-between"
       backgroundColor="primary"
     >
+      <SEO headTitle="Home" />
+
       <Bubbles />
 
       <Modal isOpen={isSignOnModalOpen} onClose={handleCloseSignOn}>
