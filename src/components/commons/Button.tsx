@@ -6,14 +6,14 @@ import {
   propsToStyle,
   ResponsiveBreakpoints,
 } from '../../theme'
-import { Link } from './Link'
 
 interface StyledButtonProps {
-  variant: 'primary.main' | 'secondary.main'
+  variant?: 'primary.main' | 'secondary.main'
   margin?: ResponsiveBreakpoints<CSSProperties['margin']>
   display?: ResponsiveBreakpoints<CSSProperties['display']>
   ghost?: boolean
   fullWidth?: boolean
+  href?: string
 }
 
 const ButtonGhost = css<ButtonProps>`
@@ -64,7 +64,6 @@ const StyledButton = styled.button<ButtonProps>(
 export interface ButtonProps<C extends React.ElementType = React.ElementType>
   extends StyledButtonProps {
   as?: C
-  href?: string
   children: React.ReactNode
 }
 
@@ -72,6 +71,7 @@ export type ButtonPropsGeneric<C extends React.ElementType> = ButtonProps<C> &
   Omit<React.ComponentProps<C>, keyof ButtonProps>
 
 export function Button<C extends React.ElementType = 'button'>({
+  as,
   variant,
   display,
   fullWidth,
@@ -79,19 +79,18 @@ export function Button<C extends React.ElementType = 'button'>({
   margin,
   href,
   children,
+  ...props
 }: ButtonPropsGeneric<C>): JSX.Element {
-  const isLink = Boolean(href)
-  const componentTag = isLink ? Link : 'button'
-
   return (
     <StyledButton
-      as={componentTag}
+      as={as as never}
       href={href}
       variant={variant}
       display={display}
       fullWidth={fullWidth}
       ghost={ghost}
       margin={margin}
+      {...props}
     >
       {children}
     </StyledButton>
