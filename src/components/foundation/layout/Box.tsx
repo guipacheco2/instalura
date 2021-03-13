@@ -11,6 +11,7 @@ export interface BoxProps {
   backgroundRepeat?: ResponsiveBreakpoints<CSSProperties['backgroundRepeat']>
   boxShadow?: ResponsiveBreakpoints<CSSProperties['boxShadow']>
   padding?: ResponsiveBreakpoints<CSSProperties['padding']>
+  listStyle?: ResponsiveBreakpoints<CSSProperties['listStyle']>
   backgroundPosition?: ResponsiveBreakpoints<
     CSSProperties['backgroundPosition']
   >
@@ -32,6 +33,7 @@ export const Box = styled.div<BoxProps>(
     backgroundPosition,
     boxShadow,
     padding,
+    listStyle,
   }) => {
     const themeBackgroundColor = backgroundColor
       ? theme.schema === 'light'
@@ -52,6 +54,7 @@ export const Box = styled.div<BoxProps>(
         backgroundPosition,
         boxShadow,
         padding,
+        listStyle,
       })}
     `
   },
