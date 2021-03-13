@@ -1,12 +1,14 @@
 import get from 'lodash.get'
+import React from 'react'
 import styled, { css, CSSProperties } from 'styled-components'
 import {
   breakpointsMedia,
   propsToStyle,
   ResponsiveBreakpoints,
 } from '../../theme'
+import { Link } from './Link'
 
-interface ButtonProps {
+interface StyledButtonProps {
   variant: 'primary.main' | 'secondary.main'
   margin?: ResponsiveBreakpoints<CSSProperties['margin']>
   display?: ResponsiveBreakpoints<CSSProperties['display']>
@@ -27,7 +29,7 @@ const ButtonDefault = css<ButtonProps>`
     get(theme, `colors.${variant}.color`)};
 `
 
-export const Button = styled.button<ButtonProps>(
+const StyledButton = styled.button<ButtonProps>(
   ({ theme, margin, display, ghost, fullWidth }) => {
     return css`
       border: 0;
@@ -58,3 +60,40 @@ export const Button = styled.button<ButtonProps>(
     `
   },
 )
+
+export interface ButtonProps<C extends React.ElementType = React.ElementType>
+  extends StyledButtonProps {
+  as?: C
+  href?: string
+  children: React.ReactNode
+}
+
+export type ButtonPropsGeneric<C extends React.ElementType> = ButtonProps<C> &
+  Omit<React.ComponentProps<C>, keyof ButtonProps>
+
+export function Button<C extends React.ElementType = 'button'>({
+  variant,
+  display,
+  fullWidth,
+  ghost,
+  margin,
+  href,
+  children,
+}: ButtonPropsGeneric<C>): JSX.Element {
+  const isLink = Boolean(href)
+  const componentTag = isLink ? Link : 'button'
+
+  return (
+    <StyledButton
+      as={componentTag}
+      href={href}
+      variant={variant}
+      display={display}
+      fullWidth={fullWidth}
+      ghost={ghost}
+      margin={margin}
+    >
+      {children}
+    </StyledButton>
+  )
+}
