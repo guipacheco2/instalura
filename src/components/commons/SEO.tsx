@@ -7,13 +7,14 @@ export interface SEOProps {
 
 export function SEO({ headTitle }: SEOProps): JSX.Element {
   const hasHeadTitle = Boolean(headTitle)
-  const baseTitle = 'Instalura - Projeto Base do Alura Bootcamp JAMStack'
+  const baseTitle =
+    'Instalura - Projeto desenvolvido durante Bootcamp JAMStack do Alura'
   const title = hasHeadTitle ? `${headTitle} | ${baseTitle}` : baseTitle
 
-  const description =
-    'Aprenda Programação, Front-end, Data Science, UX, DevOps, Marketing, Inovação e Gestão na maior plataforma de tecnologia do Brasil'
-  const image = 'https://www.alura.com.br/assets/img/alura-share.1571848411.png'
-  const urlBase = 'urldomeuprojeto.com.br'
+  const description = 'Compartilhe momentos e conecte-se com amigos'
+  const image =
+    'https://bootcamp-alura-01-git-modulo01.omariosouto.vercel.app/images/phones.png'
+  const urlBase = 'instalura-guipacheco2.vercel.app'
 
   return (
     <Head>
