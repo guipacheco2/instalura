@@ -1,6 +1,5 @@
 import React, { useState } from 'react'
-import { ErrorAnimation } from '../animations'
-import { SuccessAnimation } from '../animations/SuccessAnimation'
+import { ErrorAnimation, SuccessAnimation } from '../animations'
 import { Button } from '../commons'
 import { TextField } from '../forms'
 import { Box, Text } from '../foundation'
