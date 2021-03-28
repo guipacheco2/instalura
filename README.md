@@ -270,6 +270,15 @@ Cria um **PageObject** para o LoginScreen.
 
 Adiciona `jest`, e alguns testes unitários.
 
+#### Aula 05 - Testando Componentes com React Testing Library
+
+Cria um customRender para lidar com os providers, e adiciona um teste com snapshot no TextField.
+
+##### Links
+
+- https://testing-library.com/docs/react-testing-library/intro
+- https://testing-library.com/docs/react-testing-library/setup
+
 ## Links mencionados na comunidade do bootcamp
 
 - https://flexboxfroggy.com/
