@@ -1,3 +1,5 @@
+import { destroyCookie, setCookie } from 'nookies'
+
 type HttpClientOptions = Omit<RequestInit, 'headers' | 'body'> & {
   headers?: RequestInit['headers']
   body: Record<string, unknown>
@@ -43,11 +45,23 @@ export async function login({
   username,
   password,
 }: LoginServiceOptions): Promise<void> {
-  await HttpClient<LoginResponse>(
+  const { data } = await HttpClient<LoginResponse>(
     'https://instalura-api-omariosouto.vercel.app/api/login',
     {
       method: 'POST',
       body: { username, password },
     },
   )
+
+  const { token } = data
+  const DAY_IN_SECONDS = 86400
+
+  setCookie(null, 'APP_TOKEN', token, {
+    path: '/',
+    maxAge: DAY_IN_SECONDS * 7,
+  })
+}
+
+export function logout(): void {
+  destroyCookie(null, 'APP_TOKEN')
 }

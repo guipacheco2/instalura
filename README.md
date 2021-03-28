@@ -244,10 +244,14 @@ No arquivo de configuração (cypress.json), foi adicionado:
 
 #### Aula 02 - Custom hooks no React + Lógica Inicial do Login
 
+Adicionado conexão com o backend no form de login, armazenando o token em cookies com uso da lib nookies.
+
 ##### Links
 
 - https://formik.org/
 - https://react-hook-form.com/
+- https://developer.mozilla.org/en-US/docs/Web/HTTP/Cookies
+- https://github.com/maticzav/nookies
 
 ##### Citações
 
