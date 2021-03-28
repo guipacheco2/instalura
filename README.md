@@ -242,6 +242,18 @@ No arquivo de configuração (cypress.json), foi adicionado:
 
 - https://www.betterspecs.org/
 
+#### Aula 02 - Custom hooks no React + Lógica Inicial do Login
+
+##### Links
+
+- https://formik.org/
+- https://react-hook-form.com/
+
+##### Citações
+
+- Domain-driven Design (DDD): Infra
+- Hexagonal architecture
+
 ## Links mencionados na comunidade do bootcamp
 
 - https://flexboxfroggy.com/
