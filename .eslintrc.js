@@ -4,6 +4,7 @@ module.exports = {
     es2021: true,
     node: true,
     'cypress/globals': true,
+    'jest/globals': true,
   },
   extends: [
     'eslint:recommended',
@@ -28,7 +29,7 @@ module.exports = {
       version: 'detect',
     },
   },
-  plugins: ['react', 'react-hooks', '@typescript-eslint'],
+  plugins: ['jest', 'react', 'react-hooks', '@typescript-eslint'],
   rules: {
     'react/prop-types': 0,
   },

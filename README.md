@@ -266,6 +266,10 @@ Cria um **PageObject** para o LoginScreen.
 
 - https://martinfowler.com/bliki/PageObject.html
 
+#### Aula 04 - Conhecendo o Jest e os testes de unidade
+
+Adiciona `jest`, e alguns testes unitários.
+
 ## Links mencionados na comunidade do bootcamp
 
 - https://flexboxfroggy.com/
