@@ -1,8 +1,14 @@
-# Módulo 01: JAMStack e layout com React
+# Aprenda Front-end com o Bootcamp JAMStack da Alura
 
-Começaremos mergulhando na JAMStack, aprendendo a fundo manipulação e criação de componentes e estado que juntos formam a essência do ReactJS. O desafio já começa ao partirmos para a prática e usar esse conhecimento para criar as primeiras funcionalidades do Instalura. Como nossa missão é ir cada vez mais a fundo na tecnologia, não podemos deixar de falar sobre os conceitos que envolvem uma SPA, as diferenças entre Server Render e Client Render e também como funciona o Webpack que é responsável pelo sistema de build do ReactJS.
+Ola, Frontender!
 
-Além da parte lógica, vamos estudar bastante sobre estilização e responsividade, passando por media-query, CSS modules e Styled Components que é a biblioteca que iremos utilizar para dar vida a nossa aplicação. Por fim, faremos o build e deploy do projeto e teremos o Instalura rodando em produção e hospedado na Vercel para que qualquer pessoa consiga acessar. Pegue bastante fôlego porque o mergulho vai ser profundo!
+Boas vindas ao Bootcamp Front-end JAMStack da Alura! Vamos mergulhar fundo no oceano do front-end e da JAMStack desenvolvendo projetos reais com as melhores práticas do mercado, dividido em seis módulos.
+
+Você aprenderá ReactJS, NextJS, Styled-Components e tudo que gira ao redor da JAMStack, saberá como estruturar uma arquitetura front-end com, compreenderá o processo de deploy da aplicação utilizando a CDN da vercel juntamente com fluxos de integração contínua e deploy contínuo (CI/CD) do projeto.
+
+Nos aprofundaremos em gerenciamento de estado, navegação e rotas, estratégias de cache e SEO, testes de componentes, automatizados e de unidade, autenticação e toda a parte de build do NextJS. Sempre alinhando a base teórica com a aplicação prática dos conceitos, escalando assim seu conhecimento para trazer novas oportunidades, seja na empresa onde você trabalha, seja no seu próprio negócio ou em uma nova carreira. Puxe bastante fôlego que o mergulho vai ser profundo!
+
+Antes de qualquer mergulho precisamos colocar a roupa de banho, passar protetor solar e nos preparar para aproveitar ao máximo o mar. Por isso mesmo, antes de você cair de cabeça nas aulas do bootcamp, separamos essa série de conteúdos que irão te preparar para aproveitar ao máximo o que vem pela frente.
 
 ## Live Demo
 
