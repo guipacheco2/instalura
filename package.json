@@ -12,6 +12,7 @@
     "lint:check": "yarn lint:base",
     "lint:fix": "yarn lint:base --fix",
     "start": "next start",
+    "test:integration": "cypress run --headless",
     "test:integration:open": "cypress open",
     "test:linters": "yarn format:check && yarn lint:check"
   },
