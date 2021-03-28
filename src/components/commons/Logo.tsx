@@ -5,11 +5,28 @@ const StyledLogo = styled.svg`
   color: ${({ theme }) => theme.colors.tertiary.main.color};
 `
 
-export function Logo(): JSX.Element {
+const sizes = {
+  small: {
+    width: 96,
+    height: 24,
+  },
+  large: {
+    width: 186,
+    height: 46,
+  },
+}
+
+interface LogoProps {
+  size?: keyof typeof sizes
+}
+
+export function Logo({ size }: LogoProps): JSX.Element {
+  const { width, height } = sizes[size] || sizes.small
+
   return (
     <StyledLogo
-      width="96"
-      height="24"
+      width={width}
+      height={height}
       viewBox="0 0 131 32"
       fill="none"
       xmlns="http://www.w3.org/2000/svg"

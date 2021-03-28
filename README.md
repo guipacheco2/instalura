@@ -217,6 +217,31 @@ https://github.com/commitizen/cz-cli
 https://github.com/conventional-changelog/commitlint
 https://blog.appsignal.com/2020/04/09/ride-down-the-javascript-dependency-hell.html
 
+### Módulo 04: Testes com Cypress, Jest e React Testing Library
+
+Prosseguiremos adicionando novas funcionalidades no Instalura, agora com a página de Login entenderemos mais a fundo qual a responsabilidade do front=end em manter as informações seguras e aprenderemos como utilizar Tokens JWT para garantir acesso a recursos privados do servidor. Com o crescimento da complexidade do projeto, testes manuais causam lentidão e não evitam totalmente que falhas ocorram. Portanto, vamos aprender sobre testes automatizados para garantir a qualidade das funcionalidades usando o Cypress para testar a integração, React Testing Library para os componentes e Jest para o código JS mais simples.Também adicionaremos o mecanismo de testes ao padrão de qualidade do ESLint e a integração contínua do projeto.
+
+#### Aula 01 - A tela de login:
+
+Adicionado cypress: `yarn add -D cypress eslint-plugin-cypress`
+
+Adicionado script: `"test:integration:open": "cypress open"`
+
+Com a execução do `test:integration:open`, o cypress é iniciado pela primeira vez criando alguns arquivos com exemplos, e o arquivo de configuração vazio.
+
+No arquivo de configuração (cypress.json), foi adicionado:
+
+```json
+{
+  "baseUrl": "http://localhost:3000",
+  "video": false
+}
+```
+
+##### Links
+
+- https://www.betterspecs.org/
+
 ## Links mencionados na comunidade do bootcamp
 
 - https://flexboxfroggy.com/

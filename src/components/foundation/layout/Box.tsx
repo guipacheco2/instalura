@@ -4,6 +4,7 @@ import { propsToStyle, ResponsiveBreakpoints } from '../../../theme'
 export interface BoxProps {
   display?: ResponsiveBreakpoints<CSSProperties['display']>
   flexDirection?: ResponsiveBreakpoints<CSSProperties['flexDirection']>
+  alignItems?: ResponsiveBreakpoints<CSSProperties['alignItems']>
   justifyContent?: ResponsiveBreakpoints<CSSProperties['justifyContent']>
   flex?: ResponsiveBreakpoints<CSSProperties['flex']>
   flexWrap?: ResponsiveBreakpoints<CSSProperties['flexWrap']>
@@ -11,6 +12,8 @@ export interface BoxProps {
   backgroundRepeat?: ResponsiveBreakpoints<CSSProperties['backgroundRepeat']>
   boxShadow?: ResponsiveBreakpoints<CSSProperties['boxShadow']>
   padding?: ResponsiveBreakpoints<CSSProperties['padding']>
+  marginTop?: ResponsiveBreakpoints<CSSProperties['marginTop']>
+  marginBottom?: ResponsiveBreakpoints<CSSProperties['marginBottom']>
   listStyle?: ResponsiveBreakpoints<CSSProperties['listStyle']>
   backgroundPosition?: ResponsiveBreakpoints<
     CSSProperties['backgroundPosition']
@@ -30,6 +33,7 @@ export const Box = styled.div<BoxProps>(
     theme,
     display,
     flexDirection,
+    alignItems,
     justifyContent,
     flex,
     flexWrap,
@@ -40,6 +44,8 @@ export const Box = styled.div<BoxProps>(
     boxShadow,
     borderRadius,
     padding,
+    marginTop,
+    marginBottom,
     listStyle,
   }) => {
     const themeBackgroundColor = backgroundColor
@@ -56,6 +62,7 @@ export const Box = styled.div<BoxProps>(
       ${propsToStyle({
         display,
         flexDirection,
+        alignItems,
         justifyContent,
         flex,
         flexWrap,
@@ -64,6 +71,8 @@ export const Box = styled.div<BoxProps>(
         backgroundPosition,
         boxShadow,
         padding,
+        marginTop,
+        marginBottom,
         listStyle,
       })}
     `

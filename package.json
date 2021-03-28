@@ -12,6 +12,7 @@
     "lint:check": "yarn lint:base",
     "lint:fix": "yarn lint:base --fix",
     "start": "next start",
+    "test:integration:open": "cypress open",
     "test:linters": "yarn format:check && yarn lint:check"
   },
   "dependencies": {
@@ -36,9 +37,11 @@
     "@typescript-eslint/eslint-plugin": "^4.15.2",
     "@typescript-eslint/parser": "^4.15.2",
     "babel-plugin-styled-components": "^1.8.0",
+    "cypress": "^6.8.0",
     "cz-conventional-changelog": "^3.3.0",
     "eslint": "^7.21.0",
     "eslint-config-prettier": "^8.1.0",
+    "eslint-plugin-cypress": "^2.11.2",
     "eslint-plugin-import": "^2.22.1",
     "eslint-plugin-prettier": "^3.3.1",
     "eslint-plugin-react": "^7.22.0",
