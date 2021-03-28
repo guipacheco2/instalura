@@ -33,6 +33,9 @@
   "devDependencies": {
     "@commitlint/cli": "^12.0.1",
     "@commitlint/config-conventional": "^12.0.1",
+    "@testing-library/jest-dom": "^5.11.10",
+    "@testing-library/react": "^11.2.5",
+    "@testing-library/react-hooks": "^5.1.0",
     "@types/jest": "^26.0.22",
     "@types/lodash.get": "^4.4.6",
     "@types/node": "^14.14.31",
@@ -54,6 +57,8 @@
     "eslint-plugin-react-hooks": "^4.2.0",
     "husky": "^5.1.2",
     "jest": "^26.6.3",
+    "jest-canvas-mock": "^2.3.1",
+    "jest-styled-components": "^7.0.3",
     "lint-staged": "^10.5.4",
     "prettier": "^2.2.1",
     "typescript": "^4.2.2"
