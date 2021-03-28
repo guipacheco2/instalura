@@ -1,4 +1,5 @@
 import { destroyCookie, setCookie } from 'nookies'
+import { isStagingEnv } from '../infra'
 
 type HttpClientOptions = Omit<RequestInit, 'headers' | 'body'> & {
   headers?: RequestInit['headers']
@@ -41,17 +42,18 @@ interface LoginResponse {
   }
 }
 
+const BASE_URL = isStagingEnv
+  ? 'https://instalura-api-git-master-omariosouto.vercel.app'
+  : 'https://instalura-api-omariosouto.vercel.app'
+
 export async function login({
   username,
   password,
 }: LoginServiceOptions): Promise<void> {
-  const { data } = await HttpClient<LoginResponse>(
-    'https://instalura-api-omariosouto.vercel.app/api/login',
-    {
-      method: 'POST',
-      body: { username, password },
-    },
-  )
+  const { data } = await HttpClient<LoginResponse>(`${BASE_URL}/api/login`, {
+    method: 'POST',
+    body: { username, password },
+  })
 
   const { token } = data
   const DAY_IN_SECONDS = 86400

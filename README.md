@@ -258,6 +258,14 @@ Adicionado conexão com o backend no form de login, armazenando o token em cooki
 - Domain-driven Design (DDD): Infra
 - Hexagonal architecture
 
+#### Aula 03 - Page Objects e padronização nos testes de integração
+
+Cria um **PageObject** para o LoginScreen.
+
+##### Links
+
+- https://martinfowler.com/bliki/PageObject.html
+
 ## Links mencionados na comunidade do bootcamp
 
 - https://flexboxfroggy.com/
