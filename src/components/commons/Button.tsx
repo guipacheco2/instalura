@@ -14,6 +14,7 @@ interface StyledButtonProps {
   ghost?: boolean
   fullWidth?: boolean
   href?: string
+  onClick?: (event: React.MouseEvent<HTMLButtonElement>) => void
 }
 
 const ButtonGhost = css<ButtonProps>`
@@ -79,6 +80,7 @@ export function Button<C extends React.ElementType = 'button'>({
   margin,
   href,
   children,
+  onClick,
   ...props
 }: ButtonPropsGeneric<C>): JSX.Element {
   return (
@@ -89,6 +91,7 @@ export function Button<C extends React.ElementType = 'button'>({
       display={display}
       fullWidth={fullWidth}
       ghost={ghost}
+      onClick={onClick}
       margin={margin}
       {...props}
     >

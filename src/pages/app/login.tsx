@@ -1,10 +1,6 @@
 import { GetStaticProps } from 'next'
-import React from 'react'
+import { LoginScreen } from '../../components/screens'
 import { WebsitePageProps, withWebsitePage } from '../../components/wrappers'
-
-function LoginScreen(): JSX.Element {
-  return <div>Página de Login</div>
-}
 
 export default withWebsitePage(LoginScreen)
 

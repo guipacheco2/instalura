@@ -15,10 +15,11 @@ const StyledInput = styled(Text)`
 ` as React.ComponentType<TextPropsGeneric<'input'>>
 
 interface TextFieldProps {
-  placeholder: string
-  name: string
+  placeholder: HTMLInputElement['placeholder']
+  name: HTMLInputElement['name']
   onChange?: (event: React.ChangeEvent<HTMLInputElement>) => void
-  value: string
+  type?: HTMLInputElement['type']
+  value?: HTMLInputElement['value']
 }
 
 export function TextField({
@@ -26,14 +27,15 @@ export function TextField({
   name,
   onChange,
   value,
+  type = 'text',
 }: TextFieldProps): JSX.Element {
   return (
     <StyledTextField>
       <StyledInput
         as="input"
-        type="text"
         placeholder={placeholder}
         name={name}
+        type={type}
         onChange={onChange}
         value={value}
         variant="paragraph1"

@@ -6,10 +6,13 @@ export interface GridContainerProps {
   children: React.ReactNode
   marginTop?: ResponsiveBreakpoints<CSSProperties['marginTop']>
   marginBottom?: ResponsiveBreakpoints<CSSProperties['marginBottom']>
+  display?: ResponsiveBreakpoints<CSSProperties['display']>
+  flex?: ResponsiveBreakpoints<CSSProperties['flex']>
+  alignItems?: ResponsiveBreakpoints<CSSProperties['alignItems']>
 }
 
 export const GridContainer = styled.div<GridContainerProps>(
-  ({ marginTop, marginBottom }) => {
+  ({ marginTop, marginBottom, display, flex, alignItems }) => {
     return css`
       width: 100%;
       padding-right: 28px;
@@ -41,6 +44,9 @@ export const GridContainer = styled.div<GridContainerProps>(
       ${propsToStyle({
         marginTop,
         marginBottom,
+        display,
+        flex,
+        alignItems,
       })}
     `
   },
