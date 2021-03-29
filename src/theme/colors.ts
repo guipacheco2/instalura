@@ -45,6 +45,18 @@ export const light = {
       contrastText: '#fff',
     },
   },
+  error: {
+    main: {
+      color: '#dc3545',
+      contrastText: '#fff',
+    },
+  },
+  success: {
+    main: {
+      color: '#28a745',
+      contrastText: '#fff',
+    },
+  },
 }
 
 export const dark = {
@@ -92,6 +104,18 @@ export const dark = {
     main: {
       color: '#fff',
       contrastText: '#070C0E',
+    },
+  },
+  error: {
+    main: {
+      color: '#dc3545',
+      contrastText: '#fff',
+    },
+  },
+  success: {
+    main: {
+      color: '#28a745',
+      contrastText: '#fff',
     },
   },
 }

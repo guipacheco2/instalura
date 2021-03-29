@@ -279,6 +279,15 @@ Cria um customRender para lidar com os providers, e adiciona um teste com snapsh
 - https://testing-library.com/docs/react-testing-library/intro
 - https://testing-library.com/docs/react-testing-library/setup
 
+#### Aula 06 - Validação Fluente + Testes do TextField
+
+Adiciona validação no form de login com yup.
+
+##### Links
+
+- https://github.com/jquense/yup
+- https://www.casadocodigo.com.br/products/livro-oo-solid
+
 ## Links mencionados na comunidade do bootcamp
 
 - https://flexboxfroggy.com/
