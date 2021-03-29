@@ -17,18 +17,27 @@ const StyledInput = styled(Text)`
 interface TextFieldProps {
   placeholder: HTMLInputElement['placeholder']
   name: HTMLInputElement['name']
+  onBlur?: (event: React.FocusEvent<HTMLInputElement>) => void
   onChange?: (event: React.ChangeEvent<HTMLInputElement>) => void
   type?: HTMLInputElement['type']
   value?: HTMLInputElement['value']
+  error?: string
+  isTouched?: boolean
 }
 
 export function TextField({
   placeholder,
   name,
+  onBlur,
   onChange,
   value,
   type = 'text',
+  error = '',
+  isTouched = false,
 }: TextFieldProps): JSX.Element {
+  const hasError = Boolean(error)
+  const isFieldInvalid = hasError && isTouched
+
   return (
     <StyledTextField>
       <StyledInput
@@ -36,10 +45,17 @@ export function TextField({
         placeholder={placeholder}
         name={name}
         type={type}
+        onBlur={onBlur}
         onChange={onChange}
         value={value}
         variant="paragraph1"
       />
+
+      {isFieldInvalid && (
+        <Text variant="smallestException" color="error.main" role="alert">
+          {error}
+        </Text>
+      )}
     </StyledTextField>
   )
 }

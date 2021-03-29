@@ -27,7 +27,7 @@ type variants = keyof typeof TextStyleVariants
 
 export interface StyledTextProps {
   variant: variants | { xs: variants; md: variants }
-  color?: 'primary.main' | 'tertiary.main' | 'tertiary.light'
+  color?: 'primary.main' | 'tertiary.main' | 'tertiary.light' | 'error.main'
   textAlign?: ResponsiveBreakpoints<CSSProperties['textAlign']>
   marginBottom?: ResponsiveBreakpoints<CSSProperties['marginBottom']>
   dangerouslySetInnerHTML?: React.DOMAttributes<HTMLDivElement>['dangerouslySetInnerHTML']
