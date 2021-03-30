@@ -38,6 +38,6 @@ exports[`<TextField /> when field is invalid displays the respective error messa
   name="email"
   placeholder="Email"
   type="text"
-  value="devsoutinhogmail.com"
+  value="someusername"
 />
 `;
