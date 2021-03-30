@@ -11,9 +11,7 @@ describe('<TextField />', () => {
       <TextField
         placeholder="Nome"
         value="Ju"
-        onChange={() => {
-          console.log('input changed')
-        }}
+        onChange={() => false}
         name="nome"
       />,
     )
@@ -26,6 +24,7 @@ describe('<TextField />', () => {
     describe('and user is typing', () => {
       test('the value must be updated', () => {
         const onChangeMock = jest.fn()
+
         render(
           <TextField
             placeholder="Nome"
@@ -37,18 +36,21 @@ describe('<TextField />', () => {
         )
 
         const inputNome = screen.getByPlaceholderText(/nome/i)
-        user.type(inputNome, 'devsoutinho@gmail.com')
-        expect(onChangeMock).toHaveBeenCalledTimes(21)
+        const typedName = 'someusername'
+        user.type(inputNome, typedName)
+        expect(onChangeMock).toHaveBeenCalledTimes(typedName.length)
       })
     })
   })
 
   describe('when field is invalid', () => {
     test('displays the respective error message', () => {
+      const typedName = 'someusername'
+
       render(
         <TextField
           placeholder="Email"
-          value="devsoutinhogmail.com"
+          value={typedName}
           onChange={() => false}
           name="email"
           isTouched
@@ -57,7 +59,7 @@ describe('<TextField />', () => {
       )
 
       const inputEmail = screen.getByPlaceholderText(/email/i)
-      expect(inputEmail).toHaveValue('devsoutinhogmail.com')
+      expect(inputEmail).toHaveValue(typedName)
       expect(screen.getByRole('alert')).toHaveTextContent(
         'O campo email é obrigatório',
       )
