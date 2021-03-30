@@ -1,5 +1,5 @@
 import React from 'react'
-import styled from 'styled-components'
+import styled, { css } from 'styled-components'
 import { Text, TextPropsGeneric } from '../foundation'
 
 const StyledTextField = styled.div`
@@ -12,7 +12,19 @@ const StyledInput = styled(Text)`
   padding: 12px 16px;
   outline: 0;
   border-radius: ${({ theme }) => theme.borderRadius};
-` as React.ComponentType<TextPropsGeneric<'input'>>
+
+  ${({ theme, isFieldInvalid }) =>
+    isFieldInvalid &&
+    css`
+      border-color: ${theme.colors.error.main.color};
+      & + span {
+        color: ${theme.colors.error.main.color};
+        font-size: 11px;
+      }
+    `}
+` as React.ComponentType<
+  TextPropsGeneric<'input'> & { isFieldInvalid: boolean }
+>
 
 interface TextFieldProps {
   placeholder: HTMLInputElement['placeholder']
@@ -49,6 +61,7 @@ export function TextField({
         onChange={onChange}
         value={value}
         variant="paragraph1"
+        isFieldInvalid={isFieldInvalid}
       />
 
       {isFieldInvalid && (

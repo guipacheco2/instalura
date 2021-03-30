@@ -1,10 +1,19 @@
 import { useRouter } from 'next/router'
-import React, { useCallback } from 'react'
+import React, { useCallback, useEffect, useState } from 'react'
 import * as yup from 'yup'
 import { useForm } from '../../infra'
 import { login } from '../../services'
+import { ErrorAnimation } from '../animations'
 import { Button } from '../commons'
 import { TextField } from '../forms'
+import { Box } from '../foundation'
+
+enum FormStates {
+  DEFAULT,
+  LOADING,
+  DONE,
+  ERROR,
+}
 
 const loginSchema = yup.object().shape({
   usuario: yup
@@ -17,7 +26,11 @@ const loginSchema = yup.object().shape({
     .min(8, 'Sua senha precisa ter ao menos 8 caracteres'),
 })
 
-export function LoginForm(): JSX.Element {
+interface LoginFormProps {
+  onSubmit?: (values: Record<string, string>) => void
+}
+
+export function LoginForm({ onSubmit }: LoginFormProps): JSX.Element {
   const router = useRouter()
 
   const initialValues = {
@@ -25,15 +38,30 @@ export function LoginForm(): JSX.Element {
     senha: '',
   }
 
+  const [submissionStatus, setSubmissionStatus] = useState<FormStates>(
+    FormStates.DEFAULT,
+  )
+
   const form = useForm({
     initialValues,
     onSubmit: (values) => {
+      if (onSubmit) {
+        onSubmit(values)
+        return
+      }
+
+      setSubmissionStatus(FormStates.LOADING)
+
       login({
         username: values.usuario,
         password: values.senha,
-      }).then(() => {
-        router.push('/app/profile')
       })
+        .then(() => {
+          setSubmissionStatus(FormStates.DONE)
+        })
+        .catch(() => {
+          setSubmissionStatus(FormStates.ERROR)
+        })
     },
     validateSchema: useCallback(async function validateSchema(values) {
       return loginSchema.validate(values, {
@@ -41,6 +69,17 @@ export function LoginForm(): JSX.Element {
       })
     }, []),
   })
+
+  useEffect(() => {
+    if (submissionStatus === FormStates.DONE) {
+      router.push('/app/profile')
+    }
+  }, [router, submissionStatus])
+
+  const isFormDisabled =
+    !form.isValid ||
+    submissionStatus === FormStates.LOADING ||
+    submissionStatus === FormStates.DONE
 
   return (
     <form id="formCadastro" onSubmit={form.handleSubmit}>
@@ -71,10 +110,14 @@ export function LoginForm(): JSX.Element {
           md: 'initial',
         }}
         fullWidth
-        disabled={form.isFormDisabled}
+        disabled={isFormDisabled}
       >
         Entrar
       </Button>
+
+      <Box display="flex" justifyContent="center">
+        {submissionStatus === FormStates.ERROR && <ErrorAnimation />}
+      </Box>
     </form>
   )
 }
