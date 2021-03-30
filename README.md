@@ -288,6 +288,13 @@ Adiciona validação no form de login com yup.
 - https://github.com/jquense/yup
 - https://www.casadocodigo.com.br/products/livro-oo-solid
 
+#### Aula 07 - Finalizando o Form + Testes do Form
+
+##### Links
+
+- https://kentcdodds.com/blog/common-mistakes-with-react-testing-library/
+- https://kentcdodds.com/blog/fix-the-not-wrapped-in-act-warning
+
 ## Links mencionados na comunidade do bootcamp
 
 - https://flexboxfroggy.com/

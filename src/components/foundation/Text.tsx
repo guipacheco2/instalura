@@ -31,6 +31,7 @@ export interface StyledTextProps {
   textAlign?: ResponsiveBreakpoints<CSSProperties['textAlign']>
   marginBottom?: ResponsiveBreakpoints<CSSProperties['marginBottom']>
   dangerouslySetInnerHTML?: React.DOMAttributes<HTMLDivElement>['dangerouslySetInnerHTML']
+  role?: string
 }
 
 const StyledText = styled.span<StyledTextProps>(
@@ -67,6 +68,7 @@ export function Text<C extends React.ElementType = 'span'>({
   textAlign,
   marginBottom,
   className,
+  role,
   dangerouslySetInnerHTML,
   children,
 }: TextPropsGeneric<C>): JSX.Element {
@@ -77,6 +79,7 @@ export function Text<C extends React.ElementType = 'span'>({
       variant={variant}
       color={color}
       textAlign={textAlign}
+      role={role}
       marginBottom={marginBottom}
       dangerouslySetInnerHTML={dangerouslySetInnerHTML}
     >

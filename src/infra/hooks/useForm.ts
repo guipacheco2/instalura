@@ -11,7 +11,7 @@ interface UseFormReturn {
   handleChange: (event: React.ChangeEvent<HTMLInputElement>) => void
   handleSubmit: (event: React.FormEvent<HTMLFormElement>) => void
   touchedFields: Record<string, true>
-  isFormDisabled: boolean
+  isValid: boolean
   errors: Record<string, string>
   values: Record<string, string>
 }
@@ -50,11 +50,17 @@ export function useForm({
   }
 
   useEffect(() => {
+    let isStale = false
+
     validateSchema(values)
       .then(() => {
+        if (isStale) return
+
         setErrors({})
       })
       .catch((error: { inner: { path: string; message: string }[] }) => {
+        if (isStale) return
+
         const formattedErrors = error.inner.reduce<Record<string, string>>(
           (acc, currentError) => {
             const fieldName = currentError.path
@@ -69,17 +75,21 @@ export function useForm({
 
         setErrors(formattedErrors)
       })
+
+    return () => {
+      isStale = true
+    }
   }, [validateSchema, values])
 
-  const isFormDisabled =
-    Object.keys(touchedFields).length === 0 || Object.keys(errors).length > 0
+  const isValid =
+    Object.keys(touchedFields).length > 0 && Object.keys(errors).length === 0
 
   return {
     handleBlur,
     handleChange,
     handleSubmit,
     errors,
-    isFormDisabled,
+    isValid,
     touchedFields,
     values,
   }
