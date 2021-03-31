@@ -299,6 +299,10 @@ Adiciona validação no form de login com yup.
 
 - Adiciona teste nos serviços e hooks, com injeção de dependências
 
+#### Aula 09 - Integrando nossos testes no CI com Cache
+
+- Executa yarn test e yarn test:integration:build no CI
+
 ## Links mencionados na comunidade do bootcamp
 
 - https://flexboxfroggy.com/

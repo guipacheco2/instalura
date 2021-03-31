@@ -3,6 +3,7 @@
   "version": "1.0.0",
   "scripts": {
     "build": "next build",
+    "build-n-start": "yarn build && yarn start",
     "commit": "cz",
     "dev": "next",
     "format:base": "prettier --ignore-path .gitignore --loglevel warn \"**/*.{js,jsx,ts,tsx,css,md,json}\"",
@@ -14,6 +15,7 @@
     "start": "next start",
     "test": "jest",
     "test:integration": "cypress run --headless",
+    "test:integration:build": "start-server-and-test build-n-start http-get://localhost:3000 test:integration",
     "test:integration:open": "cypress open",
     "test:linters": "yarn format:check && yarn lint:check",
     "test:watch": "jest --watch"
@@ -63,6 +65,7 @@
     "jest-styled-components": "^7.0.3",
     "lint-staged": "^10.5.4",
     "prettier": "^2.2.1",
+    "start-server-and-test": "^1.12.1",
     "typescript": "^4.2.2"
   },
   "husky": {
