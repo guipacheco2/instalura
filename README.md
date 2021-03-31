@@ -295,6 +295,10 @@ Adiciona validação no form de login com yup.
 - https://kentcdodds.com/blog/common-mistakes-with-react-testing-library/
 - https://kentcdodds.com/blog/fix-the-not-wrapped-in-act-warning
 
+#### Aula 08 - Testando Hooks e Services
+
+- Adiciona teste nos serviços e hooks, com injeção de dependências
+
 ## Links mencionados na comunidade do bootcamp
 
 - https://flexboxfroggy.com/
