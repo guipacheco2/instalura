@@ -6,7 +6,7 @@ type HttpClientOptions = Omit<RequestInit, 'headers' | 'body'> & {
   body: Record<string, unknown>
 }
 
-async function HttpClient<ResponseData = unknown>(
+async function httpClient<ResponseData = unknown>(
   url: string,
   { headers, body, ...options }: HttpClientOptions,
 ): Promise<ResponseData> {
@@ -46,24 +46,40 @@ const BASE_URL = isStagingEnv
   ? 'https://instalura-api-git-master-omariosouto.vercel.app'
   : 'https://instalura-api-omariosouto.vercel.app'
 
-export async function login({
-  username,
-  password,
-}: LoginServiceOptions): Promise<void> {
-  const { data } = await HttpClient<LoginResponse>(`${BASE_URL}/api/login`, {
-    method: 'POST',
-    body: { username, password },
-  })
+export interface LoginContext {
+  httpClientModule?: typeof httpClient
+  setCookieModule?: typeof setCookie
+}
 
-  const { token } = data
+export async function login(
+  { username, password }: LoginServiceOptions,
+  ctx: LoginContext = {},
+): Promise<void> {
+  const { httpClientModule = httpClient, setCookieModule = setCookie } = ctx
+
+  const loginResponse = await httpClientModule<LoginResponse>(
+    `${BASE_URL}/api/login`,
+    {
+      method: 'POST',
+      body: { username, password },
+    },
+  )
+
+  const { token } = loginResponse.data
   const DAY_IN_SECONDS = 86400
 
-  setCookie(null, 'APP_TOKEN', token, {
+  setCookieModule(null, 'APP_TOKEN', token, {
     path: '/',
     maxAge: DAY_IN_SECONDS * 7,
   })
 }
 
-export function logout(): void {
-  destroyCookie(null, 'APP_TOKEN')
+export interface LogoutContext {
+  destroyCookieModule?: typeof destroyCookie
+}
+
+export async function logout(ctx: LogoutContext = {}): Promise<void> {
+  const { destroyCookieModule = destroyCookie } = ctx
+
+  destroyCookieModule(null, 'APP_TOKEN')
 }
