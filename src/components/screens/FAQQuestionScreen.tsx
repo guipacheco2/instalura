@@ -13,16 +13,16 @@ export function FAQQuestionScreen({
   question,
 }: FAQQuestionScreenProps): JSX.Element {
   return (
-    <GridContainer marginTop={{ xs: 32, md: 80 }}>
+    <GridContainer marginTop={{ md: 80, xs: 32 }}>
       <GridRow
         flexDirection={{
-          xs: 'column-reverse',
           md: 'row',
+          xs: 'column-reverse',
         }}
       >
         <GridCol
-          offset={{ sm: 0, lg: 1 }}
-          size={{ xs: 12, md: 4, lg: 4 }}
+          offset={{ lg: 1, sm: 0 }}
+          size={{ lg: 4, md: 4, xs: 12 }}
           flexDirection="column"
         >
           <Text variant="title" color="tertiary.main" marginBottom="25px">
@@ -57,7 +57,7 @@ export function FAQQuestionScreen({
 
         <GridCol
           size={{ lg: 6 }}
-          marginBottom={{ xs: 50, md: 0 }}
+          marginBottom={{ md: 0, xs: 50 }}
           flexDirection="column"
         >
           <Text variant="title" color="tertiary.main">

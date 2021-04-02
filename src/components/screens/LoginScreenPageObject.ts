@@ -2,8 +2,8 @@
 
 interface LoginScreenPageObjectReturn {
   fillLoginForm: (params: {
-    user: string
     password: string
+    user: string
   }) => LoginScreenPageObjectReturn
   submitLoginForm: () => LoginScreenPageObjectReturn
 }
@@ -14,7 +14,7 @@ export function LoginScreenPageObject(
   cy.visit('/app/login')
 
   const loginScreenPageObject: LoginScreenPageObjectReturn = {
-    fillLoginForm({ user, password }) {
+    fillLoginForm({ password, user }) {
       cy.get('#formCadastro input[name="usuario"]').type(user)
       cy.get('#formCadastro input[name="senha"]').type(password)
 

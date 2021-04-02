@@ -3,15 +3,15 @@ import { Link } from '../commons'
 import { Box, GridCol, GridContainer, GridRow, Text } from '../foundation'
 
 export interface Question {
-  title: string
-  slug: string
   description: string
+  slug: string
+  title: string
 }
 
 export interface Category {
-  title: string
-  slug: string
   questions: Question[]
+  slug: string
+  title: string
 }
 
 export interface FAQScreenProps {
@@ -21,8 +21,8 @@ export interface FAQScreenProps {
 export function FAQScreen({ faqCategories }: FAQScreenProps): JSX.Element {
   return (
     <GridContainer
-      marginTop={{ xs: 32, md: 110 }}
-      marginBottom={{ xs: 32, md: 100 }}
+      marginTop={{ md: 110, xs: 32 }}
+      marginBottom={{ md: 100, xs: 32 }}
     >
       <GridRow>
         <GridCol
@@ -39,7 +39,7 @@ export function FAQScreen({ faqCategories }: FAQScreenProps): JSX.Element {
       <GridRow>
         {faqCategories &&
           faqCategories.map((category) => (
-            <GridCol size={{ xs: 12, md: 6, lg: 3 }} key={category.title}>
+            <GridCol size={{ lg: 3, md: 6, xs: 12 }} key={category.title}>
               <Box>
                 <Text
                   variant="title"

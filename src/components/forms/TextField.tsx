@@ -13,7 +13,7 @@ const StyledInput = styled(Text)`
   outline: 0;
   border-radius: ${({ theme }) => theme.borderRadius};
 
-  ${({ theme, isFieldInvalid }) =>
+  ${({ isFieldInvalid, theme }) =>
     isFieldInvalid &&
     css`
       border-color: ${theme.colors.error.main.color};
@@ -27,25 +27,25 @@ const StyledInput = styled(Text)`
 >
 
 interface TextFieldProps {
-  placeholder: HTMLInputElement['placeholder']
+  error?: string
+  isTouched?: boolean
   name: HTMLInputElement['name']
   onBlur?: (event: React.FocusEvent<HTMLInputElement>) => void
   onChange?: (event: React.ChangeEvent<HTMLInputElement>) => void
+  placeholder: HTMLInputElement['placeholder']
   type?: HTMLInputElement['type']
   value?: HTMLInputElement['value']
-  error?: string
-  isTouched?: boolean
 }
 
 export function TextField({
-  placeholder,
+  error = '',
+  isTouched = false,
   name,
   onBlur,
   onChange,
-  value,
+  placeholder,
   type = 'text',
-  error = '',
-  isTouched = false,
+  value,
 }: TextFieldProps): JSX.Element {
   const hasError = Boolean(error)
   const isFieldInvalid = hasError && isTouched

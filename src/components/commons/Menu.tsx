@@ -13,9 +13,9 @@ import {
 } from './MenuWrapper'
 
 const links = [
-  { url: '/', name: 'Home' },
-  { url: '/faq', name: 'Perguntas Frequentes' },
-  { url: '/sobre', name: 'Sobre' },
+  { name: 'Home', url: '/' },
+  { name: 'Perguntas Frequentes', url: '/faq' },
+  { name: 'Sobre', url: '/sobre' },
 ]
 
 interface MenuProps {
@@ -39,7 +39,7 @@ export function Menu({ onClickSignOn }: MenuProps): JSX.Element {
         {links.map((link) => (
           <li key={link.url}>
             <Link href={link.url}>
-              <Text variant={{ xs: 'smallestException', md: 'paragraph1' }}>
+              <Text variant={{ md: 'paragraph1', xs: 'smallestException' }}>
                 {link.name}
               </Text>
             </Link>
@@ -60,12 +60,12 @@ export function Menu({ onClickSignOn }: MenuProps): JSX.Element {
           )}
         </Button>
         <Button as={Link} variant="secondary.main" ghost href="/app/login">
-          <Text variant={{ xs: 'smallestException', md: 'paragraph1' }}>
+          <Text variant={{ md: 'paragraph1', xs: 'smallestException' }}>
             Entrar
           </Text>
         </Button>
         <Button type="button" variant="primary.main" onClick={onClickSignOn}>
-          <Text variant={{ xs: 'smallestException', md: 'paragraph1' }}>
+          <Text variant={{ md: 'paragraph1', xs: 'smallestException' }}>
             Cadastrar
           </Text>
         </Button>

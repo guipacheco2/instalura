@@ -2,20 +2,20 @@ import { destroyCookie, setCookie } from 'nookies'
 import { isStagingEnv } from '../infra'
 
 type HttpClientOptions = Omit<RequestInit, 'headers' | 'body'> & {
-  headers?: RequestInit['headers']
   body: Record<string, unknown>
+  headers?: RequestInit['headers']
 }
 
 async function httpClient<ResponseData = unknown>(
   url: string,
-  { headers, body, ...options }: HttpClientOptions,
+  { body, headers, ...options }: HttpClientOptions,
 ): Promise<ResponseData> {
   return fetch(url, {
+    body: JSON.stringify(body),
     headers: {
       ...headers,
       'Content-Type': 'application/json',
     },
-    body: JSON.stringify(body),
     ...options,
   }).then((response) => {
     if (response.ok) {
@@ -27,8 +27,8 @@ async function httpClient<ResponseData = unknown>(
 }
 
 interface LoginServiceOptions {
-  username: string
   password: string
+  username: string
 }
 
 interface LoginResponse {
@@ -36,8 +36,8 @@ interface LoginResponse {
     token: string
     user: {
       id: string
-      username: string
       name: string
+      username: string
     }
   }
 }
@@ -52,7 +52,7 @@ export interface LoginContext {
 }
 
 export async function login(
-  { username, password }: LoginServiceOptions,
+  { password, username }: LoginServiceOptions,
   ctx: LoginContext = {},
 ): Promise<void> {
   const { httpClientModule = httpClient, setCookieModule = setCookie } = ctx
@@ -60,8 +60,8 @@ export async function login(
   const loginResponse = await httpClientModule<LoginResponse>(
     `${BASE_URL}/api/login`,
     {
+      body: { password, username },
       method: 'POST',
-      body: { username, password },
     },
   )
 
@@ -69,8 +69,8 @@ export async function login(
   const DAY_IN_SECONDS = 86400
 
   setCookieModule(null, 'APP_TOKEN', token, {
-    path: '/',
     maxAge: DAY_IN_SECONDS * 7,
+    path: '/',
   })
 }
 

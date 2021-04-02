@@ -2,51 +2,51 @@ import styled, { css, CSSProperties } from 'styled-components'
 import { propsToStyle, ResponsiveBreakpoints } from '../../../theme'
 
 export interface BoxProps {
-  display?: ResponsiveBreakpoints<CSSProperties['display']>
-  flexDirection?: ResponsiveBreakpoints<CSSProperties['flexDirection']>
   alignItems?: ResponsiveBreakpoints<CSSProperties['alignItems']>
-  justifyContent?: ResponsiveBreakpoints<CSSProperties['justifyContent']>
-  flex?: ResponsiveBreakpoints<CSSProperties['flex']>
-  flexWrap?: ResponsiveBreakpoints<CSSProperties['flexWrap']>
-  backgroundImage?: ResponsiveBreakpoints<CSSProperties['backgroundImage']>
-  backgroundRepeat?: ResponsiveBreakpoints<CSSProperties['backgroundRepeat']>
-  boxShadow?: ResponsiveBreakpoints<CSSProperties['boxShadow']>
-  padding?: ResponsiveBreakpoints<CSSProperties['padding']>
-  marginTop?: ResponsiveBreakpoints<CSSProperties['marginTop']>
-  marginBottom?: ResponsiveBreakpoints<CSSProperties['marginBottom']>
-  listStyle?: ResponsiveBreakpoints<CSSProperties['listStyle']>
-  backgroundPosition?: ResponsiveBreakpoints<
-    CSSProperties['backgroundPosition']
-  >
   backgroundColor?:
     | 'background'
     | 'borders'
     | 'primary'
     | 'secondary'
     | 'tertiary'
+  backgroundImage?: ResponsiveBreakpoints<CSSProperties['backgroundImage']>
+  backgroundPosition?: ResponsiveBreakpoints<
+    CSSProperties['backgroundPosition']
+  >
+  backgroundRepeat?: ResponsiveBreakpoints<CSSProperties['backgroundRepeat']>
   borderRadius?: boolean
+  boxShadow?: ResponsiveBreakpoints<CSSProperties['boxShadow']>
   children: React.ReactNode
+  display?: ResponsiveBreakpoints<CSSProperties['display']>
+  flex?: ResponsiveBreakpoints<CSSProperties['flex']>
+  flexDirection?: ResponsiveBreakpoints<CSSProperties['flexDirection']>
+  flexWrap?: ResponsiveBreakpoints<CSSProperties['flexWrap']>
+  justifyContent?: ResponsiveBreakpoints<CSSProperties['justifyContent']>
+  listStyle?: ResponsiveBreakpoints<CSSProperties['listStyle']>
+  marginBottom?: ResponsiveBreakpoints<CSSProperties['marginBottom']>
+  marginTop?: ResponsiveBreakpoints<CSSProperties['marginTop']>
+  padding?: ResponsiveBreakpoints<CSSProperties['padding']>
 }
 
 export const Box = styled.div<BoxProps>(
   ({
-    theme,
-    display,
-    flexDirection,
     alignItems,
-    justifyContent,
-    flex,
-    flexWrap,
     backgroundColor,
     backgroundImage,
-    backgroundRepeat,
     backgroundPosition,
-    boxShadow,
+    backgroundRepeat,
     borderRadius,
-    padding,
-    marginTop,
-    marginBottom,
+    boxShadow,
+    display,
+    flex,
+    flexDirection,
+    flexWrap,
+    justifyContent,
     listStyle,
+    marginBottom,
+    marginTop,
+    padding,
+    theme,
   }) => {
     const themeBackgroundColor = backgroundColor
       ? theme.schema === 'light'
@@ -60,20 +60,20 @@ export const Box = styled.div<BoxProps>(
       background-color: ${themeBackgroundColor};
       border-radius: ${themeBorderRadius};
       ${propsToStyle({
-        display,
-        flexDirection,
         alignItems,
-        justifyContent,
-        flex,
-        flexWrap,
         backgroundImage,
-        backgroundRepeat,
         backgroundPosition,
+        backgroundRepeat,
         boxShadow,
-        padding,
-        marginTop,
-        marginBottom,
+        display,
+        flex,
+        flexDirection,
+        flexWrap,
+        justifyContent,
         listStyle,
+        marginBottom,
+        marginTop,
+        padding,
       })}
     `
   },

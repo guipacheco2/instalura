@@ -19,10 +19,10 @@ export default withWebsitePage(ProfileScreen)
 export const getStaticProps: GetStaticProps<WebsitePageProps> = async () => {
   return {
     props: {
+      disableMenu: true,
       seoProps: {
         headTitle: 'Profile',
       },
-      disableMenu: true,
     },
   }
 }

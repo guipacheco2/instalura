@@ -13,8 +13,8 @@ const StyledLink = styled.a`
 `
 
 interface LinkProps {
-  href: string
   children: React.ReactNode
+  href: string
 }
 
 export function Link({ children, href, ...props }: LinkProps): JSX.Element {

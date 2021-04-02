@@ -6,13 +6,13 @@ const StyledLogo = styled.svg`
 `
 
 const sizes = {
-  small: {
-    width: 96,
-    height: 24,
-  },
   large: {
-    width: 186,
     height: 46,
+    width: 186,
+  },
+  small: {
+    height: 24,
+    width: 96,
   },
 }
 
@@ -21,7 +21,7 @@ interface LogoProps {
 }
 
 export function Logo({ size }: LogoProps): JSX.Element {
-  const { width, height } = sizes[size] || sizes.small
+  const { height, width } = sizes[size] || sizes.small
 
   return (
     <StyledLogo

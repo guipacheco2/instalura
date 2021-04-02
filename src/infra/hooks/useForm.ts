@@ -7,12 +7,12 @@ interface UseFormOptions {
 }
 
 interface UseFormReturn {
+  errors: Record<string, string>
   handleBlur: (event: React.FocusEvent<HTMLInputElement>) => void
   handleChange: (event: React.ChangeEvent<HTMLInputElement>) => void
   handleSubmit: (event: React.FormEvent<HTMLFormElement>) => void
-  touchedFields: Record<string, true>
   isValid: boolean
-  errors: Record<string, string>
+  touchedFields: Record<string, true>
   values: Record<string, string>
 }
 
@@ -58,7 +58,7 @@ export function useForm({
 
         setErrors({})
       })
-      .catch((error: { inner: { path: string; message: string }[] }) => {
+      .catch((error: { inner: { message: string; path: string }[] }) => {
         if (isStale) return
 
         const formattedErrors = error.inner.reduce<Record<string, string>>(
@@ -85,10 +85,10 @@ export function useForm({
     Object.keys(touchedFields).length > 0 && Object.keys(errors).length === 0
 
   return {
+    errors,
     handleBlur,
     handleChange,
     handleSubmit,
-    errors,
     isValid,
     touchedFields,
     values,

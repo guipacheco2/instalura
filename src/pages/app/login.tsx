@@ -7,10 +7,10 @@ export default withWebsitePage(LoginScreen)
 export const getStaticProps: GetStaticProps<WebsitePageProps> = async () => {
   return {
     props: {
+      disableMenu: true,
       seoProps: {
         headTitle: 'Login',
       },
-      disableMenu: true,
     },
   }
 }

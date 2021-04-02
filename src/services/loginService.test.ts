@@ -10,14 +10,14 @@ describe('loginService', () => {
           }
 
           const ctx: LoginContext = {
-            setCookieModule: jest.fn(),
             async httpClientModule<ResponseData = unknown>() {
               return (loginResponse as unknown) as ResponseData
             },
+            setCookieModule: jest.fn(),
           }
 
           await login(
-            { username: 'someusername', password: 'somepassword' },
+            { password: 'somepassword', username: 'someusername' },
             ctx,
           )
 
@@ -25,7 +25,7 @@ describe('loginService', () => {
             null,
             'APP_TOKEN',
             loginResponse.data.token,
-            { path: '/', maxAge: 604800 },
+            { maxAge: 604800, path: '/' },
           )
         })
       })
@@ -33,14 +33,14 @@ describe('loginService', () => {
       describe('and it fails', () => {
         test('throws an error', async () => {
           const ctx = {
-            setCookieModule: jest.fn(),
             async httpClientModule() {
               throw new Error('Failed to login')
             },
+            setCookieModule: jest.fn(),
           }
 
           await expect(
-            login({ username: 'someusername', password: 'somepassword' }, ctx),
+            login({ password: 'somepassword', username: 'someusername' }, ctx),
           ).rejects.toThrow('Failed to login')
         })
       })

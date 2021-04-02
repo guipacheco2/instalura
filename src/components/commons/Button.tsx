@@ -8,13 +8,13 @@ import {
 } from '../../theme'
 
 interface StyledButtonProps {
-  variant?: 'primary.main' | 'secondary.main'
-  margin?: ResponsiveBreakpoints<CSSProperties['margin']>
   display?: ResponsiveBreakpoints<CSSProperties['display']>
-  ghost?: boolean
   fullWidth?: boolean
+  ghost?: boolean
   href?: string
+  margin?: ResponsiveBreakpoints<CSSProperties['margin']>
   onClick?: (event: React.MouseEvent<HTMLButtonElement>) => void
+  variant?: 'primary.main' | 'secondary.main'
 }
 
 const ButtonGhost = css<ButtonProps>`
@@ -31,7 +31,7 @@ const ButtonDefault = css<ButtonProps>`
 `
 
 const StyledButton = styled.button<ButtonProps>(
-  ({ theme, margin, display, ghost, fullWidth }) => {
+  ({ display, fullWidth, ghost, margin, theme }) => {
     return css`
       border: 0;
       cursor: pointer;
@@ -39,8 +39,8 @@ const StyledButton = styled.button<ButtonProps>(
       opacity: 1;
       transition: opacity ${theme.transition};
       ${breakpointsMedia({
-        xs: css({ padding: '12px 26px' }),
         md: css({ padding: '12px 43px' }),
+        xs: css({ padding: '12px 26px' }),
       })}
       border-radius: ${theme.borderRadius};
       outline: initial;
@@ -54,7 +54,7 @@ const StyledButton = styled.button<ButtonProps>(
             width: 100%;
           `
         : ''};
-      ${propsToStyle({ margin, display })}
+      ${propsToStyle({ display, margin })}
       &:hover, &:focus {
         opacity: 0.5;
       }
@@ -73,14 +73,14 @@ export type ButtonPropsGeneric<C extends React.ElementType> = ButtonProps<C> &
 
 export function Button<C extends React.ElementType = 'button'>({
   as,
-  variant,
+  children,
   display,
   fullWidth,
   ghost,
-  margin,
   href,
-  children,
+  margin,
   onClick,
+  variant,
   ...props
 }: ButtonPropsGeneric<C>): JSX.Element {
   return (

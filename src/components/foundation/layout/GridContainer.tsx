@@ -3,16 +3,16 @@ import { propsToStyle, ResponsiveBreakpoints } from '../../../theme'
 import { breakpointsMedia } from '../../../theme/utils/breakpointsMedia'
 
 export interface GridContainerProps {
+  alignItems?: ResponsiveBreakpoints<CSSProperties['alignItems']>
   children: React.ReactNode
-  marginTop?: ResponsiveBreakpoints<CSSProperties['marginTop']>
-  marginBottom?: ResponsiveBreakpoints<CSSProperties['marginBottom']>
   display?: ResponsiveBreakpoints<CSSProperties['display']>
   flex?: ResponsiveBreakpoints<CSSProperties['flex']>
-  alignItems?: ResponsiveBreakpoints<CSSProperties['alignItems']>
+  marginBottom?: ResponsiveBreakpoints<CSSProperties['marginBottom']>
+  marginTop?: ResponsiveBreakpoints<CSSProperties['marginTop']>
 }
 
 export const GridContainer = styled.div<GridContainerProps>(
-  ({ marginTop, marginBottom, display, flex, alignItems }) => {
+  ({ alignItems, display, flex, marginBottom, marginTop }) => {
     return css`
       width: 100%;
       padding-right: 28px;
@@ -21,32 +21,32 @@ export const GridContainer = styled.div<GridContainerProps>(
       margin-left: auto;
       z-index: 1;
       ${breakpointsMedia({
-        xs: css`
-          max-width: initial;
-          padding-right: 28px;
-          padding-left: 28px;
-        `,
-        sm: css`
-          max-width: 576px;
+        lg: css`
+          max-width: 1160px;
         `,
         md: css`
           max-width: 768px;
           padding-right: 16px;
           padding-left: 16px;
         `,
-        lg: css`
-          max-width: 1160px;
+        sm: css`
+          max-width: 576px;
         `,
         xl: css`
           max-width: 1222px;
         `,
+        xs: css`
+          max-width: initial;
+          padding-right: 28px;
+          padding-left: 28px;
+        `,
       })}
       ${propsToStyle({
-        marginTop,
-        marginBottom,
+        alignItems,
         display,
         flex,
-        alignItems,
+        marginBottom,
+        marginTop,
       })}
     `
   },

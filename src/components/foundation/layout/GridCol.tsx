@@ -11,29 +11,29 @@ import {
 } from '../../../theme'
 
 export interface GridColProps {
-  children: React.ReactNode
-  size?: ResponsiveBreakpoints<number>
-  offset?: ResponsiveBreakpoints<number>
   alignItems?: ResponsiveBreakpoints<CSSProperties['alignItems']>
-  justifyContent?: ResponsiveBreakpoints<CSSProperties['justifyContent']>
-  flexDirection?: ResponsiveBreakpoints<CSSProperties['flexDirection']>
-  marginTop?: ResponsiveBreakpoints<CSSProperties['marginTop']>
-  marginBottom?: ResponsiveBreakpoints<CSSProperties['marginBottom']>
+  children: React.ReactNode
   display?: ResponsiveBreakpoints<CSSProperties['display']>
-  paddingRight?: ResponsiveBreakpoints<CSSProperties['paddingRight']>
   flex?: ResponsiveBreakpoints<CSSProperties['flex']>
+  flexDirection?: ResponsiveBreakpoints<CSSProperties['flexDirection']>
+  justifyContent?: ResponsiveBreakpoints<CSSProperties['justifyContent']>
+  marginBottom?: ResponsiveBreakpoints<CSSProperties['marginBottom']>
+  marginTop?: ResponsiveBreakpoints<CSSProperties['marginTop']>
+  offset?: ResponsiveBreakpoints<number>
+  paddingRight?: ResponsiveBreakpoints<CSSProperties['paddingRight']>
+  size?: ResponsiveBreakpoints<number>
 }
 
 export const GridCol = styled.div<GridColProps>(
   ({
     alignItems,
-    justifyContent,
-    flexDirection,
-    marginTop,
-    marginBottom,
     display,
-    paddingRight,
     flex,
+    flexDirection,
+    justifyContent,
+    marginBottom,
+    marginTop,
+    paddingRight,
   }) => {
     return css`
       padding-right: 16px;
@@ -46,13 +46,13 @@ export const GridCol = styled.div<GridColProps>(
       ${gridOffset}
       ${propsToStyle({
         alignItems,
-        justifyContent,
-        flexDirection,
-        marginTop,
-        marginBottom,
         display,
-        paddingRight,
         flex,
+        flexDirection,
+        justifyContent,
+        marginBottom,
+        marginTop,
+        paddingRight,
       })}
     `
   },

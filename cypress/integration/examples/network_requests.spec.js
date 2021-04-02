@@ -41,19 +41,19 @@ context('Network Requests', () => {
     // will execute request
     // https://jsonplaceholder.cypress.io/comments?postId=1&id=3
     cy.request({
-      url: 'https://jsonplaceholder.cypress.io/comments',
       qs: {
-        postId: 1,
         id: 3,
+        postId: 1,
       },
+      url: 'https://jsonplaceholder.cypress.io/comments',
     })
       .its('body')
       .should('be.an', 'array')
       .and('have.length', 1)
       .its('0') // yields first element of the array
       .should('contain', {
-        postId: 1,
         id: 3,
+        postId: 1,
       })
   })
 
@@ -69,10 +69,10 @@ context('Network Requests', () => {
         expect(user).property('id').to.be.a('number')
         // make a new post on behalf of the user
         cy.request('POST', 'https://jsonplaceholder.cypress.io/posts', {
-          userId: user.id,
-          title: 'Cypress Test Runner',
           body:
             'Fast, easy and reliable testing for anything that runs in a browser.',
+          title: 'Cypress Test Runner',
+          userId: user.id,
         })
       })
       // note that the value here is the returned value of the 2nd request
@@ -107,10 +107,10 @@ context('Network Requests', () => {
         //  the "function () { ... }" callback form,
         //  otherwise "this" points at a wrong or undefined object!
         cy.request('POST', 'https://jsonplaceholder.cypress.io/posts', {
-          userId: this.user.id,
-          title: 'Cypress Test Runner',
           body:
             'Fast, easy and reliable testing for anything that runs in a browser.',
+          title: 'Cypress Test Runner',
+          userId: this.user.id,
         })
           .its('body')
           .as('post') // save the new post from the response
@@ -164,10 +164,10 @@ context('Network Requests', () => {
         url: '**/comments/*',
       },
       {
-        statusCode: 404,
         body: { error: message },
-        headers: { 'access-control-allow-origin': '*' },
         delayMs: 500,
+        headers: { 'access-control-allow-origin': '*' },
+        statusCode: 404,
       },
     ).as('putComment')
 

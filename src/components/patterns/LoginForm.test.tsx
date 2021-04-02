@@ -28,8 +28,8 @@ describe('<LoginForm />', () => {
 
       expect(onSubmit).toHaveBeenCalledTimes(1)
       expect(onSubmit.mock.calls[0][0]).toEqual({
-        usuario: typedUsername,
         senha: typedPassword,
+        usuario: typedUsername,
       })
     })
   })

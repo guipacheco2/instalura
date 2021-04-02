@@ -12,17 +12,17 @@ enum FormStates {
 }
 
 interface RequestCreateUserPayload {
-  username: string
   name: string
+  username: string
 }
 
-function requestCreateUser({ username, name }: RequestCreateUserPayload) {
+function requestCreateUser({ name, username }: RequestCreateUserPayload) {
   return fetch('https://instalura-api.vercel.app/api/users', {
-    method: 'POST',
+    body: JSON.stringify({ name, username }),
     headers: {
       'Content-Type': 'application/json',
     },
-    body: JSON.stringify({ username, name }),
+    method: 'POST',
   }).then((respostaDoServidor) => {
     if (respostaDoServidor.ok) {
       return respostaDoServidor.json()
@@ -37,7 +37,7 @@ function useFormCadastro() {
     FormStates.DEFAULT,
   )
 
-  const [userInfo, setUserInfo] = useState({ username: '', name: '' })
+  const [userInfo, setUserInfo] = useState({ name: '', username: '' })
 
   function handleChange(event: React.ChangeEvent<HTMLInputElement>) {
     const fieldName = event.target.getAttribute('name')
@@ -60,19 +60,19 @@ function useFormCadastro() {
   }
 
   return {
-    handleSubmit,
-    userInfo,
     handleChange,
+    handleSubmit,
     submissionStatus,
+    userInfo,
   }
 }
 
 export function FormCadastro(): JSX.Element {
   const {
-    handleSubmit,
-    userInfo,
     handleChange,
+    handleSubmit,
     submissionStatus,
+    userInfo,
   } = useFormCadastro()
 
   const isFormInvalid =

@@ -9,10 +9,10 @@ import {
 } from '../../theme'
 
 const TextStyleVariants = {
+  paragraph1: css(({ theme }) => theme.typographyVariants.paragraph1),
   smallestException: css(
     ({ theme }) => theme.typographyVariants.smallestException,
   ),
-  paragraph1: css(({ theme }) => theme.typographyVariants.paragraph1),
   title: css(
     ({ theme }) => css`
       ${css(theme.typographyVariants.titleXS)}
@@ -26,16 +26,16 @@ const TextStyleVariants = {
 type variants = keyof typeof TextStyleVariants
 
 export interface StyledTextProps {
-  variant: variants | { xs: variants; md: variants }
   color?: 'primary.main' | 'tertiary.main' | 'tertiary.light' | 'error.main'
-  textAlign?: ResponsiveBreakpoints<CSSProperties['textAlign']>
-  marginBottom?: ResponsiveBreakpoints<CSSProperties['marginBottom']>
   dangerouslySetInnerHTML?: React.DOMAttributes<HTMLDivElement>['dangerouslySetInnerHTML']
+  marginBottom?: ResponsiveBreakpoints<CSSProperties['marginBottom']>
   role?: string
+  textAlign?: ResponsiveBreakpoints<CSSProperties['textAlign']>
+  variant: variants | { md: variants; xs: variants }
 }
 
 const StyledText = styled.span<StyledTextProps>(
-  ({ variant, theme, color, textAlign, marginBottom }) => {
+  ({ color, marginBottom, textAlign, theme, variant }) => {
     return css`
       ${() => {
         if (typeof variant === 'string') {
@@ -47,7 +47,7 @@ const StyledText = styled.span<StyledTextProps>(
         )
       }}
       color: ${() => get(theme, `colors.${color}.color`)};
-      ${propsToStyle({ textAlign, marginBottom })}
+      ${propsToStyle({ marginBottom, textAlign })}
     `
   },
 )
@@ -63,14 +63,14 @@ export type TextPropsGeneric<C extends React.ElementType> = TextProps<C> &
 
 export function Text<C extends React.ElementType = 'span'>({
   as,
-  variant,
-  color,
-  textAlign,
-  marginBottom,
-  className,
-  role,
-  dangerouslySetInnerHTML,
   children,
+  className,
+  color,
+  dangerouslySetInnerHTML,
+  marginBottom,
+  role,
+  textAlign,
+  variant,
 }: TextPropsGeneric<C>): JSX.Element {
   return (
     <StyledText

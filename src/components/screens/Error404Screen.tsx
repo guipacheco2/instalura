@@ -5,8 +5,8 @@ import { GridCol, GridContainer, GridRow, Text } from '../foundation'
 export function Error404Screen(): JSX.Element {
   return (
     <GridContainer
-      marginTop={{ xs: 32, md: 110 }}
-      marginBottom={{ xs: 32, md: 100 }}
+      marginTop={{ md: 110, xs: 32 }}
+      marginBottom={{ md: 100, xs: 32 }}
     >
       <GridRow>
         <GridCol
