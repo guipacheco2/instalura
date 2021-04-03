@@ -37,7 +37,7 @@ export function withWebsitePage<Props>(
       handleClickSignOn,
     }
 
-    const { seoProps, disableMenu, ...otherProps } = props
+    const { disableMenu, seoProps, ...otherProps } = props
 
     return (
       <CustomThemeProvider>
@@ -58,7 +58,7 @@ export function withWebsitePage<Props>(
           </Modal>
 
           {!disableMenu && (
-            <GridContainer marginTop={{ xs: 18, md: 32 }}>
+            <GridContainer marginTop={{ md: 32, xs: 18 }}>
               <Menu onClickSignOn={handleClickSignOn} />
             </GridContainer>
           )}

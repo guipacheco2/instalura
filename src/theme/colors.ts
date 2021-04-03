@@ -15,6 +15,12 @@ export const light = {
       color: '#F1F1F1',
     },
   },
+  error: {
+    main: {
+      color: '#dc3545',
+      contrastText: '#fff',
+    },
+  },
   primary: {
     light: {
       color: '#D7385E',
@@ -35,6 +41,12 @@ export const light = {
       contrastText: '#fff',
     },
   },
+  success: {
+    main: {
+      color: '#28a745',
+      contrastText: '#fff',
+    },
+  },
   tertiary: {
     light: {
       color: '#88989E',
@@ -42,18 +54,6 @@ export const light = {
     },
     main: {
       color: '#070C0E',
-      contrastText: '#fff',
-    },
-  },
-  error: {
-    main: {
-      color: '#dc3545',
-      contrastText: '#fff',
-    },
-  },
-  success: {
-    main: {
-      color: '#28a745',
       contrastText: '#fff',
     },
   },
@@ -76,6 +76,12 @@ export const dark = {
       color: '#181F22',
     },
   },
+  error: {
+    main: {
+      color: '#dc3545',
+      contrastText: '#fff',
+    },
+  },
   primary: {
     light: {
       color: '#D7385E',
@@ -96,6 +102,12 @@ export const dark = {
       contrastText: '#fff',
     },
   },
+  success: {
+    main: {
+      color: '#28a745',
+      contrastText: '#fff',
+    },
+  },
   tertiary: {
     light: {
       color: '#D4D4D4',
@@ -104,18 +116,6 @@ export const dark = {
     main: {
       color: '#fff',
       contrastText: '#070C0E',
-    },
-  },
-  error: {
-    main: {
-      color: '#dc3545',
-      contrastText: '#fff',
-    },
-  },
-  success: {
-    main: {
-      color: '#28a745',
-      contrastText: '#fff',
     },
   },
 }

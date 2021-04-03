@@ -38,8 +38,8 @@ const StyledModal = styled.div<StyledModalProps>`
 `
 
 interface ModalProps extends StyledModalProps {
-  onClose: () => void
   children: React.ReactNode
+  onClose: () => void
 }
 
 const StyledLockScroll = createGlobalStyle`
@@ -59,7 +59,7 @@ export function useModal(
   return [isOpen, () => setIsOpen(true), () => setIsOpen(false)]
 }
 
-export function Modal({ isOpen, onClose, children }: ModalProps): JSX.Element {
+export function Modal({ children, isOpen, onClose }: ModalProps): JSX.Element {
   const innerElementRef = useRef<HTMLDivElement>(null)
 
   function handleClickOutsideInnerElement(
@@ -81,7 +81,7 @@ export function Modal({ isOpen, onClose, children }: ModalProps): JSX.Element {
       {isOpen && <StyledLockScroll />}
       <motion.div
         onClick={handleClickOutsideInnerElement}
-        variants={{ open: { x: 0 }, closed: { x: '100%' } }}
+        variants={{ closed: { x: '100%' }, open: { x: 0 } }}
         animate={isOpen ? 'open' : 'closed'}
         transition={{ duration: 0.5 }}
         style={{ display: 'flex', flex: 1 }}
@@ -96,7 +96,7 @@ export function Modal({ isOpen, onClose, children }: ModalProps): JSX.Element {
             display="flex"
             paddingRight={0}
             flex={1}
-            size={{ xs: 12, md: 5, lg: 4 }}
+            size={{ lg: 4, md: 5, xs: 12 }}
             ref={innerElementRef}
           >
             <Box
@@ -117,8 +117,8 @@ export function Modal({ isOpen, onClose, children }: ModalProps): JSX.Element {
                 justifyContent="center"
                 flex={1}
                 padding={{
-                  xs: '16px',
                   md: '85px',
+                  xs: '16px',
                 }}
               >
                 {children}

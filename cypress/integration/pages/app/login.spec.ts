@@ -14,8 +14,8 @@ describe('/pages/app/login/', () => {
       // Cenário
       LoginScreenPageObject(cy)
         .fillLoginForm({
-          user: 'omariosouto',
           password: 'senhasegura',
+          user: 'omariosouto',
         })
         .submitLoginForm()
 

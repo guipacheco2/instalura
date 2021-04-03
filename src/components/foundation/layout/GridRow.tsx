@@ -2,23 +2,23 @@ import styled, { css, CSSProperties } from 'styled-components'
 import { propsToStyle, ResponsiveBreakpoints } from '../../../theme'
 
 export interface GridRowProps {
-  marginLeft?: ResponsiveBreakpoints<CSSProperties['marginLeft']>
-  marginRight?: ResponsiveBreakpoints<CSSProperties['marginRight']>
+  alignItems?: ResponsiveBreakpoints<CSSProperties['alignItems']>
+  children: React.ReactNode
   flex?: ResponsiveBreakpoints<CSSProperties['flex']>
   flexDirection?: ResponsiveBreakpoints<CSSProperties['flexDirection']>
   justifyContent?: ResponsiveBreakpoints<CSSProperties['justifyContent']>
-  alignItems?: ResponsiveBreakpoints<CSSProperties['alignItems']>
-  children: React.ReactNode
+  marginLeft?: ResponsiveBreakpoints<CSSProperties['marginLeft']>
+  marginRight?: ResponsiveBreakpoints<CSSProperties['marginRight']>
 }
 
 export const GridRow = styled.div<GridRowProps>(
   ({
-    marginLeft,
-    marginRight,
+    alignItems,
     flex,
     flexDirection,
-    alignItems,
     justifyContent,
+    marginLeft,
+    marginRight,
   }) => {
     return css`
       display: flex;
@@ -26,12 +26,12 @@ export const GridRow = styled.div<GridRowProps>(
       margin-right: -16px;
       margin-left: -16px;
       ${propsToStyle({
-        marginLeft,
-        marginRight,
+        alignItems,
         flex,
         flexDirection,
-        alignItems,
         justifyContent,
+        marginLeft,
+        marginRight,
       })}
     `
   },

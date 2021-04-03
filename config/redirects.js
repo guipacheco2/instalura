@@ -1,7 +1,7 @@
 module.exports.redirects = [
   {
-    source: '/login/',
     destination: '/app/login/',
-    permanent: true, // 301 == 308 || 302 == 307
+    permanent: true,
+    source: '/login/', // 301 == 308 || 302 == 307
   },
 ]

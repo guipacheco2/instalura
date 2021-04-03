@@ -17,7 +17,7 @@ export function LoginScreen(): JSX.Element {
           flexDirection="column"
           justifyContent="center"
           offset={{ lg: 2 }}
-          size={{ xs: 12, md: 6, lg: 4 }}
+          size={{ lg: 4, md: 6, xs: 12 }}
           flex={1}
         >
           <Box
@@ -54,7 +54,7 @@ export function LoginScreen(): JSX.Element {
           </Text>
         </GridCol>
 
-        <GridCol size={{ xs: 12, md: 6 }}>
+        <GridCol size={{ md: 6, xs: 12 }}>
           <Box display="flex" justifyContent="center">
             <img
               src="https://bootcamp-alura-01-git-modulo01.omariosouto.vercel.app/images/phones.png"

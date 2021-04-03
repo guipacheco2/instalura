@@ -16,14 +16,14 @@ enum FormStates {
 }
 
 const loginSchema = yup.object().shape({
-  usuario: yup
-    .string()
-    .required('"Usuario" é obrigatório')
-    .min(3, 'Preencha ao menos 3 caracteres'),
   senha: yup
     .string()
     .required('"Senha" é obrigatória')
     .min(8, 'Sua senha precisa ter ao menos 8 caracteres'),
+  usuario: yup
+    .string()
+    .required('"Usuario" é obrigatório')
+    .min(3, 'Preencha ao menos 3 caracteres'),
 })
 
 interface LoginFormProps {
@@ -34,8 +34,8 @@ export function LoginForm({ onSubmit }: LoginFormProps): JSX.Element {
   const router = useRouter()
 
   const initialValues = {
-    usuario: '',
     senha: '',
+    usuario: '',
   }
 
   const [submissionStatus, setSubmissionStatus] = useState<FormStates>(
@@ -53,8 +53,8 @@ export function LoginForm({ onSubmit }: LoginFormProps): JSX.Element {
       setSubmissionStatus(FormStates.LOADING)
 
       login({
-        username: values.usuario,
         password: values.senha,
+        username: values.usuario,
       })
         .then(() => {
           setSubmissionStatus(FormStates.DONE)
@@ -106,8 +106,8 @@ export function LoginForm({ onSubmit }: LoginFormProps): JSX.Element {
         type="submit"
         variant="primary.main"
         margin={{
-          xs: '0 auto',
           md: 'initial',
+          xs: '0 auto',
         }}
         fullWidth
         disabled={isFormDisabled}

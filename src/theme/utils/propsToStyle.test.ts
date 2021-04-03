@@ -24,7 +24,7 @@ describe('propsToStyle()', () => {
 
     test('renders two or more breakpoint resolutions', () => {
       const propsToStyleResult = propsToStyle({
-        textAlign: { xs: 'center', md: 'right' },
+        textAlign: { md: 'right', xs: 'center' },
       })
 
       expect(propsToStyleResult).toMatchSnapshot()

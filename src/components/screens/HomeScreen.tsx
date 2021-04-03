@@ -7,11 +7,11 @@ export function HomeScreen(): JSX.Element {
   const { handleClickSignOn } = useWebsitePageContext()
 
   return (
-    <GridContainer marginTop={{ xs: 32, md: 75 }}>
+    <GridContainer marginTop={{ md: 75, xs: 32 }}>
       <GridRow>
         <GridCol
           offset={{ md: 1 }}
-          size={{ xs: 12, md: 5 }}
+          size={{ md: 5, xs: 12 }}
           alignItems="flex-start"
           justifyContent="center"
           flexDirection="column"
@@ -21,7 +21,7 @@ export function HomeScreen(): JSX.Element {
               variant="title"
               as="h1"
               color="tertiary.main"
-              textAlign={{ xs: 'center', md: 'left' }}
+              textAlign={{ md: 'left', xs: 'center' }}
             >
               Compartilhe momentos e conecte-se com amigos
             </Text>
@@ -29,7 +29,7 @@ export function HomeScreen(): JSX.Element {
               variant="paragraph1"
               as="p"
               color="tertiary.light"
-              textAlign={{ xs: 'center', md: 'left' }}
+              textAlign={{ md: 'left', xs: 'center' }}
             >
               Lorem Ipsum is simply dummy text of the printing and typesetting
               industry. Lorem Ipsum has been the industrys standard dummy text
@@ -38,7 +38,7 @@ export function HomeScreen(): JSX.Element {
 
             <Button
               variant="primary.main"
-              margin={{ xs: 'auto', md: 'initial' }}
+              margin={{ md: 'initial', xs: 'auto' }}
               display="block"
               onClick={handleClickSignOn}
             >
@@ -46,7 +46,7 @@ export function HomeScreen(): JSX.Element {
             </Button>
           </div>
         </GridCol>
-        <GridCol size={{ xs: 12, md: 6 }} marginTop={{ xs: 40, md: 0 }}>
+        <GridCol size={{ md: 6, xs: 12 }} marginTop={{ md: 0, xs: 40 }}>
           <img
             style={{ display: 'block', margin: 'auto' }}
             src="https://bootcamp-alura-01-git-modulo01.omariosouto.vercel.app/images/phones.png"

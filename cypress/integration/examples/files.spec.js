@@ -80,9 +80,9 @@ context('Files', () => {
     // JavaScript arrays and objects are stringified
     // and formatted into text.
     cy.writeFile('cypress/fixtures/profile.json', {
+      email: 'jane@example.com',
       id: 8739,
       name: 'Jane',
-      email: 'jane@example.com',
     })
 
     cy.fixture('profile').should((profile) => {
