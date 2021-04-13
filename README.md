@@ -303,6 +303,16 @@ Adiciona validação no form de login com yup.
 
 - Executa yarn test e yarn test:integration:build no CI
 
+### Módulo 05: Área autenticada e gerenciador de conteúdo (CMS)
+
+Nesse módulo, entenderemos o que é M da JAMStack e criaremos o CMS para o Instalura, usando o DatoCMS dessa forma teremos como deixar nossa aplicação consultar dados de um backend simples de configurar e utilizar. Também vamos entender como funciona buscas no GraphQL, já que o DatoCMS utiliza esse padrão de APIs para comunicação cliente-servidor.. Além disso, faremos um modo de preview do conteúdo, e como adicionar tudo isso no build do Next.
+
+Para finalizar, iremos trabalhar na área da aplicação onde exige autenticação e entenderemos a diferença entre JWT e dos cookies.
+
+#### Aula 05 - Pós JAM Stack: Enfim, a aula de autenticação:
+
+- Prevenir carregamento do JS caso o usuário não esteja logado.
+
 ## Links mencionados na comunidade do bootcamp
 
 - https://flexboxfroggy.com/

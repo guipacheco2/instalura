@@ -15,7 +15,7 @@ import {
 const links = [
   { name: 'Home', url: '/' },
   { name: 'Perguntas Frequentes', url: '/faq' },
-  { name: 'Sobre', url: '/sobre' },
+  { name: 'Sobre', url: '/about' },
 ]
 
 interface MenuProps {

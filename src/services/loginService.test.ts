@@ -23,7 +23,7 @@ describe('loginService', () => {
 
           expect(ctx.setCookieModule).toHaveBeenCalledWith(
             null,
-            'APP_TOKEN',
+            'LOGIN_COOKIE_APP_TOKEN',
             loginResponse.data.token,
             { maxAge: 604800, path: '/' },
           )
@@ -54,7 +54,11 @@ describe('loginService', () => {
 
         await logout({ destroyCookieModule: destroyCookie })
 
-        expect(destroyCookie).toHaveBeenCalledWith(null, 'APP_TOKEN')
+        expect(destroyCookie).toHaveBeenCalledWith(
+          null,
+          'LOGIN_COOKIE_APP_TOKEN',
+          { path: '/' },
+        )
       })
     })
   })
