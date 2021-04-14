@@ -1,3 +1,4 @@
+export * from './AboutScreen'
 export * from './Error404Screen'
 export * from './FAQQuestionScreen'
 export * from './FAQScreen'

@@ -25,7 +25,7 @@ describe('/pages/app/login/', () => {
       cy.wait('@userLogin').then((intercept) => {
         const { token } = intercept.response.body.data
 
-        cy.getCookie('APP_TOKEN')
+        cy.getCookie('LOGIN_COOKIE_APP_TOKEN')
           .should('exist')
           // token do cookie é igual ao do server?
           .should('have.property', 'value', token)

@@ -1,3 +1,4 @@
+import get from 'lodash.get'
 import React, { createContext, useContext } from 'react'
 import { CustomThemeProvider } from '../../theme'
 import {
@@ -14,10 +15,12 @@ import { FormCadastro } from '../patterns'
 
 export interface WebsitePageProps {
   disableMenu?: boolean
+  messages?: Record<string, string>
   seoProps?: SEOProps
 }
 
 interface WebsitePageContextProps {
+  getCMSContent: (cmsKey: string) => string
   handleClickSignOn: () => void
 }
 
@@ -34,6 +37,7 @@ export function withWebsitePage<Props>(
     const [isSignOnModalOpen, handleClickSignOn, handleCloseSignOn] = useModal()
 
     const websitePageContextValue: WebsitePageContextProps = {
+      getCMSContent: (cmsKey) => get(props.messages, cmsKey),
       handleClickSignOn,
     }
 

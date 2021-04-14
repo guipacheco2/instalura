@@ -1,5 +1,6 @@
 export * from './Bubbles'
 export * from './Button'
+export * from './DangerouslySetInnerHTML'
 export * from './Footer'
 export * from './IconButton'
 export * from './Link'

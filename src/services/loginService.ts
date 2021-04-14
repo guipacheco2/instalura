@@ -1,30 +1,6 @@
 import { destroyCookie, setCookie } from 'nookies'
 import { isStagingEnv } from '../infra'
-
-type HttpClientOptions = Omit<RequestInit, 'headers' | 'body'> & {
-  body: Record<string, unknown>
-  headers?: RequestInit['headers']
-}
-
-async function httpClient<ResponseData = unknown>(
-  url: string,
-  { body, headers, ...options }: HttpClientOptions,
-): Promise<ResponseData> {
-  return fetch(url, {
-    body: JSON.stringify(body),
-    headers: {
-      ...headers,
-      'Content-Type': 'application/json',
-    },
-    ...options,
-  }).then((response) => {
-    if (response.ok) {
-      return response.json()
-    }
-
-    throw new Error('Falha em pegar os dados do servidor :(')
-  })
-}
+import { httpClient } from '../infra/http/httpClient'
 
 interface LoginServiceOptions {
   password: string
@@ -45,6 +21,8 @@ interface LoginResponse {
 const BASE_URL = isStagingEnv
   ? 'https://instalura-api-git-master-omariosouto.vercel.app'
   : 'https://instalura-api-omariosouto.vercel.app'
+
+export const LOGIN_COOKIE_APP_TOKEN = 'LOGIN_COOKIE_APP_TOKEN'
 
 export interface LoginContext {
   httpClientModule?: typeof httpClient
@@ -68,7 +46,7 @@ export async function login(
   const { token } = loginResponse.data
   const DAY_IN_SECONDS = 86400
 
-  setCookieModule(null, 'APP_TOKEN', token, {
+  setCookieModule(null, LOGIN_COOKIE_APP_TOKEN, token, {
     maxAge: DAY_IN_SECONDS * 7,
     path: '/',
   })
@@ -81,5 +59,5 @@ export interface LogoutContext {
 export async function logout(ctx: LogoutContext = {}): Promise<void> {
   const { destroyCookieModule = destroyCookie } = ctx
 
-  destroyCookieModule(null, 'APP_TOKEN')
+  destroyCookieModule(null, LOGIN_COOKIE_APP_TOKEN, { path: '/' })
 }

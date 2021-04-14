@@ -2,6 +2,9 @@
 const { redirects } = require('./config/redirects')
 
 module.exports = {
+  future: {
+    webpack5: true,
+  },
   async headers() {
     return [
       {
