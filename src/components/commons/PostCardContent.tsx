@@ -36,9 +36,12 @@ export function PostCardContent({
   return (
     <StyledPostCardContent>
       <StyledPostCardContentActions>
-        <IconButton>
-          <HeartIcon />
-        </IconButton>
+        <Button ghost smallPadding>
+          <HeartIcon filled />
+          <Box padding="8px">
+            <Text variant="titleXs">5.2k</Text>
+          </Box>
+        </Button>
         <IconButton>
           <MessageIcon />
         </IconButton>

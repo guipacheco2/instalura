@@ -72,7 +72,7 @@ export function LoginForm({ onSubmit }: LoginFormProps): JSX.Element {
 
   useEffect(() => {
     if (submissionStatus === FormStates.DONE) {
-      router.push('/app/profile')
+      router.push('/app/feed')
     }
   }, [router, submissionStatus])
 

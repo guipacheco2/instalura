@@ -4,6 +4,7 @@ import { Text } from '../foundation'
 import { GithubIcon } from '../icons'
 import { Avatar } from './Avatar'
 import { Button } from './Button'
+import { Link } from './Link'
 
 const StyledListItem = styled.div`
   margin: 12px;
@@ -31,18 +32,24 @@ interface ListItemProps {
 export function ListItem({ avatarSize }: ListItemProps): JSX.Element {
   return (
     <StyledListItem>
-      <Avatar
-        size={avatarSize}
-        src="https://media.giphy.com/media/bn0zlGb4LOyo8/giphy.gif"
-      />
+      <Link href="/app/profile">
+        <Avatar
+          size={avatarSize}
+          src="https://media.giphy.com/media/bn0zlGb4LOyo8/giphy.gif"
+        />
+      </Link>
 
       <StyledListItemText>
-        <Text variant="paragraph1" color="tertiary.main" whiteSpace="nowrap">
-          nic.cage
-        </Text>
-        <Text variant="paragraph1" color="tertiary.light" whiteSpace="nowrap">
-          Nicolas Cage
-        </Text>
+        <Link href="/app/profile">
+          <Text variant="paragraph1" color="tertiary.main" whiteSpace="nowrap">
+            nic.cage
+          </Text>
+        </Link>
+        <Link href="/app/profile">
+          <Text variant="paragraph1" color="tertiary.light" whiteSpace="nowrap">
+            Nicolas Cage
+          </Text>
+        </Link>
       </StyledListItemText>
 
       <Button ghost>

@@ -34,6 +34,7 @@ const StyledButton = styled.button<ButtonProps>(
   ({ display, fullWidth, ghost, margin, smallPadding, theme }) => {
     return css`
       display: inline-flex;
+      justify-content: center;
       align-items: center;
       border: 0;
       cursor: pointer;
