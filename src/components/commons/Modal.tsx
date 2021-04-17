@@ -40,6 +40,7 @@ const StyledModal = styled.div<StyledModalProps>`
 interface ModalProps extends StyledModalProps {
   children: React.ReactNode
   onClose: () => void
+  position?: 'center' | 'right'
 }
 
 const StyledLockScroll = createGlobalStyle`
@@ -59,7 +60,12 @@ export function useModal(
   return [isOpen, () => setIsOpen(true), () => setIsOpen(false)]
 }
 
-export function Modal({ children, isOpen, onClose }: ModalProps): JSX.Element {
+export function Modal({
+  children,
+  isOpen,
+  onClose,
+  position = 'right',
+}: ModalProps): JSX.Element {
   const innerElementRef = useRef<HTMLDivElement>(null)
 
   function handleClickOutsideInnerElement(
@@ -90,7 +96,9 @@ export function Modal({ children, isOpen, onClose }: ModalProps): JSX.Element {
           marginLeft={0}
           marginRight={0}
           flex={1}
-          justifyContent="flex-end"
+          justifyContent={position === 'center' ? 'center' : 'flex-end'}
+          flexDirection={position === 'center' ? 'column' : 'row'}
+          alignItems={position === 'center' ? 'center' : 'stretch'}
         >
           <GridCol
             display="flex"
@@ -105,6 +113,7 @@ export function Modal({ children, isOpen, onClose }: ModalProps): JSX.Element {
               flexDirection="column"
               flex={1}
               backgroundColor="background"
+              borderRadius={position === 'center'}
             >
               <Box display="flex" justifyContent="flex-end">
                 <IconButton onClick={onClose}>
@@ -116,12 +125,8 @@ export function Modal({ children, isOpen, onClose }: ModalProps): JSX.Element {
                 flexDirection="column"
                 justifyContent="center"
                 flex={1}
-                padding={{
-                  md: '85px',
-                  xs: '16px',
-                }}
               >
-                {children}
+                {isOpen && children}
               </Box>
             </Box>
           </GridCol>

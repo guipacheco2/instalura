@@ -1,8 +1,18 @@
 import React, { createContext, useContext } from 'react'
 import { CustomThemeProvider } from '../../theme'
-import { AppHeader, Avatar, Logo, ProfileAvatar, SearchInput } from '../commons'
+import {
+  AppHeader,
+  Avatar,
+  IconButton,
+  Logo,
+  Modal,
+  ProfileAvatar,
+  SearchInput,
+  useModal,
+} from '../commons'
 import { Box, GridCol, GridContainer, GridRow, Text } from '../foundation'
 import { AddIcon, HomeIcon } from '../icons'
+import { PostCreate } from '../patterns'
 
 export interface AppPageProps {
   messages?: Record<string, string>
@@ -30,9 +40,19 @@ const CardMediaImage = () => (
 
 export function withAppPage<Props>(PageComponent: React.ComponentType<Props>) {
   return function AppPage(props: AppPageProps): JSX.Element {
+    const [
+      isPostCreateModalOpen,
+      handleClickPostCreate,
+      handleClosePostCreate,
+    ] = useModal()
+
     // const appPageContextValue: AppPageContextProps = {
     //   getCMSContent: (cmsKey) => get(props.messages, cmsKey),
     // }
+
+    function handlePostCreate() {
+      handleClosePostCreate()
+    }
 
     return (
       <CustomThemeProvider>
@@ -47,7 +67,9 @@ export function withAppPage<Props>(PageComponent: React.ComponentType<Props>) {
                     <SearchInput />
                   </Box>
                   <Box margin="0 8px">
-                    <AddIcon />
+                    <IconButton onClick={handleClickPostCreate}>
+                      <AddIcon />
+                    </IconButton>
                   </Box>
                   <Box margin="0 8px">
                     <HomeIcon />
@@ -143,6 +165,14 @@ export function withAppPage<Props>(PageComponent: React.ComponentType<Props>) {
           {/* <AppPageContext.Provider value={appPageContextValue}>
             <PageComponent {...(otherProps as Props)} />
           </AppPageContext.Provider> */}
+
+          <Modal
+            position="center"
+            isOpen={isPostCreateModalOpen}
+            onClose={handleClosePostCreate}
+          >
+            <PostCreate onSubmit={handlePostCreate} />
+          </Modal>
         </Box>
       </CustomThemeProvider>
     )

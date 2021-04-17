@@ -58,7 +58,9 @@ export function withWebsitePage<Props>(
           <Bubbles />
 
           <Modal isOpen={isSignOnModalOpen} onClose={handleCloseSignOn}>
-            <FormCadastro />
+            <Box padding={{ md: '85px', xs: '16px' }}>
+              <FormCadastro />
+            </Box>
           </Modal>
 
           {!disableMenu && (
