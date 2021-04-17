@@ -1,5 +1,8 @@
 import React from 'react'
+import { usePostLike } from '../../infra'
+import { Post } from '../../services'
 import {
+  Button,
   PostCard,
   PostCardContent,
   PostCardHeader,
@@ -7,8 +10,19 @@ import {
 } from '../commons'
 import { ListItem } from '../commons/ListItem'
 import { Box, GridCol, GridContainer, GridRow, Text } from '../foundation'
+import { HeartIcon } from '../icons'
 
-export function FeedScreen(): JSX.Element {
+interface FeedScreenProps {
+  posts: Post[]
+  user: {
+    id: string
+    username: string
+  }
+}
+
+export function FeedScreen({ posts, user }: FeedScreenProps): JSX.Element {
+  const { clientPosts, like, status } = usePostLike(posts)
+
   return (
     <GridContainer>
       <GridRow>
@@ -17,15 +31,36 @@ export function FeedScreen(): JSX.Element {
           alignItems="center"
           size={{ md: 7, xs: 12 }}
         >
-          {Array.from({ length: 5 }).map((_, i) => {
+          {clientPosts.map((post) => {
             return (
-              <PostCard key={i}>
+              <PostCard key={post._id}>
                 <PostCardHeader
                   avatarSrc="https://media.giphy.com/media/bn0zlGb4LOyo8/giphy.gif"
                   username="nic.cage"
                 />
-                <PostCardMedia imageSrc="https://media.giphy.com/media/bn0zlGb4LOyo8/giphy.gif" />
-                <PostCardContent imageSrc="" />
+                <PostCardMedia filter={post.filter} imageSrc={post.photoUrl} />
+                <PostCardContent
+                  actions={
+                    <Button
+                      ghost
+                      smallPadding
+                      onClick={() => like(post._id)}
+                      disabled={status === 'pending'}
+                    >
+                      <HeartIcon
+                        filled={post.likes.some(
+                          (like) => like.user === user.id,
+                        )}
+                      />
+                      {post.likes.length > 0 && (
+                        <Box padding="8px">
+                          <Text variant="titleXs">{post.likes.length}</Text>
+                        </Box>
+                      )}
+                    </Button>
+                  }
+                  description={post.description}
+                />
               </PostCard>
             )
           })}

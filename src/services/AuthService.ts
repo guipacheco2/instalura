@@ -1,14 +1,9 @@
 import jwt from 'jsonwebtoken'
 import { GetServerSidePropsContext } from 'next'
 import { parseCookies } from 'nookies'
-import { httpClient, isStagingEnv } from '../infra'
+import { httpClient } from '../infra'
+import { BASE_URL } from './constans'
 import { LOGIN_COOKIE_APP_TOKEN, logout } from './loginService'
-
-const BASE_URL = isStagingEnv
-  ? // Back End de DEV
-    'https://instalura-api-git-master.omariosouto.vercel.app'
-  : // Back End de PROD
-    'https://instalura-api.omariosouto.vercel.app'
 
 interface AuthService {
   getSession(): Promise<Record<string, unknown>>

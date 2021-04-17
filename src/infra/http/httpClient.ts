@@ -15,6 +15,10 @@ export async function httpClient<ResponseData = unknown>(
     },
     ...options,
   }).then((response) => {
+    if (response.status === 204) {
+      return response.text()
+    }
+
     if (response.ok) {
       return response.json()
     }

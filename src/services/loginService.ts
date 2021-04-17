@@ -1,6 +1,6 @@
 import { destroyCookie, setCookie } from 'nookies'
-import { isStagingEnv } from '../infra'
 import { httpClient } from '../infra/http/httpClient'
+import { BASE_URL } from './constans'
 
 interface LoginServiceOptions {
   password: string
@@ -17,10 +17,6 @@ interface LoginResponse {
     }
   }
 }
-
-const BASE_URL = isStagingEnv
-  ? 'https://instalura-api-git-master-omariosouto.vercel.app'
-  : 'https://instalura-api-omariosouto.vercel.app'
 
 export const LOGIN_COOKIE_APP_TOKEN = 'LOGIN_COOKIE_APP_TOKEN'
 

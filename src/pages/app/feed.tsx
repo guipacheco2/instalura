@@ -21,10 +21,7 @@ export const getServerSideProps: GetServerSideProps<AppPageProps> = async (
         seoProps: {
           headTitle: 'Feed',
         },
-        user: {
-          ...session,
-          ...profilePage.user,
-        },
+        user: session,
       },
     }
   }

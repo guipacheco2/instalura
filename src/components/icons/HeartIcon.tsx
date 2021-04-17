@@ -1,6 +1,6 @@
 import React from 'react'
 
-export function HeartIcon({ filled }: { filled?: true }): JSX.Element {
+export function HeartIcon({ filled }: { filled?: boolean }): JSX.Element {
   return (
     <svg
       width={39}

@@ -8,13 +8,17 @@ const StyledPostCardMediaImage = styled.img`
 `
 
 interface PostCardMediaProps {
+  filter: string
   imageSrc: string
 }
 
-export function PostCardMedia({ imageSrc }: PostCardMediaProps): JSX.Element {
+export function PostCardMedia({
+  filter,
+  imageSrc,
+}: PostCardMediaProps): JSX.Element {
   return (
     <StyledPostCardMedia>
-      <StyledPostCardMediaImage src={imageSrc} />
+      <StyledPostCardMediaImage className={`filter-${filter}`} src={imageSrc} />
     </StyledPostCardMedia>
   )
 }

@@ -1,7 +1,7 @@
 import React from 'react'
 import styled from 'styled-components'
 import { Box, Text } from '../foundation'
-import { BookmarkIcon, HeartIcon, MessageIcon, SendIcon } from '../icons'
+import { BookmarkIcon, MessageIcon, SendIcon } from '../icons'
 import { AvatarStack } from './AvatarStack'
 import { Button } from './Button'
 import { IconButton } from './IconButton'
@@ -24,24 +24,22 @@ const StyledPostCardContentMessageText = styled.div`
   text-overflow: ellipsis;
   overflow: hidden;
   margin: 0 8px;
+  flex: 1;
 `
 
 interface PostCardContentProps {
-  imageSrc: string
+  actions: React.ReactNode
+  description: string
 }
 
 export function PostCardContent({
-  imageSrc,
+  actions,
+  description,
 }: PostCardContentProps): JSX.Element {
   return (
     <StyledPostCardContent>
       <StyledPostCardContentActions>
-        <Button ghost smallPadding>
-          <HeartIcon filled />
-          <Box padding="8px">
-            <Text variant="titleXs">5.2k</Text>
-          </Box>
-        </Button>
+        {actions}
         <IconButton>
           <MessageIcon />
         </IconButton>
@@ -59,8 +57,7 @@ export function PostCardContent({
 
         <StyledPostCardContentMessageText>
           <Text variant="paragraph1" whiteSpace="nowrap">
-            So excited to play this new, lorem lorem lorem lorem, lorem lorem
-            lorem lorem
+            {description}
           </Text>
         </StyledPostCardContentMessageText>
 

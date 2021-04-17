@@ -9,34 +9,36 @@ export interface Post {
   createdAt: string
   description: string
   filter: string
-  likes: never[]
+  likes: { _id: string; user: string }[]
   photoUrl: string
   updatedAt: string
   user: string
 }
 
-export const userService = {
-  async getProfilePage(
+export const postService = {
+  async like(
     ctx: GetServerSidePropsContext,
-  ): Promise<{ posts: Post[]; user: { totalLikes: number } }> {
-    const url = `${BASE_URL}/api/users/posts`
+    postId: string,
+  ): Promise<{ post: Post }> {
+    const url = `${BASE_URL}/api/posts/${postId}/like`
 
     try {
       const token = await AuthService(ctx).getToken()
-      const response = await httpClient<{ data: Post[] }>(url, {
+
+      const response = await httpClient<{ data: Post }>(url, {
         headers: {
           authorization: `Bearer ${token}`,
         },
+        method: 'POST',
       })
 
       return {
-        posts: response.data,
-        user: {
-          totalLikes: 100,
-        },
+        post: response.data,
       }
     } catch (err) {
-      throw new Error('Não conseguimos pegar os posts')
+      const newError = new Error('Erro ao chamar like post endpoint.')
+      newError.stack = err.stack
+      throw newError
     }
   },
 }
