@@ -2,18 +2,7 @@ import { GetServerSidePropsContext } from 'next'
 import { httpClient } from '../infra'
 import { AuthService } from './AuthService'
 import { BASE_URL } from './constans'
-
-export interface Post {
-  __v: number
-  _id: string
-  createdAt: string
-  description: string
-  filter: string
-  likes: { _id: string; user: string }[]
-  photoUrl: string
-  updatedAt: string
-  user: string
-}
+import { Post } from './interfaces'
 
 export const postService = {
   async like(
