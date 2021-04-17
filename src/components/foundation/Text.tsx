@@ -21,6 +21,7 @@ const TextStyleVariants = {
       })}
     `,
   ),
+  titleXs: css(({ theme }) => theme.typographyVariants.titleXS),
 }
 
 type variants = keyof typeof TextStyleVariants

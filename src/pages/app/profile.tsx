@@ -1,6 +1,6 @@
 import { GetServerSideProps } from 'next'
 import React from 'react'
-import { WebsitePageProps, withWebsitePage } from '../../components/wrappers'
+import { AppPageProps, withAppPage } from '../../components/wrappers'
 import { AuthService, userService } from '../../services'
 
 function ProfileScreen(props: any): JSX.Element {
@@ -16,9 +16,9 @@ function ProfileScreen(props: any): JSX.Element {
   )
 }
 
-export default withWebsitePage(ProfileScreen)
+export default withAppPage(ProfileScreen)
 
-export const getServerSideProps: GetServerSideProps<WebsitePageProps> = async (
+export const getServerSideProps: GetServerSideProps<AppPageProps> = async (
   ctx,
 ) => {
   const auth = AuthService(ctx)
@@ -48,7 +48,6 @@ export const getServerSideProps: GetServerSideProps<WebsitePageProps> = async (
 
   return {
     props: {
-      disableMenu: true,
       seoProps: {
         headTitle: 'Profile',
       },
