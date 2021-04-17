@@ -9,7 +9,6 @@ export const IconButton = styled.button(({ theme }) => {
     transition: opacity ${theme.transition};
     color: ${theme.colors.tertiary.main};
     background-color: transparent;
-    padding: 26px;
     border-radius: ${theme.borderRadius};
     outline: initial;
     &:disabled {

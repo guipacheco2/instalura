@@ -115,7 +115,7 @@ export function Modal({
               backgroundColor="background"
               borderRadius={position === 'center'}
             >
-              <Box display="flex" justifyContent="flex-end">
+              <Box display="flex" justifyContent="flex-end" padding="26px">
                 <IconButton onClick={onClose}>
                   <CloseIcon />
                 </IconButton>

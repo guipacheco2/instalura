@@ -14,7 +14,7 @@ interface StyledButtonProps {
   href?: string
   margin?: ResponsiveBreakpoints<CSSProperties['margin']>
   onClick?: (event: React.MouseEvent<HTMLButtonElement>) => void
-  variant?: 'primary.main' | 'secondary.main'
+  variant?: 'primary.main' | 'secondary.main' | 'tertiary.light'
 }
 
 const ButtonGhost = css<ButtonProps>`
@@ -31,17 +31,21 @@ const ButtonDefault = css<ButtonProps>`
 `
 
 const StyledButton = styled.button<ButtonProps>(
-  ({ display, fullWidth, ghost, margin, theme }) => {
+  ({ display, fullWidth, ghost, margin, smallPadding, theme }) => {
     return css`
+      display: inline-flex;
+      align-items: center;
       border: 0;
       cursor: pointer;
       font-weight: bold;
       opacity: 1;
       transition: opacity ${theme.transition};
-      ${breakpointsMedia({
-        md: css({ padding: '12px 43px' }),
-        xs: css({ padding: '12px 26px' }),
-      })}
+      ${smallPadding
+        ? css({ padding: '4px 12px' })
+        : breakpointsMedia({
+            md: css({ padding: '12px 43px' }),
+            xs: css({ padding: '12px 26px' }),
+          })}
       border-radius: ${theme.borderRadius};
       outline: initial;
       ${ghost ? ButtonGhost : ButtonDefault}
@@ -66,6 +70,7 @@ export interface ButtonProps<C extends React.ElementType = React.ElementType>
   extends StyledButtonProps {
   as?: C
   children: React.ReactNode
+  smallPadding?: true
 }
 
 export type ButtonPropsGeneric<C extends React.ElementType> = ButtonProps<C> &
@@ -80,6 +85,7 @@ export function Button<C extends React.ElementType = 'button'>({
   href,
   margin,
   onClick,
+  smallPadding,
   variant,
   ...props
 }: ButtonPropsGeneric<C>): JSX.Element {
@@ -87,6 +93,7 @@ export function Button<C extends React.ElementType = 'button'>({
     <StyledButton
       as={as as never}
       href={href}
+      smallPadding={smallPadding}
       variant={variant}
       display={display}
       fullWidth={fullWidth}

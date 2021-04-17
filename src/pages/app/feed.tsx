@@ -1,9 +1,9 @@
 import { GetServerSideProps } from 'next'
-import { ProfileScreen } from '../../components'
+import { FeedScreen } from '../../components'
 import { AppPageProps, withAppPage } from '../../components/wrappers'
 import { AuthService, userService } from '../../services'
 
-export default withAppPage(ProfileScreen)
+export default withAppPage(FeedScreen)
 
 export const getServerSideProps: GetServerSideProps<AppPageProps> = async (
   ctx,
@@ -19,7 +19,7 @@ export const getServerSideProps: GetServerSideProps<AppPageProps> = async (
       props: {
         posts: profilePage.posts,
         seoProps: {
-          headTitle: 'Profile',
+          headTitle: 'Feed',
         },
         user: {
           ...session,
@@ -35,7 +35,7 @@ export const getServerSideProps: GetServerSideProps<AppPageProps> = async (
   return {
     props: {
       seoProps: {
-        headTitle: 'Profile',
+        headTitle: 'Feed',
       },
     },
   }
