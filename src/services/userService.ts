@@ -19,7 +19,7 @@ export const userService = {
       })
 
       return {
-        posts: response.data,
+        posts: [...response.data].reverse(),
         user: {
           totalLikes: 100,
         },

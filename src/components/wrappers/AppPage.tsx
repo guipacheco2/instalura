@@ -1,5 +1,5 @@
-import React, { createContext, useContext } from 'react'
-import { postService } from '../../services'
+import React, { createContext, useContext, useState } from 'react'
+import { Post, postService } from '../../services'
 import { CustomThemeProvider } from '../../theme'
 import {
   AppHeader,
@@ -18,11 +18,13 @@ import { AddIcon, HeartIcon, HomeIcon } from '../icons'
 import { PostCreate } from '../patterns'
 
 export interface AppPageProps {
+  posts?: Post[]
   seoProps?: SEOProps
 }
 
 interface AppPageContextProps {
-  TODO?: never
+  posts: Post[]
+  setPosts: React.Dispatch<React.SetStateAction<Post[]>>
 }
 
 const AppPageContext = createContext({} as AppPageContextProps)
@@ -39,20 +41,26 @@ export function withAppPage<Props>(PageComponent: React.ComponentType<Props>) {
       handleClosePostCreate,
     ] = useModal()
 
+    const [posts, setPosts] = useState(props.posts)
+
     async function handlePostCreate(values: {
       filter: string
       imageURL: string
     }) {
-      await postService.create(null, {
+      const res = await postService.create(null, {
         description: 'Description sample',
         filter: values.filter,
         photoUrl: values.imageURL,
       })
 
+      setPosts((currentPosts) => {
+        return [res.post, ...currentPosts]
+      })
+
       handleClosePostCreate()
     }
 
-    const appPageContextValue = {}
+    const appPageContextValue = { posts, setPosts }
 
     const { seoProps, ...otherProps } = props
 

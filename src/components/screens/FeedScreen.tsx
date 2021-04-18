@@ -1,6 +1,5 @@
 import React from 'react'
 import { usePostLike } from '../../infra'
-import { Post } from '../../services'
 import {
   Button,
   PostCard,
@@ -13,15 +12,14 @@ import { Box, GridCol, GridContainer, GridRow, Text } from '../foundation'
 import { HeartIcon } from '../icons'
 
 interface FeedScreenProps {
-  posts: Post[]
   user: {
     id: string
     username: string
   }
 }
 
-export function FeedScreen({ posts, user }: FeedScreenProps): JSX.Element {
-  const { clientPosts, like, pending } = usePostLike(posts)
+export function FeedScreen({ user }: FeedScreenProps): JSX.Element {
+  const { like, pending, posts } = usePostLike()
 
   return (
     <GridContainer>
@@ -31,7 +29,7 @@ export function FeedScreen({ posts, user }: FeedScreenProps): JSX.Element {
           alignItems="center"
           size={{ md: 7, xs: 12 }}
         >
-          {clientPosts.map((post) => {
+          {posts.map((post) => {
             return (
               <PostCard key={post._id}>
                 <PostCardHeader

@@ -1,15 +1,14 @@
 import { useState } from 'react'
+import { useAppPageContext } from '../../components'
 import { Post, postService } from '../../services'
 
-export function usePostLike(
-  posts: Post[],
-): {
-  clientPosts: Post[]
+export function usePostLike(): {
   like: (id: string) => Promise<void>
   pending: string
+  posts: Post[]
 } {
+  const { posts, setPosts } = useAppPageContext()
   const [pending, setPending] = useState('')
-  const [clientPosts, setClientPosts] = useState(posts)
 
   async function like(id: string) {
     setPending(id)
@@ -18,7 +17,7 @@ export function usePostLike(
 
     // ao adicionar um like, o endpoint retorna o post atualizado
     if (res.post) {
-      setClientPosts((currentPosts) => {
+      setPosts((currentPosts) => {
         return currentPosts.map((post) => {
           if (post._id === id) {
             return res.post
@@ -30,7 +29,7 @@ export function usePostLike(
     }
     // ao remover, o endpoint retorna vazio
     else {
-      setClientPosts((currentPosts) => {
+      setPosts((currentPosts) => {
         return currentPosts.map((post) => {
           if (post._id === id) {
             return {
@@ -47,5 +46,5 @@ export function usePostLike(
     setPending('')
   }
 
-  return { clientPosts, like, pending }
+  return { like, pending, posts }
 }

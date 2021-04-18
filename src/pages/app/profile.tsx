@@ -12,7 +12,7 @@ export const getServerSideProps: GetServerSideProps<AppPageProps> = async (
   const hasActiveSession = await auth.hasActiveSession()
 
   if (hasActiveSession) {
-    const session = await auth.getSession()
+    const user = await auth.getSession()
     const profilePage = await userService.getProfilePage(ctx)
 
     return {
@@ -21,10 +21,7 @@ export const getServerSideProps: GetServerSideProps<AppPageProps> = async (
         seoProps: {
           headTitle: 'Profile',
         },
-        user: {
-          ...session,
-          ...profilePage.user,
-        },
+        user,
       },
     }
   }

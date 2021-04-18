@@ -1,13 +1,11 @@
 import React from 'react'
-import { Post } from '../../services'
+import { usePostLike } from '../../infra'
 import { PostCardMedia, ProfileAvatar } from '../commons'
 import { Box, GridCol, GridContainer, GridRow, Text } from '../foundation'
 
-interface ProfileScreenProps {
-  posts: Post[]
-}
+export function ProfileScreen(): JSX.Element {
+  const { posts } = usePostLike()
 
-export function ProfileScreen({ posts }: ProfileScreenProps): JSX.Element {
   return (
     <GridContainer>
       <GridRow marginTop="60px" flexDirection={{ md: 'row', xs: 'column' }}>
