@@ -5,6 +5,36 @@ import { BASE_URL } from './constans'
 import { Post } from './interfaces'
 
 export const postService = {
+  async create(
+    ctx: GetServerSidePropsContext,
+    body: {
+      description: string
+      filter: string
+      photoUrl: string
+    },
+  ): Promise<{ post: Post }> {
+    const url = `${BASE_URL}/api/posts`
+
+    try {
+      const token = await AuthService(ctx).getToken()
+
+      const response = await httpClient<{ data: Post }>(url, {
+        body,
+        headers: {
+          authorization: `Bearer ${token}`,
+        },
+        method: 'POST',
+      })
+
+      return {
+        post: response.data,
+      }
+    } catch (err) {
+      const newError = new Error('Erro ao criar post.')
+      newError.stack = err.stack
+      throw newError
+    }
+  },
   async like(
     ctx: GetServerSidePropsContext,
     postId: string,

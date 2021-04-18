@@ -6,13 +6,13 @@ export function usePostLike(
 ): {
   clientPosts: Post[]
   like: (id: string) => Promise<void>
-  status: string
+  pending: string
 } {
-  const [status, setStatus] = useState('idle')
+  const [pending, setPending] = useState('')
   const [clientPosts, setClientPosts] = useState(posts)
 
   async function like(id: string) {
-    setStatus('pending')
+    setPending(id)
 
     const res = await postService.like(null, id)
 
@@ -44,8 +44,8 @@ export function usePostLike(
       })
     }
 
-    setStatus('idle')
+    setPending('')
   }
 
-  return { clientPosts, like, status }
+  return { clientPosts, like, pending }
 }

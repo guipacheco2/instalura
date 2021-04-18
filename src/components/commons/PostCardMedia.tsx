@@ -18,7 +18,11 @@ export function PostCardMedia({
 }: PostCardMediaProps): JSX.Element {
   return (
     <StyledPostCardMedia>
-      <StyledPostCardMediaImage className={`filter-${filter}`} src={imageSrc} />
+      <StyledPostCardMediaImage
+        className={`filter-${filter}`}
+        src={imageSrc}
+        loading="lazy"
+      />
     </StyledPostCardMedia>
   )
 }

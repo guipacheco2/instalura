@@ -1,4 +1,5 @@
 export * from './AddIcon'
+export * from './ArrowRightIcon'
 export * from './BookmarkIcon'
 export * from './BrightnessDarkIcon'
 export * from './BrightnessLightIcon'

@@ -1,12 +1,12 @@
-import React, { useRef, useState } from 'react'
+import React, { useState } from 'react'
 import styled from 'styled-components'
-import { Button, ImageFilters } from '../commons'
-import { Box } from '../foundation'
+import { Button, ImageFilters, InputButton } from '../commons'
+import { Box, Text } from '../foundation'
 import { ImagePlaceholderIcon } from '../icons'
 
 const StyledImageWrapper = styled.div`
   align-items: center;
-  background: #ccc;
+  background: #d5d5d5;
   display: flex;
   height: 35;
   justify-content: center;
@@ -22,10 +22,15 @@ interface PostCreateProps {
 }
 
 export function PostCreate({ onSubmit }: PostCreateProps): JSX.Element {
+  const [status, setStatus] = useState<'idle' | 'pending'>('idle')
   const [phase, setPhase] = useState<'initial' | 'filters'>('initial')
-  const imageInputRef = useRef<HTMLInputElement>(null)
   const [imageURL, setImageURL] = useState('')
   const [filter, setFilter] = useState('none')
+
+  function handleClickPost() {
+    setStatus('pending')
+    onSubmit({ filter, imageURL })
+  }
 
   return (
     <div style={{ width: 350 }}>
@@ -40,18 +45,16 @@ export function PostCreate({ onSubmit }: PostCreateProps): JSX.Element {
       {phase === 'initial' && (
         <Box padding="24px">
           <Box padding="12px 0">
-            <input
-              placeholder="URL da imagem"
-              ref={imageInputRef}
-              defaultValue="https://unavatar.now.sh/github/omariosouto"
-            />
+            <InputButton placeholder="URL da imagem" onClick={setImageURL} />
 
-            <Button
-              variant="secondary.main"
-              onClick={() => setImageURL(imageInputRef.current.value)}
+            <Text
+              variant="smallestException"
+              textAlign="center"
+              as="p"
+              color="tertiary.light"
             >
-              x
-            </Button>
+              Formatos suportados: jpg, png e svg.
+            </Text>
           </Box>
 
           <Box padding="12px 0">
@@ -59,6 +62,7 @@ export function PostCreate({ onSubmit }: PostCreateProps): JSX.Element {
               fullWidth
               variant="primary.main"
               onClick={() => setPhase('filters')}
+              disabled={!imageURL}
             >
               Avançar
             </Button>
@@ -78,7 +82,8 @@ export function PostCreate({ onSubmit }: PostCreateProps): JSX.Element {
             <Button
               fullWidth
               variant="primary.main"
-              onClick={() => onSubmit({ filter, imageURL })}
+              onClick={handleClickPost}
+              disabled={status === 'pending'}
             >
               Postar
             </Button>

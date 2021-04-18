@@ -1,4 +1,5 @@
 import React, { createContext, useContext } from 'react'
+import { postService } from '../../services'
 import { CustomThemeProvider } from '../../theme'
 import {
   AppHeader,
@@ -38,7 +39,16 @@ export function withAppPage<Props>(PageComponent: React.ComponentType<Props>) {
       handleClosePostCreate,
     ] = useModal()
 
-    function handlePostCreate() {
+    async function handlePostCreate(values: {
+      filter: string
+      imageURL: string
+    }) {
+      await postService.create(null, {
+        description: 'Description sample',
+        filter: values.filter,
+        photoUrl: values.imageURL,
+      })
+
       handleClosePostCreate()
     }
 

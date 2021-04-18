@@ -21,7 +21,7 @@ interface FeedScreenProps {
 }
 
 export function FeedScreen({ posts, user }: FeedScreenProps): JSX.Element {
-  const { clientPosts, like, status } = usePostLike(posts)
+  const { clientPosts, like, pending } = usePostLike(posts)
 
   return (
     <GridContainer>
@@ -45,7 +45,7 @@ export function FeedScreen({ posts, user }: FeedScreenProps): JSX.Element {
                       ghost
                       smallPadding
                       onClick={() => like(post._id)}
-                      disabled={status === 'pending'}
+                      disabled={pending === post._id}
                     >
                       <HeartIcon
                         filled={post.likes.some(

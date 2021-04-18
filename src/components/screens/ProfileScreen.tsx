@@ -1,17 +1,13 @@
 import React from 'react'
-import { ProfileAvatar } from '../commons'
-import { GridCol, GridContainer, GridRow, Text } from '../foundation'
+import { Post } from '../../services'
+import { PostCardMedia, ProfileAvatar } from '../commons'
+import { Box, GridCol, GridContainer, GridRow, Text } from '../foundation'
 
-const CardMediaImage = () => (
-  <div style={{ marginBottom: 16, marginTop: 16, padding: 0 }}>
-    <img
-      style={{ width: '100%' }}
-      src="https://media.giphy.com/media/bn0zlGb4LOyo8/giphy.gif"
-    />
-  </div>
-)
+interface ProfileScreenProps {
+  posts: Post[]
+}
 
-export function ProfileScreen(): JSX.Element {
+export function ProfileScreen({ posts }: ProfileScreenProps): JSX.Element {
   return (
     <GridContainer>
       <GridRow marginTop="60px" flexDirection={{ md: 'row', xs: 'column' }}>
@@ -64,24 +60,15 @@ export function ProfileScreen(): JSX.Element {
       </GridRow>
 
       <GridRow marginTop="60px">
-        <GridCol size={{ xs: 4 }}>
-          <CardMediaImage />
-        </GridCol>
-        <GridCol size={{ xs: 4 }}>
-          <CardMediaImage />
-        </GridCol>
-        <GridCol size={{ xs: 4 }}>
-          <CardMediaImage />
-        </GridCol>
-        <GridCol size={{ xs: 4 }}>
-          <CardMediaImage />
-        </GridCol>
-        <GridCol size={{ xs: 4 }}>
-          <CardMediaImage />
-        </GridCol>
-        <GridCol size={{ xs: 4 }}>
-          <CardMediaImage />
-        </GridCol>
+        {posts.map((post) => {
+          return (
+            <GridCol key={post._id} size={{ xs: 4 }}>
+              <Box marginBottom="16px" marginTop="16px">
+                <PostCardMedia filter={post.filter} imageSrc={post.photoUrl} />
+              </Box>
+            </GridCol>
+          )
+        })}
       </GridRow>
     </GridContainer>
   )
