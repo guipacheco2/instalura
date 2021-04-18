@@ -44,11 +44,12 @@ export function withAppPage<Props>(PageComponent: React.ComponentType<Props>) {
     const [posts, setPosts] = useState(props.posts)
 
     async function handlePostCreate(values: {
+      description: string
       filter: string
       imageURL: string
     }) {
       const res = await postService.create(null, {
-        description: 'Description sample',
+        description: values.description,
         filter: values.filter,
         photoUrl: values.imageURL,
       })
@@ -78,7 +79,10 @@ export function withAppPage<Props>(PageComponent: React.ComponentType<Props>) {
                   <Box margin="0 8px">
                     <SearchInput />
                   </Box>
-                  <IconButton onClick={handleClickPostCreate}>
+                  <IconButton
+                    aria-label="create post"
+                    onClick={handleClickPostCreate}
+                  >
                     <AddIcon />
                   </IconButton>
                   <Link href="/app/feed">

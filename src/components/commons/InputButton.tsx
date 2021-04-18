@@ -8,16 +8,15 @@ const StyledWrapper = styled.div`
 `
 
 const StyledInput = styled.input`
-  border: ${({ theme }) => `1px solid ${theme.colors.borders.main.color}`};
-  color: ${({ theme }) => theme.colors.tertiary.main.color};
-  outline: none;
-  padding: 10px 50px 10px 10px;
-  border-radius: 12px;
+  border-radius: ${({ theme }) => theme.borderRadius};
+  border: 1px solid ${({ theme }) => theme.colors.tertiary.light.color};
+  outline: 0;
+  padding: 12px 56px 12px 16px;
   width: 100%;
 `
 
 const StyledButton = styled(Button)`
-  padding: 8px;
+  padding: 10px;
   right: 0;
   position: absolute;
 `
@@ -39,6 +38,7 @@ export function InputButton({
 
       <StyledButton
         variant="secondary.main"
+        aria-label="confirm filled value"
         onClick={() => onClick(imageInputRef.current.value)}
         smallPadding
       >

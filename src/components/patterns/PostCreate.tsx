@@ -1,6 +1,9 @@
-import React, { useState } from 'react'
+import React, { useCallback, useState } from 'react'
 import styled from 'styled-components'
+import * as yup from 'yup'
+import { useForm } from '../../infra'
 import { Button, ImageFilters, InputButton } from '../commons'
+import { TextField } from '../forms'
 import { Box, Text } from '../foundation'
 import { ImagePlaceholderIcon } from '../icons'
 
@@ -17,8 +20,19 @@ const StyledImage = styled.img`
   width: 100%;
 `
 
+const postSchema = yup.object().shape({
+  description: yup
+    .string()
+    .required('"Descrição" é obrigatório')
+    .min(3, 'Preencha ao menos 3 caracteres'),
+})
+
 interface PostCreateProps {
-  onSubmit: (values: { filter: string; imageURL: string }) => void
+  onSubmit: (values: {
+    description: string
+    filter: string
+    imageURL: string
+  }) => void
 }
 
 export function PostCreate({ onSubmit }: PostCreateProps): JSX.Element {
@@ -27,13 +41,23 @@ export function PostCreate({ onSubmit }: PostCreateProps): JSX.Element {
   const [imageURL, setImageURL] = useState('')
   const [filter, setFilter] = useState('none')
 
+  const form = useForm({
+    initialValues: { description: '' },
+    onSubmit: () => false,
+    validateSchema: useCallback(async function validateSchema(values) {
+      return postSchema.validate(values, {
+        abortEarly: false,
+      })
+    }, []),
+  })
+
   function handleClickPost() {
     setStatus('pending')
-    onSubmit({ filter, imageURL })
+    onSubmit({ description: form.values.description, filter, imageURL })
   }
 
   return (
-    <div style={{ width: 350 }}>
+    <div style={{ width: 350 }} role="dialog" aria-label="create post dialog">
       <StyledImageWrapper>
         {imageURL ? (
           <StyledImage src={imageURL} className={`filter-${filter}`} />
@@ -45,6 +69,16 @@ export function PostCreate({ onSubmit }: PostCreateProps): JSX.Element {
       {phase === 'initial' && (
         <Box padding="24px">
           <Box padding="12px 0">
+            <TextField
+              placeholder="Descrição"
+              name="description"
+              value={form.values.description}
+              error={form.errors.description}
+              isTouched={form.touchedFields.description}
+              onChange={form.handleChange}
+              onBlur={form.handleBlur}
+            />
+
             <InputButton placeholder="URL da imagem" onClick={setImageURL} />
 
             <Text
@@ -62,7 +96,7 @@ export function PostCreate({ onSubmit }: PostCreateProps): JSX.Element {
               fullWidth
               variant="primary.main"
               onClick={() => setPhase('filters')}
-              disabled={!imageURL}
+              disabled={!form.isValid || !imageURL}
             >
               Avançar
             </Button>

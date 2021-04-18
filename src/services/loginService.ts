@@ -1,6 +1,6 @@
 import { destroyCookie, setCookie } from 'nookies'
 import { httpClient } from '../infra/http/httpClient'
-import { BASE_URL } from './constans'
+import { BASE_URL } from './constants'
 
 interface LoginServiceOptions {
   password: string

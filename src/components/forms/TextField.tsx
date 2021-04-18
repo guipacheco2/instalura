@@ -7,11 +7,11 @@ const StyledTextField = styled.div`
 `
 
 const StyledInput = styled(Text)`
-  width: 100%;
-  border: 1px solid ${({ theme }) => theme.colors.tertiary.light.color};
-  padding: 12px 16px;
-  outline: 0;
   border-radius: ${({ theme }) => theme.borderRadius};
+  border: 1px solid ${({ theme }) => theme.colors.tertiary.light.color};
+  outline: 0;
+  padding: 12px 16px;
+  width: 100%;
 
   ${({ isFieldInvalid, theme }) =>
     isFieldInvalid &&

@@ -1,7 +1,7 @@
 import { GetServerSidePropsContext } from 'next'
 import { httpClient } from '../infra'
 import { AuthService } from './AuthService'
-import { BASE_URL } from './constans'
+import { BASE_URL } from './constants'
 import { Post } from './interfaces'
 
 export const userService = {

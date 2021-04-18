@@ -2,7 +2,7 @@ import jwt from 'jsonwebtoken'
 import { GetServerSidePropsContext } from 'next'
 import { parseCookies } from 'nookies'
 import { httpClient } from '../infra'
-import { BASE_URL } from './constans'
+import { BASE_URL } from './constants'
 import { LOGIN_COOKIE_APP_TOKEN, logout } from './loginService'
 
 interface AuthService {
