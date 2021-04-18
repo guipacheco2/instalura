@@ -10,16 +10,18 @@ describe('/pages/app/feed/', () => {
     cy.login()
   })
 
-  it('go to the feed page', () => {
-    const description = faker.commerce.productDescription()
+  describe('when fill and submit the create post', () => {
+    it('the created post is visible', () => {
+      const description = faker.commerce.productDescription()
 
-    FeedScreenPageObject(cy)
-      .openPostModal()
-      .fillImageURL(
-        description,
-        'https://source.unsplash.com/BxQ4jKYB0kI/600x600',
-      )
-      .confirmPost()
-      .expectPostByDescriptionBeVisible(description)
+      FeedScreenPageObject(cy)
+        .openPostModal()
+        .fillImageURL(
+          description,
+          'https://source.unsplash.com/BxQ4jKYB0kI/600x600',
+        )
+        .confirmPost()
+        .expectPostByDescriptionBeVisible(description)
+    })
   })
 })
