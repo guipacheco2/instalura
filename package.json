@@ -15,7 +15,8 @@
     "lint:base": "eslint . --ignore-path .gitignore --cache",
     "lint:check": "yarn lint:base",
     "lint:fix": "yarn lint:base --fix",
-    "test:linters": "yarn format:check && yarn lint:check"
+    "test:linters": "yarn format:check && yarn lint:check",
+    "postinstall": "husky install"
   },
   "devDependencies": {
     "@commitlint/cli": "^12.1.1",
@@ -25,6 +26,7 @@
     "@types/react-is": "^17.0.0",
     "@typescript-eslint/eslint-plugin": "^4.22.0",
     "@typescript-eslint/parser": "^4.22.0",
+    "commitizen": "^4.2.3",
     "cz-conventional-changelog": "^3.3.0",
     "eslint": "^7.25.0",
     "eslint-config-prettier": "^8.3.0",
@@ -43,13 +45,6 @@
     "prettier": "^2.2.1",
     "typescript": "^4.2.4"
   },
-  "husky": {
-    "hooks": {
-      "pre-commit": "lint-staged",
-      "pre-push": "yarn test:linters",
-      "commit-msg": "commitlint -E HUSKY_GIT_PARAMS"
-    }
-  },
   "lint-staged": {
     "*.js": "eslint --cache --fix",
     "*.{js,css,md,json}": "prettier --write",
@@ -57,7 +52,7 @@
   },
   "config": {
     "commitizen": {
-      "path": "./node_modules/cz-conventional-changelog"
+      "path": "cz-conventional-changelog"
     }
   },
   "license": "MIT",

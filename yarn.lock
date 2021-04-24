@@ -6716,7 +6716,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"commitizen@npm:^4.0.3":
+"commitizen@npm:^4.0.3, commitizen@npm:^4.2.3":
   version: 4.2.3
   resolution: "commitizen@npm:4.2.3"
   dependencies:
@@ -10681,6 +10681,7 @@ fsevents@^1.2.7:
     "@types/react-is": ^17.0.0
     "@typescript-eslint/eslint-plugin": ^4.22.0
     "@typescript-eslint/parser": ^4.22.0
+    commitizen: ^4.2.3
     cz-conventional-changelog: ^3.3.0
     eslint: ^7.25.0
     eslint-config-prettier: ^8.3.0
