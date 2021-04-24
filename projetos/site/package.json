@@ -14,7 +14,7 @@
   },
   "dependencies": {
     "@crello/react-lottie": "^0.0.11",
-    "framer-motion": "^4.1.2",
+    "framer-motion": "^4.1.9",
     "graphql": "^15.5.0",
     "graphql-request": "^3.4.0",
     "jsonwebtoken": "^8.5.1",
@@ -31,11 +31,11 @@
   "devDependencies": {
     "@testing-library/cypress": "^7.0.6",
     "@testing-library/dom": "^7.30.4",
-    "@testing-library/jest-dom": "^5.11.10",
+    "@testing-library/jest-dom": "^5.12.0",
     "@testing-library/react": "^11.2.6",
-    "@testing-library/react-hooks": "^5.1.1",
-    "@testing-library/user-event": "^13.1.1",
-    "@types/faker": "^5.5.2",
+    "@testing-library/react-hooks": "^5.1.2",
+    "@testing-library/user-event": "^13.1.5",
+    "@types/faker": "^5.5.3",
     "@types/jest": "^26.0.22",
     "@types/jsonwebtoken": "^8.5.1",
     "@types/lodash.get": "^4.4.6",
@@ -43,14 +43,14 @@
     "@types/react": "^17.0.3",
     "@types/react-dom": "^17.0.3",
     "@types/styled-components": "^5.1.9",
-    "babel-plugin-styled-components": "^1.8.0",
-    "cypress": "^6.8.0",
+    "babel-plugin-styled-components": "^1.12.0",
+    "cypress": "^6.9.1",
     "faker": "^5.5.3",
     "jest": "^26.6.3",
     "jest-canvas-mock": "^2.3.1",
-    "jest-styled-components": "^7.0.3",
+    "jest-styled-components": "^7.0.4",
     "start-server-and-test": "^1.12.1",
-    "typescript": "^4.2.3"
+    "typescript": "^4.2.4"
   },
   "license": "MIT"
 }

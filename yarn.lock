@@ -2201,11 +2201,11 @@ __metadata:
     "@crello/react-lottie": ^0.0.11
     "@testing-library/cypress": ^7.0.6
     "@testing-library/dom": ^7.30.4
-    "@testing-library/jest-dom": ^5.11.10
+    "@testing-library/jest-dom": ^5.12.0
     "@testing-library/react": ^11.2.6
-    "@testing-library/react-hooks": ^5.1.1
-    "@testing-library/user-event": ^13.1.1
-    "@types/faker": ^5.5.2
+    "@testing-library/react-hooks": ^5.1.2
+    "@testing-library/user-event": ^13.1.5
+    "@types/faker": ^5.5.3
     "@types/jest": ^26.0.22
     "@types/jsonwebtoken": ^8.5.1
     "@types/lodash.get": ^4.4.6
@@ -2213,15 +2213,15 @@ __metadata:
     "@types/react": ^17.0.3
     "@types/react-dom": ^17.0.3
     "@types/styled-components": ^5.1.9
-    babel-plugin-styled-components: ^1.8.0
-    cypress: ^6.8.0
+    babel-plugin-styled-components: ^1.12.0
+    cypress: ^6.9.1
     faker: ^5.5.3
-    framer-motion: ^4.1.2
+    framer-motion: ^4.1.9
     graphql: ^15.5.0
     graphql-request: ^3.4.0
     jest: ^26.6.3
     jest-canvas-mock: ^2.3.1
-    jest-styled-components: ^7.0.3
+    jest-styled-components: ^7.0.4
     jsonwebtoken: ^8.5.1
     lodash.get: ^4.4.2
     next: ^10.1.3
@@ -2232,7 +2232,7 @@ __metadata:
     start-server-and-test: ^1.12.1
     styled-components: ^5.2.3
     styled-normalize: ^8.0.7
-    typescript: ^4.2.3
+    typescript: ^4.2.4
     yup: ^0.32.9
   languageName: unknown
   linkType: soft
@@ -2242,20 +2242,35 @@ __metadata:
   resolution: "@instalura/ui@workspace:projetos/ui"
   dependencies:
     "@babel/core": ^7.13.16
+    "@crello/react-lottie": ^0.0.11
     "@mdx-js/react": ^1.6.22
     "@storybook/addon-actions": ^6.2.9
     "@storybook/addon-docs": ^6.2.9
     "@storybook/addon-essentials": ^6.2.9
     "@storybook/addon-links": ^6.2.9
     "@storybook/react": ^6.2.9
-    "@types/babel__core": ^7
-    "@types/mdx-js__react": ^1
-    "@types/prop-types": ^15
+    "@testing-library/user-event": ^13.1.5
+    "@types/babel__core": ^7.1.14
+    "@types/lodash.get": ^4.4.6
+    "@types/mdx-js__react": ^1.5.3
+    "@types/prop-types": ^15.7.3
+    "@types/react": ^17.0.3
+    "@types/react-dom": ^17.0.3
+    "@types/styled-components": ^5.1.9
     babel-loader: ^8.2.2
+    framer-motion: ^4.1.9
+    graphql-request: ^3.4.0
+    lodash.get: ^4.4.2
+    next: ^10.1.3
     prop-types: ^15.7.2
+    react: ^17.0.2
+    styled-components: ^5.2.3
+    styled-normalize: ^8.0.7
+    yup: ^0.32.9
   peerDependencies:
     react: "*"
     react-dom: "*"
+    react-is: "*"
   languageName: unknown
   linkType: soft
 
@@ -3700,7 +3715,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@testing-library/jest-dom@npm:^5.11.10":
+"@testing-library/jest-dom@npm:^5.12.0":
   version: 5.12.0
   resolution: "@testing-library/jest-dom@npm:5.12.0"
   dependencies:
@@ -3716,7 +3731,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@testing-library/react-hooks@npm:^5.1.1":
+"@testing-library/react-hooks@npm:^5.1.2":
   version: 5.1.2
   resolution: "@testing-library/react-hooks@npm:5.1.2"
   dependencies:
@@ -3752,7 +3767,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@testing-library/user-event@npm:^13.1.1":
+"@testing-library/user-event@npm:^13.1.5":
   version: 13.1.5
   resolution: "@testing-library/user-event@npm:13.1.5"
   dependencies:
@@ -3784,7 +3799,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@types/babel__core@npm:^7, @types/babel__core@npm:^7.0.0, @types/babel__core@npm:^7.1.7":
+"@types/babel__core@npm:^7.0.0, @types/babel__core@npm:^7.1.14, @types/babel__core@npm:^7.1.7":
   version: 7.1.14
   resolution: "@types/babel__core@npm:7.1.14"
   dependencies:
@@ -3848,7 +3863,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@types/faker@npm:^5.5.2":
+"@types/faker@npm:^5.5.3":
   version: 5.5.3
   resolution: "@types/faker@npm:5.5.3"
   checksum: 400a10db2a027bbfa3bd91c4a04fbb2bab4ab98f20a3a60b505db1947f24a8efc9040739bf2380d2635d4db558eb13018dd3025a38f5d8643c0fc058f24b5220
@@ -4006,7 +4021,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@types/mdx-js__react@npm:^1":
+"@types/mdx-js__react@npm:^1.5.3":
   version: 1.5.3
   resolution: "@types/mdx-js__react@npm:1.5.3"
   dependencies:
@@ -4111,7 +4126,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@types/prop-types@npm:*, @types/prop-types@npm:^15":
+"@types/prop-types@npm:*, @types/prop-types@npm:^15.7.3":
   version: 15.7.3
   resolution: "@types/prop-types@npm:15.7.3"
   checksum: bd0eab69d5120ad3784d0c9985f902653d5924707a7f2b3702a330e762dfd61b6494954cb54ad0c52b918ffd6f1e7e27c9270e4442bc15250de348596f2f60cb
@@ -4140,6 +4155,15 @@ __metadata:
   dependencies:
     "@types/react": "*"
   checksum: 9314c91a985f153591e1e74aef3d63d8b22e098069773f32745bf0733740a49802731761a46da8788a7d3dd2c21346036f12c2c24627630e5a6210b120a650e6
+  languageName: node
+  linkType: hard
+
+"@types/react-is@npm:^17.0.0":
+  version: 17.0.0
+  resolution: "@types/react-is@npm:17.0.0"
+  dependencies:
+    "@types/react": "*"
+  checksum: d0734c30ba645c42626ea580addb24f1d23bd35b3f52a3a78ff876ceadfb0ada4b6a4bb55b8730ab17ca240019aa2c5ea67302308f3a8e95ee8b9b20812a76a8
   languageName: node
   linkType: hard
 
@@ -4298,7 +4322,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@typescript-eslint/eslint-plugin@npm:^4.20.0":
+"@typescript-eslint/eslint-plugin@npm:^4.22.0":
   version: 4.22.0
   resolution: "@typescript-eslint/eslint-plugin@npm:4.22.0"
   dependencies:
@@ -4350,7 +4374,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@typescript-eslint/parser@npm:^4.20.0":
+"@typescript-eslint/parser@npm:^4.22.0":
   version: 4.22.0
   resolution: "@typescript-eslint/parser@npm:4.22.0"
   dependencies:
@@ -5540,7 +5564,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"babel-plugin-styled-components@npm:>= 1.12.0, babel-plugin-styled-components@npm:^1.8.0":
+"babel-plugin-styled-components@npm:>= 1.12.0, babel-plugin-styled-components@npm:^1.12.0":
   version: 1.12.0
   resolution: "babel-plugin-styled-components@npm:1.12.0"
   dependencies:
@@ -7282,7 +7306,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"cypress@npm:^6.8.0":
+"cypress@npm:^6.9.1":
   version: 6.9.1
   resolution: "cypress@npm:6.9.1"
   dependencies:
@@ -8274,7 +8298,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"eslint-config-prettier@npm:^8.1.0":
+"eslint-config-prettier@npm:^8.3.0":
   version: 8.3.0
   resolution: "eslint-config-prettier@npm:8.3.0"
   peerDependencies:
@@ -8339,7 +8363,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"eslint-plugin-jest@npm:^24.3.3":
+"eslint-plugin-jest@npm:^24.3.5":
   version: 24.3.5
   resolution: "eslint-plugin-jest@npm:24.3.5"
   dependencies:
@@ -8354,7 +8378,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"eslint-plugin-prettier@npm:^3.3.1":
+"eslint-plugin-prettier@npm:^3.4.0":
   version: 3.4.0
   resolution: "eslint-plugin-prettier@npm:3.4.0"
   dependencies:
@@ -8378,7 +8402,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"eslint-plugin-react@npm:^7.23.1":
+"eslint-plugin-react@npm:^7.23.2":
   version: 7.23.2
   resolution: "eslint-plugin-react@npm:7.23.2"
   dependencies:
@@ -8478,7 +8502,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"eslint@npm:^7.23.0":
+"eslint@npm:^7.25.0":
   version: 7.25.0
   resolution: "eslint@npm:7.25.0"
   dependencies:
@@ -9333,7 +9357,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"framer-motion@npm:^4.1.2":
+"framer-motion@npm:^4.1.9":
   version: 4.1.9
   resolution: "framer-motion@npm:4.1.9"
   dependencies:
@@ -10654,16 +10678,17 @@ fsevents@^1.2.7:
     "@commitlint/config-conventional": ^12.1.1
     "@types/react": ^17.0.3
     "@types/react-dom": ^17.0.3
-    "@typescript-eslint/eslint-plugin": ^4.20.0
-    "@typescript-eslint/parser": ^4.20.0
+    "@types/react-is": ^17.0.0
+    "@typescript-eslint/eslint-plugin": ^4.22.0
+    "@typescript-eslint/parser": ^4.22.0
     cz-conventional-changelog: ^3.3.0
-    eslint: ^7.23.0
-    eslint-config-prettier: ^8.1.0
+    eslint: ^7.25.0
+    eslint-config-prettier: ^8.3.0
     eslint-plugin-cypress: ^2.11.2
     eslint-plugin-import: ^2.22.1
-    eslint-plugin-jest: ^24.3.3
-    eslint-plugin-prettier: ^3.3.1
-    eslint-plugin-react: ^7.23.1
+    eslint-plugin-jest: ^24.3.5
+    eslint-plugin-prettier: ^3.4.0
+    eslint-plugin-react: ^7.23.2
     eslint-plugin-react-hooks: ^4.2.0
     eslint-plugin-sort-destructure-keys: ^1.3.5
     eslint-plugin-sort-keys-fix: ^1.1.1
@@ -10674,7 +10699,8 @@ fsevents@^1.2.7:
     prettier: ^2.2.1
     react: ^17.0.2
     react-dom: ^17.0.2
-    typescript: ^4.2.3
+    react-is: ^17.0.2
+    typescript: ^4.2.4
   languageName: unknown
   linkType: soft
 
@@ -11835,7 +11861,7 @@ fsevents@^1.2.7:
   languageName: node
   linkType: hard
 
-"jest-styled-components@npm:^7.0.3":
+"jest-styled-components@npm:^7.0.4":
   version: 7.0.4
   resolution: "jest-styled-components@npm:7.0.4"
   dependencies:
@@ -17943,7 +17969,7 @@ resolve@^2.0.0-next.3:
   languageName: node
   linkType: hard
 
-typescript@^4.2.3:
+typescript@^4.2.4:
   version: 4.2.4
   resolution: "typescript@npm:4.2.4"
   bin:
@@ -17953,7 +17979,7 @@ typescript@^4.2.3:
   languageName: node
   linkType: hard
 
-"typescript@patch:typescript@^4.2.3#builtin<compat/typescript>":
+"typescript@patch:typescript@^4.2.4#builtin<compat/typescript>":
   version: 4.2.4
   resolution: "typescript@patch:typescript@npm%3A4.2.4#builtin<compat/typescript>::version=4.2.4&hash=a45b0e"
   bin:
