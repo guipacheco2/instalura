@@ -4575,7 +4575,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"esutils@npm:^2.0.2":
+"esutils@npm:^2.0.2, esutils@npm:^2.0.3":
   version: 2.0.3
   resolution: "esutils@npm:2.0.3"
   checksum: 590b04533177f8f6f0f352b3ac7da6c1c1e3d8375d8973972fba9c94558ca168685fd38319c3c6f4c37ba256df7494a7f15d8e761df1655af8a8f0027d988f8f
@@ -6001,6 +6001,7 @@ __metadata:
     eslint-plugin-sort-destructure-keys: ^1.3.5
     eslint-plugin-sort-keys-fix: ^1.1.1
     eslint-plugin-typescript-sort-keys: ^1.6.0
+    esutils: ^2.0.3
     husky: ^6.0.0
     lint-staged: ^10.5.4
     prettier: ^2.2.1
