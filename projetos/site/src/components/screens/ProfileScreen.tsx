@@ -1,7 +1,14 @@
+import {
+  Box,
+  GridCol,
+  GridContainer,
+  GridRow,
+  PostCardMedia,
+  ProfileAvatar,
+  Text,
+} from '@instalura/ui'
 import React from 'react'
 import { usePostLike } from '../../infra'
-import { PostCardMedia, ProfileAvatar } from '../commons'
-import { Box, GridCol, GridContainer, GridRow, Text } from '../foundation'
 
 export function ProfileScreen(): JSX.Element {
   const { posts } = usePostLike()

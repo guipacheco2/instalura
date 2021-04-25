@@ -1,6 +1,6 @@
+import { CustomThemeProvider } from '@instalura/ui'
 import { render, RenderOptions, RenderResult } from '@testing-library/react'
 import React from 'react'
-import { CustomThemeProvider } from '../../theme'
 
 function AllTheProviders({
   children,

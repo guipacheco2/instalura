@@ -1,15 +1,19 @@
-import React from 'react'
-import { usePostLike } from '../../infra'
 import {
+  Box,
   Button,
+  GridCol,
+  GridContainer,
+  GridRow,
+  HeartIcon,
+  ListItem,
   PostCard,
   PostCardContent,
   PostCardHeader,
   PostCardMedia,
-} from '../commons'
-import { ListItem } from '../commons/ListItem'
-import { Box, GridCol, GridContainer, GridRow, Text } from '../foundation'
-import { HeartIcon } from '../icons'
+  Text,
+} from '@instalura/ui'
+import React from 'react'
+import { usePostLike } from '../../infra'
 
 interface FeedScreenProps {
   user: {

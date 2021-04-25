@@ -1,20 +1,24 @@
-import React, { createContext, useContext, useState } from 'react'
-import { Post, postService } from '../../services'
-import { CustomThemeProvider } from '../../theme'
 import {
+  AddIcon,
   AppHeader,
   Avatar,
+  Box,
+  CustomThemeProvider,
+  GridCol,
+  GridContainer,
+  GridRow,
+  HeartIcon,
+  HomeIcon,
   IconButton,
   Link,
   Logo,
   Modal,
   SearchInput,
-  SEO,
-  SEOProps,
   useModal,
-} from '../commons'
-import { Box, GridCol, GridContainer, GridRow } from '../foundation'
-import { AddIcon, HeartIcon, HomeIcon } from '../icons'
+} from '@instalura/ui'
+import React, { createContext, useContext, useState } from 'react'
+import { Post, postService } from '../../services'
+import { SEO, SEOProps } from '../commons'
 import { PostCreate } from '../patterns'
 
 export interface AppPageProps {

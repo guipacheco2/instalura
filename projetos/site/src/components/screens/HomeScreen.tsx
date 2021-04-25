@@ -1,6 +1,5 @@
+import { Button, GridCol, GridContainer, GridRow, Text } from '@instalura/ui'
 import React from 'react'
-import { Button } from '../commons'
-import { GridCol, GridContainer, GridRow, Text } from '../foundation'
 import { useWebsitePageContext } from '../wrappers'
 
 export function HomeScreen(): JSX.Element {

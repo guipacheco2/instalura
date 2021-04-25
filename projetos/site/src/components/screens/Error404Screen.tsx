@@ -1,6 +1,11 @@
+import {
+  GridCol,
+  GridContainer,
+  GridRow,
+  NotFoundAnimation,
+  Text,
+} from '@instalura/ui'
 import React from 'react'
-import { NotFoundAnimation } from '../animations'
-import { GridCol, GridContainer, GridRow, Text } from '../foundation'
 
 export function Error404Screen(): JSX.Element {
   return (

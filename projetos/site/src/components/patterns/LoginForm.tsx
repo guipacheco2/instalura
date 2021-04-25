@@ -1,12 +1,9 @@
+import { Box, Button, ErrorAnimation, TextField } from '@instalura/ui'
 import { useRouter } from 'next/router'
 import React, { useCallback, useEffect, useState } from 'react'
 import * as yup from 'yup'
 import { useForm } from '../../infra'
 import { login } from '../../services'
-import { ErrorAnimation } from '../animations'
-import { Button } from '../commons'
-import { TextField } from '../forms'
-import { Box } from '../foundation'
 
 enum FormStates {
   DEFAULT,

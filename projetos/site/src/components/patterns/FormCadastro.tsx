@@ -1,8 +1,12 @@
+import {
+  Box,
+  Button,
+  ErrorAnimation,
+  SuccessAnimation,
+  Text,
+  TextField,
+} from '@instalura/ui'
 import React, { useState } from 'react'
-import { ErrorAnimation, SuccessAnimation } from '../animations'
-import { Button } from '../commons'
-import { TextField } from '../forms'
-import { Box, Text } from '../foundation'
 
 enum FormStates {
   DEFAULT,

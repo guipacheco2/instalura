@@ -1,6 +1,5 @@
+import { Box, GridCol, GridContainer, GridRow, Link, Text } from '@instalura/ui'
 import React from 'react'
-import { Link } from '../commons'
-import { Box, GridCol, GridContainer, GridRow, Text } from '../foundation'
 
 export interface Question {
   description: string

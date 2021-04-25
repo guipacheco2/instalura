@@ -1,8 +1,14 @@
+import {
+  Box,
+  DangerouslySetInnerHTML,
+  GridCol,
+  GridContainer,
+  GridRow,
+  Text,
+} from '@instalura/ui'
 import { gql } from 'graphql-request'
 import React from 'react'
 import { CMSGraphQLClient } from '../../infra'
-import { DangerouslySetInnerHTML } from '../commons'
-import { Box, GridCol, GridContainer, GridRow, Text } from '../foundation'
 import { useWebsitePageContext } from '../wrappers'
 
 export function AboutScreen(): JSX.Element {

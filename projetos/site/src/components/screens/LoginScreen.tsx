@@ -1,8 +1,14 @@
+import {
+  Box,
+  Button,
+  GridCol,
+  GridContainer,
+  GridRow,
+  Link,
+  Logo,
+  Text,
+} from '@instalura/ui'
 import React from 'react'
-import { Link } from '..'
-import { Button } from '../commons'
-import { Logo } from '../commons/Logo'
-import { Box, GridCol, GridContainer, GridRow, Text } from '../foundation'
 import { LoginForm } from '../patterns'
 import { useWebsitePageContext } from '../wrappers'
 

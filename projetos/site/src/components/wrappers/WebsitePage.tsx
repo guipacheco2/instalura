@@ -1,16 +1,16 @@
-import get from 'lodash.get'
-import React, { createContext, useContext } from 'react'
-import { CustomThemeProvider } from '../../theme'
 import {
+  Box,
   Bubbles,
+  CustomThemeProvider,
   Footer,
+  GridContainer,
   Menu,
   Modal,
-  SEO,
-  SEOProps,
   useModal,
-} from '../commons'
-import { Box, GridContainer } from '../foundation'
+} from '@instalura/ui'
+import get from 'lodash.get'
+import React, { createContext, useContext } from 'react'
+import { SEO, SEOProps } from '../commons'
 import { FormCadastro } from '../patterns'
 
 export interface WebsitePageProps {
