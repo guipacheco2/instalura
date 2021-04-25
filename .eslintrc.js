@@ -13,8 +13,6 @@ module.exports = {
     'plugin:react-hooks/recommended',
     'plugin:@typescript-eslint/recommended',
     'plugin:typescript-sort-keys/recommended',
-    'plugin:import/errors',
-    'plugin:import/warnings',
     'plugin:import/typescript',
     'prettier',
   ],

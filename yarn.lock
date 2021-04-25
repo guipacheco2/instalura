@@ -4053,6 +4053,13 @@ __metadata:
   languageName: node
   linkType: hard
 
+"@types/natural-compare@npm:^1":
+  version: 1.4.0
+  resolution: "@types/natural-compare@npm:1.4.0"
+  checksum: c6f9288323c969c8a180eae944c9f71c56c85803167c713ec2e88de70a5f20ce78e36a0434a0869d7b8a20efaede601bb3e0e1d5f2589494ba15c6663ccf32c5
+  languageName: node
+  linkType: hard
+
 "@types/node-fetch@npm:^2.5.7":
   version: 2.5.10
   resolution: "@types/node-fetch@npm:2.5.10"
@@ -10676,6 +10683,7 @@ fsevents@^1.2.7:
   dependencies:
     "@commitlint/cli": ^12.1.1
     "@commitlint/config-conventional": ^12.1.1
+    "@types/natural-compare": ^1
     "@types/react": ^17.0.3
     "@types/react-dom": ^17.0.3
     "@types/react-is": ^17.0.0
@@ -10694,9 +10702,11 @@ fsevents@^1.2.7:
     eslint-plugin-sort-destructure-keys: ^1.3.5
     eslint-plugin-sort-keys-fix: ^1.1.1
     eslint-plugin-typescript-sort-keys: ^1.6.0
+    espree: ^7.3.1
     esutils: ^2.0.3
     husky: ^6.0.0
     lint-staged: ^10.5.4
+    natural-compare: ^1.4.0
     prettier: ^2.2.1
     react: ^17.0.2
     react-dom: ^17.0.2
