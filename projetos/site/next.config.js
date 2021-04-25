@@ -1,7 +1,9 @@
 /* eslint-disable @typescript-eslint/no-var-requires */
+const withPlugins = require('next-compose-plugins')
+const withTM = require('next-transpile-modules')(['@instalura/ui'])
 const { redirects } = require('./config/redirects')
 
-module.exports = {
+module.exports = withPlugins([withTM], {
   async headers() {
     return [
       {
@@ -19,4 +21,4 @@ module.exports = {
     return redirects
   },
   trailingSlash: true,
-}
+})
