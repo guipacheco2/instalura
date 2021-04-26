@@ -67,6 +67,9 @@ jobs:
       - name: Install dependencies
         run: yarn install --immutable --immutable-cache --skip-builds
 
+      - name: Install cypress
+        run: yarn workspace @instalura/site cypress install
+
       - name: Run Integration Tests
         run: yarn workspace @instalura/site test:integration:build
         env:
