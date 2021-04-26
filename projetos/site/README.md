@@ -313,6 +313,18 @@ Para finalizar, iremos trabalhar na área da aplicação onde exige autenticaç�
 
 - Prevenir carregamento do JS caso o usuário não esteja logado.
 
+### Módulo 06: Storybook + TypeScript
+
+Está chegando a hora de emergir e avaliarmos tudo que aprendermos, mas antes precisamos aprender sobre aspectos importantes no desenvolvimento em equipe. Quando trabalhamos em equipe é muito importante mantermos uma documentação dos componentes, dessa forma todas as pessoas do time conseguem se manter atualizadas e a comunicação entre os times fica mais fluida. Utilizaremos o Storybook para criar essa documentação dos componentes do nosso projeto de forma estruturada e organizada. Também mostraremos como utilizar o TypeScript, e como ele ajudaria nossa aplicação com React a ter um sistema de tipos mais forte e verificados por um compilador, evitando que erros simples aconteçam.
+
+Links
+
+- https://react-typescript-cheatsheet.netlify.app/docs/basic/getting-started/forms_and_events/
+- https://devhints.io/typescript
+- https://www.typescriptlang.org/
+- https://www.typescriptlang.org/docs/handbook/intro.html
+- https://www.typescriptlang.org/docs/
+
 ## Links mencionados na comunidade do bootcamp
 
 - https://flexboxfroggy.com/
