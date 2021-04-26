@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/ban-ts-comment */
 import user from '@testing-library/user-event'
 import React from 'react'
 import { render, screen, waitFor } from '../../infra'
@@ -10,18 +11,22 @@ describe('<LoginForm />', () => {
       render(<LoginForm onSubmit={onSubmit} />)
 
       const buttonEl = screen.getByRole('button')
+      // @ts-ignore
       expect(buttonEl).toBeDisabled()
 
       const inputUsuarioEl = screen.getByPlaceholderText('Usuário')
       const typedUsername = 'someusername'
       user.type(inputUsuarioEl, typedUsername)
+      // @ts-ignore
       await waitFor(() => expect(inputUsuarioEl).toHaveValue(typedUsername))
 
       const inputSenhaEl = screen.getByPlaceholderText('Senha')
       const typedPassword = 'somepassword'
       user.type(inputSenhaEl, typedPassword)
+      // @ts-ignore
       await waitFor(() => expect(inputSenhaEl).toHaveValue(typedPassword))
 
+      // @ts-ignore
       expect(buttonEl).not.toBeDisabled()
 
       user.click(buttonEl)
@@ -44,6 +49,7 @@ describe('<LoginForm />', () => {
       inputUsuarioEl.blur()
 
       await waitFor(() =>
+        // @ts-ignore
         expect(screen.getByRole('alert')).toHaveTextContent(
           'Preencha ao menos 3 caracteres',
         ),
