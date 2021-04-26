@@ -5,6 +5,7 @@
     "build": "next build",
     "build-n-start": "yarn build && yarn start",
     "dev": "next",
+    "postinstall": "cypress install",
     "start": "next start",
     "test": "jest",
     "test:integration": "NODE_OPTIONS=\"--require $(pwd)/patch-cypress-typescript-pnp.js\" yarn pnpify cypress run --headless",
