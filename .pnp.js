@@ -4780,6 +4780,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
           "packageLocation": "./projetos/site/",
           "packageDependencies": [
             ["@instalura/site", "workspace:projetos/site"],
+            ["@babel/runtime", "npm:7.13.17"],
             ["@crello/react-lottie", "virtual:ef73400a40a46c0fca1a521e9890f7aaedea6f0564c114b7dc4abb5e9aef42c2f8d5765d831c9d86e71c81f64ca8980965c651c90918a64ba647ff81f45db326#npm:0.0.11"],
             ["@instalura/ui", "virtual:ef73400a40a46c0fca1a521e9890f7aaedea6f0564c114b7dc4abb5e9aef42c2f8d5765d831c9d86e71c81f64ca8980965c651c90918a64ba647ff81f45db326#workspace:projetos/ui"],
             ["@testing-library/cypress", "virtual:ef73400a40a46c0fca1a521e9890f7aaedea6f0564c114b7dc4abb5e9aef42c2f8d5765d831c9d86e71c81f64ca8980965c651c90918a64ba647ff81f45db326#npm:7.0.6"],
