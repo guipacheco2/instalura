@@ -74,6 +74,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["lint-staged", "npm:10.5.4"],
             ["natural-compare", "npm:1.4.0"],
             ["prettier", "npm:2.2.1"],
+            ["react", "npm:17.0.2"],
             ["ts-node", "virtual:aa0ba5cea2af5418aadbde7cce12f1f192f9f788dcff3a4b8d632e458e56eeeb93b3fcef863c2a90d8dc3266d0a7523bab8562d281eb6e2e8fdbeab99d1ed752#npm:9.1.1"],
             ["typescript", "patch:typescript@npm%3A4.2.4#builtin<compat/typescript>::version=4.2.4&hash=a45b0e"]
           ],
@@ -16236,6 +16237,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["lint-staged", "npm:10.5.4"],
             ["natural-compare", "npm:1.4.0"],
             ["prettier", "npm:2.2.1"],
+            ["react", "npm:17.0.2"],
             ["ts-node", "virtual:aa0ba5cea2af5418aadbde7cce12f1f192f9f788dcff3a4b8d632e458e56eeeb93b3fcef863c2a90d8dc3266d0a7523bab8562d281eb6e2e8fdbeab99d1ed752#npm:9.1.1"],
             ["typescript", "patch:typescript@npm%3A4.2.4#builtin<compat/typescript>::version=4.2.4&hash=a45b0e"]
           ],

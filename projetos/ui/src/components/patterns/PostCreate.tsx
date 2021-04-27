@@ -32,7 +32,7 @@ const postSchema = yup.object().shape({
     .min(3, 'Preencha ao menos 3 caracteres'),
 })
 
-interface PostCreateProps {
+export interface PostCreateProps {
   onSubmit: (values: {
     description: string
     filter: string

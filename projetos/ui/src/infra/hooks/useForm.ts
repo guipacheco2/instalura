@@ -17,10 +17,10 @@ interface UseFormReturn {
 }
 
 export enum FormStates {
-  DEFAULT,
-  LOADING,
-  DONE,
-  ERROR,
+  DEFAULT = 'DEFAULT',
+  DONE = 'DONE',
+  ERROR = 'ERROR',
+  LOADING = 'LOADING',
 }
 
 export function useForm({

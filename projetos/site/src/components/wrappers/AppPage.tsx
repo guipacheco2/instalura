@@ -13,13 +13,13 @@ import {
   Link,
   Logo,
   Modal,
+  PostCreate,
   SearchInput,
   useModal,
 } from '@instalura/ui'
 import React, { createContext, useContext, useState } from 'react'
 import { Post, postService } from '../../services'
 import { SEO, SEOProps } from '../commons'
-import { PostCreate } from '../patterns'
 
 export interface AppPageProps {
   posts?: Post[]
