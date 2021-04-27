@@ -33,6 +33,11 @@ const postSchema = yup.object().shape({
 })
 
 export interface PostCreateProps {
+  initialDescription?: string
+  initialFilter?: string
+  initialImageURL?: string
+  initialPhase?: 'initial' | 'filters'
+  initialStatus?: 'idle' | 'pending'
   onSubmit: (values: {
     description: string
     filter: string
@@ -40,14 +45,25 @@ export interface PostCreateProps {
   }) => void
 }
 
-export function PostCreate({ onSubmit }: PostCreateProps): JSX.Element {
-  const [status, setStatus] = useState<'idle' | 'pending'>('idle')
-  const [phase, setPhase] = useState<'initial' | 'filters'>('initial')
-  const [imageURL, setImageURL] = useState('')
-  const [filter, setFilter] = useState('none')
+export function PostCreate({
+  initialDescription = '',
+  initialFilter = 'none',
+  initialImageURL = '',
+  initialPhase = 'initial',
+  initialStatus = 'idle',
+  onSubmit,
+}: PostCreateProps): JSX.Element {
+  const [status, setStatus] = useState<PostCreateProps['initialStatus']>(
+    initialStatus,
+  )
+  const [phase, setPhase] = useState<PostCreateProps['initialPhase']>(
+    initialPhase,
+  )
+  const [imageURL, setImageURL] = useState(initialImageURL)
+  const [filter, setFilter] = useState(initialFilter)
 
   const form = useForm({
-    initialValues: { description: '' },
+    initialValues: { description: initialDescription },
     onSubmit: () => false,
     validateSchema: useCallback(async function validateSchema(values) {
       return postSchema.validate(values, {
@@ -84,7 +100,11 @@ export function PostCreate({ onSubmit }: PostCreateProps): JSX.Element {
               onBlur={form.handleBlur}
             />
 
-            <InputButton placeholder="URL da imagem" onClick={setImageURL} />
+            <InputButton
+              defaultValue={initialImageURL}
+              placeholder="URL da imagem"
+              onClick={setImageURL}
+            />
 
             <Text
               variant="smallestException"

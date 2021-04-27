@@ -22,11 +22,13 @@ const StyledButton = styled(Button)`
 `
 
 export interface InputButtonProps {
+  defaultValue?: string
   onClick: (value: string) => void
   placeholder: string
 }
 
 export function InputButton({
+  defaultValue,
   onClick,
   placeholder,
 }: InputButtonProps): JSX.Element {
@@ -34,12 +36,16 @@ export function InputButton({
 
   return (
     <StyledWrapper>
-      <StyledInput placeholder={placeholder} ref={imageInputRef} />
+      <StyledInput
+        defaultValue={defaultValue}
+        placeholder={placeholder}
+        ref={imageInputRef}
+      />
 
       <StyledButton
         variant="secondary.main"
         aria-label="confirm filled value"
-        onClick={() => onClick(imageInputRef.current.value)}
+        onClick={() => onClick(imageInputRef.current?.value || '')}
         smallPadding
       >
         <ArrowRightIcon />
