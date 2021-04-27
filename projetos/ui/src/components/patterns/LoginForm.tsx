@@ -14,7 +14,7 @@ const loginSchema = yup.object().shape({
     .min(3, 'Preencha ao menos 3 caracteres'),
 })
 
-interface LoginFormProps {
+export interface LoginFormProps {
   onSubmit: (values: Record<string, string>) => void
   submissionStatus: FormStates
 }
