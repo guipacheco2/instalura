@@ -1,7 +1,10 @@
-import { Box, Button, ErrorAnimation, TextField } from '@instalura/ui'
 import React, { useCallback } from 'react'
 import * as yup from 'yup'
 import { FormStates, useForm } from '../../infra'
+import { ErrorAnimation } from '../animations'
+import { Button } from '../commons'
+import { TextField } from '../forms'
+import { Box } from '../foundation'
 
 const loginSchema = yup.object().shape({
   senha: yup

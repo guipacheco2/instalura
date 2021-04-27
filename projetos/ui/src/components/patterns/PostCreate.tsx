@@ -1,16 +1,11 @@
-import {
-  Box,
-  Button,
-  ImageFilters,
-  ImagePlaceholderIcon,
-  InputButton,
-  Text,
-  TextField,
-  useForm,
-} from '@instalura/ui'
 import React, { useCallback, useState } from 'react'
 import styled from 'styled-components'
 import * as yup from 'yup'
+import { useForm } from '../../infra'
+import { Button, ImageFilters, InputButton } from '../commons'
+import { TextField } from '../forms'
+import { Box, Text } from '../foundation'
+import { ImagePlaceholderIcon } from '../icons'
 
 const StyledImageWrapper = styled.div`
   align-items: center;

@@ -3,15 +3,16 @@ import {
   Bubbles,
   CustomThemeProvider,
   Footer,
+  FormCadastro,
+  FormStates,
   GridContainer,
   Menu,
   Modal,
   useModal,
 } from '@instalura/ui'
 import get from 'lodash.get'
-import React, { createContext, useContext } from 'react'
+import React, { createContext, useContext, useState } from 'react'
 import { SEO, SEOProps } from '../commons'
-import { FormCadastro } from '../patterns'
 
 export interface WebsitePageProps {
   disableMenu?: boolean
@@ -25,6 +26,27 @@ interface WebsitePageContextProps {
 }
 
 const WebsitePageContext = createContext({} as WebsitePageContextProps)
+
+interface RequestCreateUserPayload {
+  name: string
+  username: string
+}
+
+function requestCreateUser({ name, username }: RequestCreateUserPayload) {
+  return fetch('https://instalura-api.vercel.app/api/users', {
+    body: JSON.stringify({ name, username }),
+    headers: {
+      'Content-Type': 'application/json',
+    },
+    method: 'POST',
+  }).then((respostaDoServidor) => {
+    if (respostaDoServidor.ok) {
+      return respostaDoServidor.json()
+    }
+
+    throw new Error('Não foi possível cadastrar o usuário agora :(')
+  })
+}
 
 export function useWebsitePageContext(): WebsitePageContextProps {
   return useContext(WebsitePageContext)
@@ -43,6 +65,10 @@ export function withWebsitePage<Props>(
 
     const { disableMenu, seoProps, ...otherProps } = props
 
+    const [submissionStatus, setSubmissionStatus] = useState<FormStates>(
+      FormStates.DEFAULT,
+    )
+
     return (
       <CustomThemeProvider>
         <Box
@@ -59,7 +85,23 @@ export function withWebsitePage<Props>(
 
           <Modal isOpen={isSignOnModalOpen} onClose={handleCloseSignOn}>
             <Box padding={{ md: '85px', xs: '16px' }}>
-              <FormCadastro />
+              <FormCadastro
+                submissionStatus={submissionStatus}
+                onSubmit={(values) => {
+                  setSubmissionStatus(FormStates.LOADING)
+
+                  requestCreateUser({
+                    name: values.name,
+                    username: values.username,
+                  })
+                    .then(() => {
+                      setSubmissionStatus(FormStates.DONE)
+                    })
+                    .catch(() => {
+                      setSubmissionStatus(FormStates.ERROR)
+                    })
+                }}
+              />
             </Box>
           </Modal>
 
