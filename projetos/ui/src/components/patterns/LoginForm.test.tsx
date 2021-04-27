@@ -1,13 +1,15 @@
 import user from '@testing-library/user-event'
 import React from 'react'
-import { render, screen, waitFor } from '../../infra'
+import { FormStates, render, screen, waitFor } from '../../infra'
 import { LoginForm } from './LoginForm'
 
 describe('<LoginForm />', () => {
   describe('when from fields are valid', () => {
     test('complete the submission', async () => {
       const onSubmit = jest.fn()
-      render(<LoginForm onSubmit={onSubmit} />)
+      render(
+        <LoginForm submissionStatus={FormStates.DEFAULT} onSubmit={onSubmit} />,
+      )
 
       const buttonEl = screen.getByRole('button')
       expect(buttonEl).toBeDisabled()
@@ -37,7 +39,9 @@ describe('<LoginForm />', () => {
   describe('when form fields are invalid', () => {
     test('displays the respective errors', async () => {
       const onSubmit = jest.fn()
-      render(<LoginForm onSubmit={onSubmit} />)
+      render(
+        <LoginForm submissionStatus={FormStates.DEFAULT} onSubmit={onSubmit} />,
+      )
 
       const inputUsuarioEl = screen.getByPlaceholderText('Usuário')
       inputUsuarioEl.focus()

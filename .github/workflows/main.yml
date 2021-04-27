@@ -47,7 +47,10 @@ jobs:
       - name: Install dependencies
         run: yarn install --immutable --immutable-cache --skip-builds
 
-      - name: Run Unit Tests
+      - name: Run Unit UI Tests
+        run: yarn workspace @instalura/ui test
+
+      - name: Run Unit Site Tests
         run: yarn workspace @instalura/site test
 
   integration_tests:

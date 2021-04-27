@@ -4,11 +4,15 @@ exports[`propsToStyle() when receives an argument with breakpoints renders only 
 Array [
   Array [
     Array [
-      "@media only screen and (min-width:",
+      "
+        @media only screen and (min-width: ",
       "0",
-      "px){",
+      "px) {
+          ",
       "text-align: center;",
-      "}",
+      "
+        }
+      ",
     ],
   ],
 ]
@@ -18,18 +22,26 @@ exports[`propsToStyle() when receives an argument with breakpoints renders two o
 Array [
   Array [
     Array [
-      "@media only screen and (min-width:",
+      "
+        @media only screen and (min-width: ",
       "0",
-      "px){",
+      "px) {
+          ",
       "text-align: center;",
-      "}",
+      "
+        }
+      ",
     ],
     Array [
-      "@media only screen and (min-width:",
+      "
+        @media only screen and (min-width: ",
       "768",
-      "px){",
+      "px) {
+          ",
       "text-align: right;",
-      "}",
+      "
+        }
+      ",
     ],
   ],
 ]

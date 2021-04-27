@@ -1,16 +1,7 @@
 import { Box, Button, ErrorAnimation, TextField } from '@instalura/ui'
-import { useRouter } from 'next/router'
-import React, { useCallback, useEffect, useState } from 'react'
+import React, { useCallback } from 'react'
 import * as yup from 'yup'
-import { useForm } from '../../infra'
-import { login } from '../../services'
-
-enum FormStates {
-  DEFAULT,
-  LOADING,
-  DONE,
-  ERROR,
-}
+import { FormStates, useForm } from '../../infra'
 
 const loginSchema = yup.object().shape({
   senha: yup
@@ -24,54 +15,28 @@ const loginSchema = yup.object().shape({
 })
 
 interface LoginFormProps {
-  onSubmit?: (values: Record<string, string>) => void
+  onSubmit: (values: Record<string, string>) => void
+  submissionStatus: FormStates
 }
 
-export function LoginForm({ onSubmit }: LoginFormProps): JSX.Element {
-  const router = useRouter()
-
+export function LoginForm({
+  onSubmit,
+  submissionStatus,
+}: LoginFormProps): JSX.Element {
   const initialValues = {
     senha: '',
     usuario: '',
   }
 
-  const [submissionStatus, setSubmissionStatus] = useState<FormStates>(
-    FormStates.DEFAULT,
-  )
-
   const form = useForm({
     initialValues,
-    onSubmit: (values) => {
-      if (onSubmit) {
-        onSubmit(values)
-        return
-      }
-
-      setSubmissionStatus(FormStates.LOADING)
-
-      login({
-        password: values.senha,
-        username: values.usuario,
-      })
-        .then(() => {
-          setSubmissionStatus(FormStates.DONE)
-        })
-        .catch(() => {
-          setSubmissionStatus(FormStates.ERROR)
-        })
-    },
+    onSubmit,
     validateSchema: useCallback(async function validateSchema(values) {
       return loginSchema.validate(values, {
         abortEarly: false,
       })
     }, []),
   })
-
-  useEffect(() => {
-    if (submissionStatus === FormStates.DONE) {
-      router.push('/app/feed')
-    }
-  }, [router, submissionStatus])
 
   const isFormDisabled =
     !form.isValid ||

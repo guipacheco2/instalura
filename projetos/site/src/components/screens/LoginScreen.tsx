@@ -1,19 +1,34 @@
 import {
   Box,
   Button,
+  FormStates,
   GridCol,
   GridContainer,
   GridRow,
   Link,
+  LoginForm,
   Logo,
   Text,
 } from '@instalura/ui'
-import React from 'react'
-import { LoginForm } from '../patterns'
+import { useRouter } from 'next/router'
+import React, { useEffect, useState } from 'react'
+import { login } from '../../services'
 import { useWebsitePageContext } from '../wrappers'
 
 export function LoginScreen(): JSX.Element {
+  const router = useRouter()
+
   const { handleClickSignOn } = useWebsitePageContext()
+
+  const [submissionStatus, setSubmissionStatus] = useState<FormStates>(
+    FormStates.DEFAULT,
+  )
+
+  useEffect(() => {
+    if (submissionStatus === FormStates.DONE) {
+      router.push('/app/feed')
+    }
+  }, [router, submissionStatus])
 
   return (
     <GridContainer display="flex" flex="1" alignItems="center">
@@ -38,7 +53,23 @@ export function LoginScreen(): JSX.Element {
             </Link>
           </Box>
 
-          <LoginForm />
+          <LoginForm
+            submissionStatus={submissionStatus}
+            onSubmit={(values) => {
+              setSubmissionStatus(FormStates.LOADING)
+
+              login({
+                password: values.senha,
+                username: values.usuario,
+              })
+                .then(() => {
+                  setSubmissionStatus(FormStates.DONE)
+                })
+                .catch(() => {
+                  setSubmissionStatus(FormStates.ERROR)
+                })
+            }}
+          />
 
           <Text
             as="p"

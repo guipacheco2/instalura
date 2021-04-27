@@ -16,6 +16,13 @@ interface UseFormReturn {
   values: Record<string, string>
 }
 
+export enum FormStates {
+  DEFAULT,
+  LOADING,
+  DONE,
+  ERROR,
+}
+
 export function useForm({
   initialValues,
   onSubmit,
@@ -31,7 +38,7 @@ export function useForm({
   }
 
   function handleChange(event: React.ChangeEvent<HTMLInputElement>) {
-    const fieldName = event.target.getAttribute('name')
+    const fieldName = event.target.getAttribute('name') || ''
     const { value } = event.target
 
     setValues((currentValues) => ({
@@ -41,7 +48,7 @@ export function useForm({
   }
 
   function handleBlur(event: React.FocusEvent<HTMLInputElement>) {
-    const fieldName = event.target.getAttribute('name')
+    const fieldName = event.target.getAttribute('name') || ''
 
     setTouchedFields((currentValues) => ({
       ...currentValues,

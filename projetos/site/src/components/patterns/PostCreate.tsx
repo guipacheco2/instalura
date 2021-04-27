@@ -6,11 +6,11 @@ import {
   InputButton,
   Text,
   TextField,
+  useForm,
 } from '@instalura/ui'
 import React, { useCallback, useState } from 'react'
 import styled from 'styled-components'
 import * as yup from 'yup'
-import { useForm } from '../../infra'
 
 const StyledImageWrapper = styled.div`
   align-items: center;
