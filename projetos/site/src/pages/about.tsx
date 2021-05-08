@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
 import { GetStaticProps } from 'next'
 import { AboutScreen, getAboutScreenContent } from '../components'
 import { WebsitePageProps, withWebsitePage } from '../components/wrappers'

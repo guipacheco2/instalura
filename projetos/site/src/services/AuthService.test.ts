@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
 import jwt from 'jsonwebtoken'
 import { httpClient } from '../infra/http'
 import { AuthService } from './AuthService'
