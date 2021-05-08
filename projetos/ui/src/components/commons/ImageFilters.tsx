@@ -81,6 +81,7 @@ export function ImageFilters({
       {filters.map((filter) => {
         return (
           <StyledImageFiltersItem
+            aria-label="filter"
             key={filter.name}
             onClick={() => onChange(filter.name)}
           >

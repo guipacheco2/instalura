@@ -4,7 +4,7 @@ import { FormStates, render, screen, waitFor } from '../../infra'
 import { LoginForm } from './LoginForm'
 
 describe('<LoginForm />', () => {
-  describe('when from fields are valid', () => {
+  describe('when form fields are valid', () => {
     test('complete the submission', async () => {
       const onSubmit = jest.fn()
       render(
