@@ -3,6 +3,7 @@ import {
   GridCol,
   GridContainer,
   GridRow,
+  HeartIcon,
   PostCardMedia,
   ProfileAvatar,
   Text,
@@ -10,8 +11,15 @@ import {
 import React from 'react'
 import { usePostLike } from '../../infra'
 
-export function ProfileScreen(): JSX.Element {
-  const { posts } = usePostLike()
+interface ProfileScreenProps {
+  user: {
+    id: string
+    username: string
+  }
+}
+
+export function ProfileScreen({ user }: ProfileScreenProps): JSX.Element {
+  const { like, pending, posts } = usePostLike()
 
   return (
     <GridContainer>
@@ -69,7 +77,16 @@ export function ProfileScreen(): JSX.Element {
           return (
             <GridCol key={post._id} size={{ xs: 4 }}>
               <Box width="100%" marginBottom="16px" marginTop="16px">
-                <PostCardMedia filter={post.filter} imageSrc={post.photoUrl} />
+                <PostCardMedia
+                  onClick={() => pending !== post._id && like(post._id)}
+                  filter={post.filter}
+                  imageSrc={post.photoUrl}
+                >
+                  <HeartIcon
+                    size="big"
+                    filled={post.likes.some((like) => like.user === user.id)}
+                  />
+                </PostCardMedia>
               </Box>
             </GridCol>
           )

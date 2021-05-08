@@ -47,5 +47,13 @@ export function HeartAnimation({
     }
   }, [checked])
 
+  useEffect(() => {
+    const currentLottie = lottieRef.current
+
+    return () => {
+      currentLottie.destroy()
+    }
+  }, [])
+
   return lottieRef.current.View
 }

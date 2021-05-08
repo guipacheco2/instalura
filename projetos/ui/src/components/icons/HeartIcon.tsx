@@ -1,10 +1,21 @@
 import React from 'react'
 
-export function HeartIcon({ filled }: { filled?: boolean }): JSX.Element {
+const sizeMap = {
+  big: 150,
+  small: 40,
+}
+
+export function HeartIcon({
+  filled,
+  size = 'small',
+}: {
+  filled?: boolean
+  size?: 'small' | 'big'
+}): JSX.Element {
   return (
     <svg
-      width={39}
-      height={40}
+      width={sizeMap[size]}
+      height={sizeMap[size]}
       viewBox="0 0 39 40"
       fill="none"
       xmlns="http://www.w3.org/2000/svg"

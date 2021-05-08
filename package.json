@@ -9,6 +9,7 @@
   },
   "scripts": {
     "commit": "cz",
+    "dev": "yarn workspace @instalura/site dev",
     "format:base": "prettier --loglevel warn \"**/*.{js,jsx,ts,tsx,css,md,json}\"",
     "format:check": "yarn format:base --check",
     "format:fix": "yarn format:base --write",
