@@ -1,7 +1,7 @@
 import jwt from 'jsonwebtoken'
 import { GetServerSidePropsContext } from 'next'
 import { parseCookies } from 'nookies'
-import { httpClient } from '../infra'
+import { httpClient } from '../infra/http'
 import { BASE_URL } from './constants'
 import { LOGIN_COOKIE_APP_TOKEN, logout } from './loginService'
 
@@ -35,16 +35,16 @@ export function AuthService(ctx: GetServerSidePropsContext): AuthService {
         },
         method: 'POST',
       })
-        .then(({ data }) => {
+        .then(async ({ data }) => {
           if (data.authenticated) {
             return true
           }
 
-          logout()
+          await logout()
           return false
         })
-        .catch(() => {
-          logout()
+        .catch(async () => {
+          await logout()
           return false
         })
     },
