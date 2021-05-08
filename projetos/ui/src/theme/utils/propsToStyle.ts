@@ -3,7 +3,7 @@ import { breakpointsMedia } from './breakpointsMedia'
 import { createBreakpoints, ResponsiveBreakpoints } from './createBreakpoint'
 
 export function propsToStyle(
-  props: Record<string, ResponsiveBreakpoints<string | number>>,
+  props: Record<string, ResponsiveBreakpoints<string | number | undefined>>,
 ): FlattenSimpleInterpolation[] {
   const entries = Object.entries(props)
 

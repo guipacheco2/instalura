@@ -1,13 +1,14 @@
-import { Lottie } from '@crello/react-lottie'
+import Lottie from 'lottie-react'
 import React from 'react'
 import errorAnimation from './errorAnimation.json'
 
 export function ErrorAnimation(): JSX.Element {
   return (
     <Lottie
-      width="150px"
-      height="150px"
-      config={{ animationData: errorAnimation, autoplay: true, loop: false }}
+      style={{ height: '150px', width: '150px' }}
+      animationData={errorAnimation}
+      autoplay
+      loop={false}
     />
   )
 }

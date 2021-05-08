@@ -2073,7 +2073,6 @@ __metadata:
     "@babel/preset-env": ^7.14.0
     "@babel/preset-react": ^7.13.13
     "@babel/preset-typescript": ^7.13.0
-    "@crello/react-lottie": ^0.0.11
     "@mdx-js/react": ^1.6.22
     "@storybook/addon-actions": ^6.2.9
     "@storybook/addon-docs": ^6.2.9
@@ -2103,6 +2102,7 @@ __metadata:
     jest-canvas-mock: ^2.3.1
     jest-styled-components: ^7.0.4
     lodash.get: ^4.4.2
+    lottie-react: ^2.1.0
     next: ^10.2.0
     prop-types: ^15.7.2
     react: ^17.0.2
@@ -12904,6 +12904,19 @@ fsevents@^1.2.7:
   bin:
     loose-envify: cli.js
   checksum: 5c3b47bbe5f597a3889fb001a3a98aaea2a3fafa48089c19034de1e0121bf57dbee609d184478514d74d5c5a7e9cfa3d846343455e5123b060040d46c39e91dc
+  languageName: node
+  linkType: hard
+
+"lottie-react@npm:^2.1.0":
+  version: 2.1.0
+  resolution: "lottie-react@npm:2.1.0"
+  dependencies:
+    lottie-web: ^5.7.3
+  peerDependencies:
+    prop-types: ^15.5.7
+    react: ^16.8.0
+    react-dom: ^16.8.0
+  checksum: a7bc72c2228b0d8fdec4de1e99a8367833e8f3dd94cb927863334e03a9e5fcc9a158ffbab9cdf0e6b7c9e6fc9c051e63ce754b5322cf9e0501266f6cedb869eb
   languageName: node
   linkType: hard
 

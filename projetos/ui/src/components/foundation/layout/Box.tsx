@@ -29,6 +29,7 @@ export interface BoxProps {
   marginTop?: ResponsiveBreakpoints<CSSProperties['marginTop']>
   padding?: ResponsiveBreakpoints<CSSProperties['padding']>
   variant?: 'light' | 'main'
+  width?: ResponsiveBreakpoints<CSSProperties['width']>
 }
 
 export const Box = styled.div<BoxProps>(
@@ -53,6 +54,7 @@ export const Box = styled.div<BoxProps>(
     padding,
     theme,
     variant,
+    width,
   }) => {
     const themeBackgroundColor = backgroundColor
       ? theme.schema === 'light'
@@ -82,6 +84,7 @@ export const Box = styled.div<BoxProps>(
         marginBottom,
         marginTop,
         padding,
+        width,
       })}
     `
   },

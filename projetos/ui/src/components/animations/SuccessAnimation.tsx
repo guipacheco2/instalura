@@ -1,13 +1,14 @@
-import { Lottie } from '@crello/react-lottie'
+import Lottie from 'lottie-react'
 import React from 'react'
 import successAnimation from './successAnimation.json'
 
 export function SuccessAnimation(): JSX.Element {
   return (
     <Lottie
-      width="150px"
-      height="150px"
-      config={{ animationData: successAnimation, autoplay: true, loop: false }}
+      style={{ height: '150px', width: '150px' }}
+      animationData={successAnimation}
+      autoplay
+      loop={false}
     />
   )
 }

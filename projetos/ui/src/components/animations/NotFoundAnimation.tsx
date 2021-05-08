@@ -1,13 +1,14 @@
-import { Lottie } from '@crello/react-lottie'
+import Lottie from 'lottie-react'
 import React from 'react'
 import notFoundAnimation from './notFoundAnimation.json'
 
 export function NotFoundAnimation(): JSX.Element {
   return (
     <Lottie
-      width="300px"
-      height="300px"
-      config={{ animationData: notFoundAnimation, autoplay: true, loop: true }}
+      style={{ height: '300px', width: '300px' }}
+      animationData={notFoundAnimation}
+      autoplay
+      loop
     />
   )
 }

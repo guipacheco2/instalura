@@ -4233,10 +4233,10 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
           ],
           "linkType": "SOFT",
         }],
-        ["virtual:76bb23542bc718ac4d6e7ad8d656cc8433642461cb42f1ede55118a029e393daae1f0fd2e905cd54f08f8dee10353b58253f9456095c2146ab348a0c997e2035#npm:0.0.11", {
-          "packageLocation": "./.yarn/$$virtual/@crello-react-lottie-virtual-de3d5e7f38/0/cache/@crello-react-lottie-npm-0.0.11-6e2b5d5e0c-6b99e9c752.zip/node_modules/@crello/react-lottie/",
+        ["virtual:ef73400a40a46c0fca1a521e9890f7aaedea6f0564c114b7dc4abb5e9aef42c2f8d5765d831c9d86e71c81f64ca8980965c651c90918a64ba647ff81f45db326#npm:0.0.11", {
+          "packageLocation": "./.yarn/$$virtual/@crello-react-lottie-virtual-65b9a8c1bd/0/cache/@crello-react-lottie-npm-0.0.11-6e2b5d5e0c-6b99e9c752.zip/node_modules/@crello/react-lottie/",
           "packageDependencies": [
-            ["@crello/react-lottie", "virtual:76bb23542bc718ac4d6e7ad8d656cc8433642461cb42f1ede55118a029e393daae1f0fd2e905cd54f08f8dee10353b58253f9456095c2146ab348a0c997e2035#npm:0.0.11"],
+            ["@crello/react-lottie", "virtual:ef73400a40a46c0fca1a521e9890f7aaedea6f0564c114b7dc4abb5e9aef42c2f8d5765d831c9d86e71c81f64ca8980965c651c90918a64ba647ff81f45db326#npm:0.0.11"],
             ["@types/react", "npm:17.0.4"],
             ["@types/react-dom", "npm:17.0.3"],
             ["lottie-web", "npm:5.7.6"],
@@ -4567,7 +4567,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
           "packageDependencies": [
             ["@instalura/site", "workspace:projetos/site"],
             ["@babel/runtime", "npm:7.14.0"],
-            ["@crello/react-lottie", "virtual:76bb23542bc718ac4d6e7ad8d656cc8433642461cb42f1ede55118a029e393daae1f0fd2e905cd54f08f8dee10353b58253f9456095c2146ab348a0c997e2035#npm:0.0.11"],
+            ["@crello/react-lottie", "virtual:ef73400a40a46c0fca1a521e9890f7aaedea6f0564c114b7dc4abb5e9aef42c2f8d5765d831c9d86e71c81f64ca8980965c651c90918a64ba647ff81f45db326#npm:0.0.11"],
             ["@instalura/ui", "workspace:projetos/ui"],
             ["@testing-library/cypress", "virtual:ef73400a40a46c0fca1a521e9890f7aaedea6f0564c114b7dc4abb5e9aef42c2f8d5765d831c9d86e71c81f64ca8980965c651c90918a64ba647ff81f45db326#npm:7.0.6"],
             ["@testing-library/dom", "npm:7.30.4"],
@@ -4621,7 +4621,6 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["@babel/preset-env", "virtual:76bb23542bc718ac4d6e7ad8d656cc8433642461cb42f1ede55118a029e393daae1f0fd2e905cd54f08f8dee10353b58253f9456095c2146ab348a0c997e2035#npm:7.14.0"],
             ["@babel/preset-react", "virtual:76bb23542bc718ac4d6e7ad8d656cc8433642461cb42f1ede55118a029e393daae1f0fd2e905cd54f08f8dee10353b58253f9456095c2146ab348a0c997e2035#npm:7.13.13"],
             ["@babel/preset-typescript", "virtual:76bb23542bc718ac4d6e7ad8d656cc8433642461cb42f1ede55118a029e393daae1f0fd2e905cd54f08f8dee10353b58253f9456095c2146ab348a0c997e2035#npm:7.13.0"],
-            ["@crello/react-lottie", "virtual:76bb23542bc718ac4d6e7ad8d656cc8433642461cb42f1ede55118a029e393daae1f0fd2e905cd54f08f8dee10353b58253f9456095c2146ab348a0c997e2035#npm:0.0.11"],
             ["@mdx-js/react", "virtual:76bb23542bc718ac4d6e7ad8d656cc8433642461cb42f1ede55118a029e393daae1f0fd2e905cd54f08f8dee10353b58253f9456095c2146ab348a0c997e2035#npm:1.6.22"],
             ["@storybook/addon-actions", "virtual:76bb23542bc718ac4d6e7ad8d656cc8433642461cb42f1ede55118a029e393daae1f0fd2e905cd54f08f8dee10353b58253f9456095c2146ab348a0c997e2035#npm:6.2.9"],
             ["@storybook/addon-docs", "virtual:76bb23542bc718ac4d6e7ad8d656cc8433642461cb42f1ede55118a029e393daae1f0fd2e905cd54f08f8dee10353b58253f9456095c2146ab348a0c997e2035#npm:6.2.9"],
@@ -4651,6 +4650,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["jest-canvas-mock", "npm:2.3.1"],
             ["jest-styled-components", "virtual:76bb23542bc718ac4d6e7ad8d656cc8433642461cb42f1ede55118a029e393daae1f0fd2e905cd54f08f8dee10353b58253f9456095c2146ab348a0c997e2035#npm:7.0.4"],
             ["lodash.get", "npm:4.4.2"],
+            ["lottie-react", "virtual:76bb23542bc718ac4d6e7ad8d656cc8433642461cb42f1ede55118a029e393daae1f0fd2e905cd54f08f8dee10353b58253f9456095c2146ab348a0c997e2035#npm:2.1.0"],
             ["next", "virtual:76bb23542bc718ac4d6e7ad8d656cc8433642461cb42f1ede55118a029e393daae1f0fd2e905cd54f08f8dee10353b58253f9456095c2146ab348a0c997e2035#npm:10.2.0"],
             ["prop-types", "npm:15.7.2"],
             ["react", "npm:17.0.2"],
@@ -18146,6 +18146,37 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
           "packageDependencies": [
             ["loose-envify", "npm:1.4.0"],
             ["js-tokens", "npm:4.0.0"]
+          ],
+          "linkType": "HARD",
+        }]
+      ]],
+      ["lottie-react", [
+        ["npm:2.1.0", {
+          "packageLocation": "./.yarn/cache/lottie-react-npm-2.1.0-00ce771aa0-a7bc72c222.zip/node_modules/lottie-react/",
+          "packageDependencies": [
+            ["lottie-react", "npm:2.1.0"]
+          ],
+          "linkType": "SOFT",
+        }],
+        ["virtual:76bb23542bc718ac4d6e7ad8d656cc8433642461cb42f1ede55118a029e393daae1f0fd2e905cd54f08f8dee10353b58253f9456095c2146ab348a0c997e2035#npm:2.1.0", {
+          "packageLocation": "./.yarn/$$virtual/lottie-react-virtual-08e9b5310e/0/cache/lottie-react-npm-2.1.0-00ce771aa0-a7bc72c222.zip/node_modules/lottie-react/",
+          "packageDependencies": [
+            ["lottie-react", "virtual:76bb23542bc718ac4d6e7ad8d656cc8433642461cb42f1ede55118a029e393daae1f0fd2e905cd54f08f8dee10353b58253f9456095c2146ab348a0c997e2035#npm:2.1.0"],
+            ["@types/prop-types", "npm:15.7.3"],
+            ["@types/react", "npm:17.0.4"],
+            ["@types/react-dom", "npm:17.0.3"],
+            ["lottie-web", "npm:5.7.6"],
+            ["prop-types", "npm:15.7.2"],
+            ["react", "npm:17.0.2"],
+            ["react-dom", "virtual:76bb23542bc718ac4d6e7ad8d656cc8433642461cb42f1ede55118a029e393daae1f0fd2e905cd54f08f8dee10353b58253f9456095c2146ab348a0c997e2035#npm:17.0.2"]
+          ],
+          "packagePeers": [
+            "@types/prop-types",
+            "@types/react-dom",
+            "@types/react",
+            "prop-types",
+            "react-dom",
+            "react"
           ],
           "linkType": "HARD",
         }]

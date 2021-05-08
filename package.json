@@ -15,8 +15,9 @@
     "lint:base": "eslint . --cache",
     "lint:check": "yarn lint:base",
     "lint:fix": "yarn lint:base --fix",
-    "test:linters": "yarn format:check && yarn lint:check",
-    "postinstall": "husky install"
+    "postinstall": "husky install",
+    "storybook": "yarn workspace @instalura/ui start",
+    "test:linters": "yarn format:check && yarn lint:check"
   },
   "devDependencies": {
     "@commitlint/cli": "^12.1.2",

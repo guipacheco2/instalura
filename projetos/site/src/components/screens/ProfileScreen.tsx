@@ -68,7 +68,7 @@ export function ProfileScreen(): JSX.Element {
         {posts.map((post) => {
           return (
             <GridCol key={post._id} size={{ xs: 4 }}>
-              <Box marginBottom="16px" marginTop="16px">
+              <Box width="100%" marginBottom="16px" marginTop="16px">
                 <PostCardMedia filter={post.filter} imageSrc={post.photoUrl} />
               </Box>
             </GridCol>
