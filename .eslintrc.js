@@ -13,8 +13,6 @@ module.exports = {
     'plugin:react-hooks/recommended',
     'plugin:@typescript-eslint/recommended',
     'plugin:typescript-sort-keys/recommended',
-    'plugin:import/errors',
-    'plugin:import/warnings',
     'plugin:import/typescript',
     'prettier',
   ],
@@ -37,8 +35,8 @@ module.exports = {
   ],
   rules: {
     'react/prop-types': 0,
-    'sort-destructure-keys/sort-destructure-keys': 2,
-    'sort-keys-fix/sort-keys-fix': 2,
+    'sort-destructure-keys/sort-destructure-keys': 1,
+    'sort-keys-fix/sort-keys-fix': 1,
   },
   settings: {
     react: {

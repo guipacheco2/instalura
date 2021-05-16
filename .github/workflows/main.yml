@@ -24,17 +24,8 @@ jobs:
         with:
           node-version: '14.16.0'
 
-      - name: Get yarn cache directory path
-        id: yarn-cache-dir-path
-        run: echo "::set-output name=dir::$(yarn cache dir)"
-
-      - uses: actions/cache@v2
-        with:
-          path: ${{ steps.yarn-cache-dir-path.outputs.dir }}
-          key: ${{ runner.os }}-yarn-${{ hashFiles('**/yarn.lock') }}
-
       - name: Install dependencies
-        run: yarn install --prefer-offline
+        run: yarn install --immutable --immutable-cache --skip-builds
 
       - name: Run linters
         run: yarn test:linters
@@ -53,20 +44,14 @@ jobs:
         with:
           node-version: '14.16.0'
 
-      - name: Get yarn cache directory path
-        id: yarn-cache-dir-path
-        run: echo "::set-output name=dir::$(yarn cache dir)"
-
-      - uses: actions/cache@v2
-        with:
-          path: ${{ steps.yarn-cache-dir-path.outputs.dir }}
-          key: ${{ runner.os }}-yarn-${{ hashFiles('**/yarn.lock') }}
-
       - name: Install dependencies
-        run: yarn install --prefer-offline
+        run: yarn install --immutable --immutable-cache --skip-builds
 
-      - name: Run Unit Tests
-        run: yarn test
+      - name: Run Unit UI Tests
+        run: yarn workspace @instalura/ui test
+
+      - name: Run Unit Site Tests
+        run: yarn workspace @instalura/site test
 
   integration_tests:
     name: Integration Tests
@@ -82,19 +67,13 @@ jobs:
         with:
           node-version: '14.16.0'
 
-      - name: Get yarn cache directory path
-        id: yarn-cache-dir-path
-        run: echo "::set-output name=dir::$(yarn cache dir)"
-
-      - uses: actions/cache@v2
-        with:
-          path: ${{ steps.yarn-cache-dir-path.outputs.dir }}
-          key: ${{ runner.os }}-yarn-${{ hashFiles('**/yarn.lock') }}
-
       - name: Install dependencies
-        run: yarn install --prefer-offline
+        run: yarn install --immutable --immutable-cache --skip-builds
+
+      - name: Install cypress
+        run: yarn workspace @instalura/site cypress install
 
       - name: Run Integration Tests
-        run: yarn test:integration:build
+        run: yarn workspace @instalura/site test:integration:build
         env:
           DATO_CMS_TOKEN: ${{ secrets.DATO_CMS_TOKEN }}
